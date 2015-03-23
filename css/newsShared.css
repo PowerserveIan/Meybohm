@@ -1,0 +1,123 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	 NEWS PRESS/NEWSLETTER SHARED STYLES
+	 
+	 ....................................... */
+
+/* =NEW PRESS/NEWSLETTER SHARED STYLES
+	 ....................................... */
+
+.listingContainer {
+}
+.newsletter a.button.subscribe {
+	position: relative;
+    top: -61px;
+}
+.newsPost ul.storyList {
+	margin: 0 0 0 -8px;
+	padding: 0;
+	line-height: 1.1;
+	list-style-type: none;
+	border-bottom: 1px solid #fefefe;
+	border-top: 1px solid #fefefe;
+	width: 593px;
+}
+.newsPost ul.storyList li {
+	background: transparent;
+	list-style: none;
+	border-top: 1px solid #fefefe;
+}
+.newsPost ul.storyList li:first-child {
+	border-top: 0;
+}
+.newsPost h3, .newsPost h3 a {
+	color: #06327D;
+	text-decoration: none;
+	margin: 0 0 10px;
+}
+.content.inner .box .newsPost ul.storyList li .bottom {
+	padding: 10px 0 20px;
+	background: none;
+	border-bottom: 1px solid #ccc;
+}
+.newsPost h3 a:hover {
+	text-decoration: underline;
+}
+.newsPost span {
+	display: block;
+}
+.newsPost span.articleDate {
+	color: #999;
+	font-size: 13px;
+}
+.newsPost p {
+	margin: 15px 0 0 0;
+}
+.newsPost a.more {
+	display: block;
+	margin-top: 10px;
+	width: 6em;
+}
+div.categoryChooser, div.categoryChooserJSDisabled {
+	margin: 20px 0 10px 0;
+}
+
+.archiveToggleContainer {
+	margin-bottom: 10px;
+}
+.archiveToggleContainer img {
+	display: inline;
+}
+.archiveToggleContainer span, .archiveToggleContainer a {
+	display: inline-block;
+	padding-right: 4px;
+	border-right: 1px solid #767263;
+}
+.archiveToggleContainer .last {
+	padding-right: 0;
+	border-right: 0px none;
+}
+
+.articleAuthor {
+	font-style: italic;
+}
+
+.button.hide {
+	display: none;
+}
+
+/* Detail Page */
+
+.detailContainer h3 {
+	border-bottom: 1px solid #D5D5D5;
+    color: #3F3940;
+    font-family: Georgia,serif;
+    font-size: 26px;
+    margin: 0 0 15px;
+    padding: 0 0 10px;
+}
+.detailContainer span.byLine {
+	color: #6A8B00;
+	font-size: 11px;
+	padding: 0 0 15px 0;
+}
+
+/* Quick View */
+
+.quickview ul.storyList {
+	padding-bottom: 0;
+}
+.quickview ul.storyList a.more {
+	display: none;
+}
+.quickview ul.storyList span.articleDate {
+	font-size: 12px;
+	font-style: italic;
+}
+.quickview p {
+	margin: 3px 0 5px;
+	background: transparent;
+	color: #888888;
+	font-size: 12px;
+}

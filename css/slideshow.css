@@ -1,0 +1,172 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	 DYNAMIC HEADER (SLIDESHOW)
+	 NUMBERS THUMBNAIL
+	 
+	 ....................................... */
+
+/* =DYNAMIC HEADER (SLIDESHOW)
+	 ....................................... */
+ul.images, ul.images li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.dynamicHeader .dynamicHeaderContainer {
+	float: left;
+	width: 690px;
+	position: relative;
+}
+.dynamicHeader ul, .dynamicHeader ul li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.dynamicHeader .slideShowNavigation {
+	font-size: 14px;
+	padding: 8px 73px 0 0;
+	height: 22px;
+	position: absolute;
+	top: 375px;
+	left: 290px;
+	width: 80px;
+}
+.dynamicHeader .leftArrow {
+	display: block;
+	float: left;
+}
+.dynamicHeader .rightArrow, .dynamicHeader .pause, .dynamicHeader .play {
+	display: block;
+	float: left;
+}
+.dynamicHeader .pause, .dynamicHeader .play {
+	margin: 0 0 0 10px;
+}
+.dynamicHeader .leftArrow, .dynamicHeader .rightArrow {
+	width: 10px;
+}
+.dynamicHeader .rightArrow {
+	padding-left: 5px;
+}
+.dynamicHeader .caption {
+	width: 437px;
+	color: #ffffff;
+	position: absolute;
+	bottom: 0;
+}
+.widget .dynamicHeader .caption {
+	display: none;
+}
+.dynamicHeader .slideShowThumbs
+{
+    position:relative;
+}
+.dynamicHeader .slideShowThumbs ul {
+	padding: 0;
+	margin: 10px 0 0 0;
+	position: absolute;
+	top: 276px;
+	left: 20px;
+	z-index:3;
+}
+.dynamicHeader .slideShowThumbs ul li {
+	float: left;
+	list-style: none;
+	display: block;
+	padding: 0px;
+	margin: 0 6px 0 0;
+}
+.dynamicHeader .slideShowThumbs ul li a {
+	display: block;
+	margin: 0 2px 0 0;
+}
+.dynamicHeader .slideShowThumbs ul li a img {
+	border: 1px solid #ffffff;
+}
+.dynamicHeader .slideShowThumbs ul li a.displayed img {
+	border: 1px solid orange;
+}
+.dynamicHeader .slideShowThumbs ul li a.thumb,
+.dynamicHeader .slideShowThumbs ul li.displayed a.thumb {	
+	background: transparent url(../img/slideshowNavButton.gif) no-repeat 0 0;
+	width: 20px;
+	height: 19px;
+}
+.dynamicHeader .slideShowThumbs ul li.displayed a.thumb {	
+	background-position:0 100%;
+}
+/* =NUMBERS THUMBNAIL
+	 ....................................... */
+
+.csButtonPanel {
+	height: 16px;
+	padding: 5px;
+	position: absolute;
+	top: 350px;
+	right: 6px;
+	z-index: 10;
+}
+.dynamicHeader .csButtonPanel ul {
+	margin: 0;
+}
+.csBtnContain {
+	cursor: pointer;
+	float: left;
+	height: 16px;
+	margin-right: 3px;
+	position: relative;
+	width: 16px;
+}
+.csBtnBase {
+	background: url(../img/numbers-bg.png) no-repeat scroll 0 -18px transparent;
+}
+.csBtnBase {
+	height: 16px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 16px;
+	z-index: 110;
+}
+.csBtnContain {
+	cursor: pointer;
+}
+.csBtnAni {
+	background: url(../img/numbers-bg.png) no-repeat scroll right bottom transparent;
+}
+.csBtnAni {
+	height: 16px;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	z-index: 120;
+}
+.csBtnClkHov {
+	background: url(../img/numbers-bg.png) no-repeat scroll 0 -36px transparent;
+}
+.csBtnClkHov {
+	height: 16px;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 16px;
+	z-index: 130;
+}
+.csBtnNum {
+	color: #001271;
+	font-size: 10px;
+	height: 16px;
+	left: 0;
+	line-height: 16px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 16px;
+	z-index: 140;
+}

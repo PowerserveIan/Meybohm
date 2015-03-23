@@ -1,0 +1,247 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	HTML STYLES
+	LAYOUT
+	TEXT
+	LINKS
+
+	....................................... */
+
+/* =HTML STYLES
+	....................................... */
+
+body {
+	font: 13px/1.5 Arial, Helvetica, sans-serif;
+	color: #222;
+}
+p {
+	margin: 0 0 10px 0;
+	line-height: 1.2;
+}
+
+/* =LAYOUT
+	....................................... */
+
+.container {
+    background: none;
+}
+
+hr.space {
+    background: #fff;
+    color: #fff;
+}
+ul.popUp.menu, ul.footerLinks {
+    display: none;
+}
+
+/* =TEXT
+	....................................... */
+	
+
+code {
+	font:.9em "Courier New", Monaco, Courier, monospace;
+} 
+
+img {
+	float:left;
+	margin:1.5em 1.5em 1.5em 0;
+}
+a img {
+	border:none;
+}
+p img.top {
+	margin-top: 0;
+}
+
+blockquote {
+    margin:1.5em;
+    padding:1em;
+    font-style:italic;
+    font-size:.9em;
+}
+
+/* This is the print stylesheet to hide the Flash headlines from the browser... regular browser text headlines will now print as normal */
+.sIFR-flash, .sIFR-flash object, .sIFR-flash embed {
+	display: none !important;
+	height: 0;
+	width: 0;
+	position: absolute;
+	overflow: hidden;
+}
+span.sIFR-alternate {
+	visibility: visible !important;
+	display: block !important;
+	position: static !important;
+	left: auto !important;
+	top: auto !important;
+}
+
+/* =LINKS
+	....................................... */
+a:link, a:visited {
+    background: transparent;
+    font-weight:700;
+    text-decoration: underline;
+}
+a:link:after, a:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%;
+}
+
+/* If you're having trouble printing relative links, uncomment and customize this:
+   (note: This is valid CSS3, but it still won't go through the W3C CSS Validator) */
+
+/* a[href^="/"]:after {
+  content: " (http://www.yourdomain.com" attr(href) ") ";
+} */
+
+
+/* =Showcase
+	....................................... */
+
+
+.showcase div.leftSide {
+	float: left;
+	height: 565px;
+	margin-right: 20px;
+	width: 20%;
+	padding: 10px;
+}
+.showcase .topSection, .showcase div.leftSide a.printSummary, .showcase div.leftSide .slideWrapper, .showcase div.rightSide .description.realtor  {
+	display: none;
+}
+.bottomSection h2 {
+    color: #333333;
+    margin-bottom: 0;
+	font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    line-height: 120%;
+    padding: 2px 0 5px;
+}
+hr {
+    background: none repeat scroll 0 0 #CCCCCC;
+    color: black;
+    margin: 10px 0 15px;
+	border-bottom: 1px solid #ccc;
+}
+.showcase div.rightSide {
+    background: none;
+    float: right;
+    width: 70%;
+}
+.showcase #tabs-3, .showcase #tabs-4, .showcase #tabs-5, .showcase #tabs-6, .showcase #tabs-8, .showcase #tabs-9, .showcase .mapContainer, .showcase .rightSide .propAddress, .showcase .poweredBy {
+	display: none;
+}
+.showcase div.printLogo {
+	display: block;
+	margin: -10px 0 -10px 10px;
+}
+div.propInfoSum p.propAddress {
+	font-size: 14px;
+}
+.leftSide .price {
+    display: block;
+}
+.propInfoSum span {
+    display: inline-block;
+}
+.propInfoSum, .propInfoSum span {
+    font-size: 11px;
+}
+.price {
+    color: #333333;
+    font-size: 20px !important;
+    font-weight: bold;
+}
+div.propInfoSum {
+    text-align: center;
+}
+
+table.attributes.full td {
+    width: 60%;
+}
+table.attributes.full td {
+    font-size: 100%;
+}
+table.attributes td {
+    border-bottom: 1px solid #DDDDDD;
+    color: #444444;
+    padding: 2px 7px 2px 0;
+    vertical-align: top;
+}
+
+.realtorInfo {
+    text-align: center;
+	font: 14px/1.5 Georgia,Arial,Sans-Serif;
+}
+.realtorInfo span {
+	display: block;
+	font-size: 14px;
+}
+.realtorInfo span.realtorNumber {
+	color: #851521;
+	font-weight: bold;
+}
+.showcase .mapContainer {
+	
+}
+
+ul.printAll {
+	list-style-type: none;
+	padding: 0 40px;
+}
+ul.printAll li {
+	display: block;
+	float: none;
+	padding: 10px 0;
+	border-bottom: 1px solid #ddd;
+	min-height: 65px;
+}
+ul.printAll li img {
+	margin: 0 20px 0 0;
+}
+ul.printAll li span {
+	font-weight: bold;
+	color: #333;
+	float: left;
+	display: block;
+	font-family: Arial, sans-serif;
+	margin-right: 20px;
+	font-weight: bold;
+}
+ul.printAll li a {
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+	color: #333;
+	float: left;
+	display: block;
+	font-weight: normal;
+}
+.printAllLogo {
+	height: 100px;
+	margin-left: 40px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.printAllLogo img {
+	float: left;
+}
+h1.printAllHeader {
+	font-family: Georgia, serif;
+	font-size: 26px;
+	color: #333;
+	float: left;
+	margin-top: 40px;
+}
+.editSavedSearch,
+.virtualTour.btnShowcaseDetail {
+    display: none;
+}
+.topArea {
+    padding-bottom: 30px;
+}
+.topArea a {
+    font-size: 0;
+    padding-bottom: 30px;
+}

@@ -1,0 +1,126 @@
+﻿/* SlideLock Styles */
+p.slider label {
+	width: 400px;
+}
+
+p.quiet {
+	padding-left: 15px;
+	width: 215px;
+}
+
+span.quiet {
+	font-size: .875em;
+}
+
+#locked {
+	color: #594b44;
+	font-size: 12px;
+}
+
+#unlocked {
+	margin-left: 20px;
+	font-size: 12px;
+}
+
+p.quiet img {
+	margin: 0 0 0 25px;
+	display: inline-block;
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+	display: block;
+	margin: 10px 0 10px 10px;
+	width: 155px;
+}
+
+.ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background: #333;
+	top: -5px;
+	margin-left: -8px;
+	border: 1px solid #666;
+}
+
+.ui-slider-horizontal {
+	height: 10px;
+	background: #ddd;
+	border: 1px solid #ccc;
+}
+
+.ui-slider-handle:hover, .ui-state-hover, .ui-state-focus, .ui-state-active {
+	background: #AF1E2D;
+}
+
+
+/* CSS3 ---------------------------------------------------- */
+.ui-slider-handle {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background: -moz-linear-gradient(top, #AF1E2D, #770211);
+	background: -webkit-gradient(linear, left top, left bottom, from(#AF1E2D), to(#770211));
+}
+
+.ui-slider-horizontal {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background: -moz-linear-gradient(top, #ddd, #fff);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%,#fff));
+    background: -webkit-linear-gradient(top, #ddd 0%,#fff 100%);
+}
+
+a.ui-state-hover, a.ui-state-focus {
+	background: -moz-linear-gradient(top, #AF1E2D, #770211);
+	background: -webkit-gradient(linear, left top, left bottom, from(#AF1E2D), to(#770211));
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+a.ui-state-active {
+	background: -moz-linear-gradient(top, #AF1E2D, #770211);
+	background: -webkit-gradient(linear, left top, left bottom, from(#AF1E2D), to(#770211));
+}
+
+a.ui-state-focus {
+	outline:none;
+}
+
+.error {
+	color: #AE4C4C;
+	font-style: italic;
+	font-weight: bold;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+	/*Chrome CSS here*/
+	.selectFix select {
+		-webkit-appearance: menulist;
+		box-sizing: border-box;
+		-webkit-box-align: center;
+		border: none;
+		-webkit-border-radius:;
+		-webkit-rtl-ordering: logical;
+		background-color: transparent;
+		cursor: default;
+		-webkit-appearance: none;
+		overflow: hidden;
+		width: 110%;
+		padding-top: 2px;
+		height: 35px;
+	}
+
+	.selectFix select:focus, .selectFix select:hover {
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+}

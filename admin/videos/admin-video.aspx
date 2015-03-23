@@ -1,0 +1,66 @@
+<%@ Page Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" Inherits="AdminVideo" CodeFile="admin-video.aspx.cs" %>
+
+<asp:Content ContentPlaceHolderID="ContentWindow" runat="server">
+	<%--The markup for the Header (title, breadcrumbs, and search panel) can be found in the BaseListingPage--%>
+	<asp:PlaceHolder runat="server" ID="uxHeader"></asp:PlaceHolder>
+	<%--The markup for pagination can be found in the BaseListingPage--%>
+	<asp:PlaceHolder runat="server" ID="uxFilterPlaceHolder"></asp:PlaceHolder>
+	<div class="blue" data-bind="visible: !listingModel.hideDisplayOrder()">
+		<h4>To change the display order of your videos, click Edit Display Orders and then change the values in the textboxes below.<br />
+			The lowest number will display first.</h4>
+		<a href="#" class="button edit" data-bind="click:function(){listingModel.displayOrderEditableChanged(true);},visible:!listingModel.displayOrderEditableChanged()"><span>Edit Display Orders</span></a>
+		<a href="#" class="button save" data-bind="click:function(){listingModel.saveDisplayOrders();},visible:listingModel.displayOrderEditableChanged()"><span>Save Display Orders</span></a>
+		<div class="clear"></div>
+	</div>
+	<table class="listing" data-bind="visible: listings().length > 0">
+		<thead>
+			<tr>
+				<th class="first">
+					<a href="#" class="sort" data-bind="css:{ascending: sortField() == 'DisplayOrder' && sortDirection(), descending: sortField() == 'DisplayOrder' && !sortDirection()}, click: function(){listingModel.setSort('DisplayOrder')}">Display Order</a>
+				</th>
+				<th>
+					<a href="#" class="sort" data-bind="css:{ascending: sortField() == 'Title' && sortDirection(), descending: sortField() == 'Title' && !sortDirection()}, click: function(){listingModel.setSort('Title')}">Title</a>
+				</th>
+				<th>
+					<a href="#" class="sort" data-bind="css:{ascending: sortField() == 'Active' && sortDirection(), descending: sortField() == 'Active' && !sortDirection()}, click: function(){listingModel.setSort('Active')}">Active</a>
+				</th>
+				<th>
+					<a href="#" class="sort" data-bind="css:{ascending: sortField() == 'Featured' && sortDirection(), descending: sortField() == 'Featured' && !sortDirection()}, click: function(){listingModel.setSort('Featured')}">Featured</a>
+				</th>
+				<th style="width: 120px;">
+					Options
+				</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: listings">
+			<tr data-bind="css:{odd:index() % 2 == 0},style:{cursor:(!listingModel.hideDisplayOrder()&&listingModel.displayOrderEditable()?'move':'')}">
+				<td class="first">
+					<input type="text" class="text small displayOrder" maxlength="3" data-bind="value: displayOrder,visible: listingModel.displayOrderEditable(),css:{error:displayOrderInvalid()}" />
+					<span data-bind="text: displayOrder,visible: !listingModel.displayOrderEditable()"></span>
+				</td>
+				<td data-bind='html:Title'>
+				</td>
+				<td>
+					<a href='#' class="icon noText" data-bind="click: toggleActive, css: {active: Active(), inactive: !Active() }, text:activeText(),attr:{title:activeText()}"></a>
+				</td>
+				<td>
+					<a href='#' class="icon noText" data-bind="click: toggleFeatured, css: {active: Featured(), inactive: !Featured() }, text:featuredText(),attr:{title:featuredText()}"></a>
+				</td>
+				<td>
+					<a data-bind='attr:{href:linkToEditPage + Id + listingModel.returnString()}' class="icon edit">Edit</a>
+					<a href='#' class="icon delete or" data-bind="click: function(){if(confirm('Are you sure you want to delete this ' + entityClassName + '?'))deleteRecord();}">Delete</a>
+					<input type='hidden' data-bind="value:Id" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 class="indent paddingTop" data-bind="visible: listings().length == 0">There are no Videos to edit. Add a Video by clicking the Add New button above.</h4>
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PageSpecificJS">
+	<script type="text/javascript">
+		appendToListing = function (index, item, thisListing) {
+			thisListing.Id = item.VideoID;
+			thisListing.Title = item.Title;
+		}
+	</script>
+</asp:Content>

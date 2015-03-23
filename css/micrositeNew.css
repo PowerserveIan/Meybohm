@@ -1,0 +1,1456 @@
+﻿/* STRUCTURE */
+.wrapper {
+	width: 960px;
+}
+
+img.floatLeft {
+	margin-right: 10px;
+}
+
+img.floatRight {
+	margin-left: 10px;
+}
+
+ul.breadcrumbs {
+	list-style: none;
+}
+
+.header {
+	background: transparent url(../img/tileHeader_new.png) repeat-x 0 0;
+	height: 213px;
+}
+
+.right {
+	float: right;
+}
+
+a.logo {
+	background: transparent url(../img/logoNew.jpg) no-repeat 0 0;
+	float: left;
+	text-indent: -9999px;
+	height: 151px;
+	width: 267px;
+	display: block;
+}
+
+a.logo:hover, a.logo:focus {
+	background-position: 100% 0;
+	outline: none;
+}
+
+a.redirect {
+    font-family: 'MidoMedium', Arial, Helvetica, Sans-Serif;
+    height: 19px;
+    display: block;
+    background: transparent url(../img/btnRedirect.jpg) no-repeat 100% 100%;
+    float:left;
+    font-size:13px;
+    color:#fff;
+    margin:10px 0 0 20px;
+    padding: 2px 35px 3px 20px;
+    line-height:19px;
+    border-left:1px solid #000;
+}
+.chrome a.redirect {
+    padding:3px 35px 2px 20px;
+}
+a.redirect:hover,  a.redirect:focus {
+	background-position:100% 0;
+    text-decoration:none;
+}
+
+a.account, a.profile {
+	background: transparent url(../img/iconAccount.gif) no-repeat 0 50%;
+	float: right;
+	display: block;
+	padding: 0 0 1px 20px;
+	margin-top: 14px;
+	margin-left: 10px;
+}
+
+a.profile {
+	background-image: url(../img/iconProfile.gif);
+	background-position: 0 0;
+	margin-right: 10px;
+}
+
+
+
+a.contactAgent, a.findAgent {
+	background: transparent url(../img/buttonContactAgent_new.jpg) no-repeat 0 0;
+	float: right;
+	height: 34px;
+	width: 207px;
+	display: block;
+	text-indent: -9999px;
+	margin: 0 -2px 2px 0;
+}
+
+a.contactAgent.dark, a.findAgent.dark  {
+	background: url(../img/buttonContactAgentDark.jpg);
+	float: none;
+	margin: 0 0 2px 15px;
+}
+
+a.contactAgent:hover, a.contactAgent:focus, a.findAgent:focus, a.findAgent:hover {
+	background-position: 100% 0;
+	outline: none;
+}
+
+a.contactAgent:active, a.findAgent:active {
+	background-position: 100% 2px;
+	margin-bottom: 0;
+	height: 36px;
+}
+a.findAgent, a.findAgent.dark  {
+	background: transparent url(../img/buttonFindAgent.png) no-repeat 0 0;
+}
+
+div.loginContainer {
+	position: relative;
+	width: auto;
+	z-index: 21;
+}
+
+.content .box {
+	border-top: 1px solid #CCCCCC;
+}
+
+div.login {
+	background: transparent url(../img/bgLogin.png) no-repeat 0 0;
+	/*height: 152px;*/
+	width: 224px;
+	padding: 22px 40px 32px 30px;
+	position: absolute;
+	top: 57px;
+	right: -20px;
+	z-index: 5;
+}
+
+.content {
+	background: #E0E4EA url(../img/tileContent_new.jpg) repeat-x 0 0;
+	padding-bottom: 23px;
+}
+
+.dynamicHeaderContainer {
+	background: transparent url(../img/tileDynamicHeader_new.jpg) repeat-y 0 0;
+}
+
+.dynamicHeaderContainer .bottom {
+	background: transparent url(../img/dynamicHeaderBottom_new.jpg) no-repeat 0 100%;
+	padding: 0 18px 72px;
+}
+
+.dynamicHeaderContainer img {
+	float: left;
+}
+
+.boxContainer {
+	position: absolute;
+	background: transparent url(../img/bgBoxContainer_new.png) no-repeat 0 0;
+	height: 384px;
+	width: 326px;
+	display: block;
+	top: -369px;
+	right: 24px;
+	/*padding: 22px 40px 15px;*/
+	border-top: 0;
+	height: 367px;
+	font-size: 14px;
+	z-index: 3; /*dynamic image control sits over the buy/rent box*/
+}
+
+.content .boxContainer .formWrapper {
+	padding: 45px 47px 0;
+}
+
+.content.inner .boxContainer .formWrapper {
+	padding: 0;
+}
+
+.ie7 .boxContainer, .ie8 .boxContainer, .ie9 .boxContainer {
+	padding-top: 38px;
+}
+
+.inner .boxContainer {
+	background: transparent url(../img/bgBoxContainerInner_new.png) no-repeat 0 0;
+	position: relative;
+	width: 234px;
+	height: 389px;
+	top: auto;
+	right: auto;
+	margin-bottom: 25px;
+	padding: 15px 35px;
+}
+
+.ie7 .inner .boxContainer, .ie8 .inner .boxContainer, .ie9 .inner .boxContainer {
+	padding-top: 28px;
+}
+
+.content.inner .leftCol {
+	float: left;
+	width: 637px;
+	margin: 0;
+}
+
+.content .leftCol {
+	float: left;
+	width: 586px;
+	margin-top: -56px;
+}
+
+.content.inner .rightCol {
+	float: right;
+	width: 304px;
+	margin-top: 26px; /* why was this commented out? */
+	padding: 0;
+}
+
+.content .rightCol {
+	float: right;
+	padding: 24px 20px 0 0;
+	position: relative;
+}
+
+.featuredNeighborhoods {
+	font-family: Arial, Helvetica, Sans-Serif;
+	width: 586px;
+	background: url("../img/boxTile_aug.jpg") repeat-y scroll 0 0 transparent;
+	border-top: 1px solid #CCCCCC;
+	position: relative;
+}
+
+.featuredNeighborhoodsContainer {
+	background: url("../img/boxBottom_aug.jpg") no-repeat scroll 0 100% transparent;
+	height: 115px;
+	width: 485px;
+	position: relative;
+	padding: 10px 50px 18px;
+}
+
+.featuredNeighborhoodsWrap {
+	background: url(../img/featuredNeighborhoods.png) no-repeat 13px 29px;
+}
+
+span.featuredTab {
+	color: #07327D;
+	font-family: 'MidoMedium',Georgia,Serif;
+	font-size: 25px;
+	margin: 12px 0 0;
+	padding: 0 39px;
+	height: 18px;
+	display: inline-block;
+}
+
+.ie7 span.featuredTab {
+	float: left;
+}
+
+.featuredNeighborhoods .jcarousel-clip {
+	margin-left: 5px;
+	overflow: hidden;
+	width: 475px;
+}
+
+.featuredNeighborhoods a.searchAll {
+	background: transparent url(../img/homeSearchBlue.png) no-repeat 0 2px;
+	padding-left: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #07327D;
+	float: right;
+	position: absolute;
+	bottom: 10px;
+	right: 28px;
+	z-index: 10;
+}
+
+
+
+.featuredNeighborhoods li {
+	float: left;
+	width: 140px;
+	height: 75px;
+	display: block;
+	margin: 8px 25px 0 0;
+}
+
+.featuredNeighborhoods li.last {
+	margin-right: 0;
+}
+
+.featuredNeighborhoods a.thumb:hover img {
+	border: 2px solid #07327D;
+}
+
+.featuredNeighborhoods a.thumb:hover span {
+	background-color: #07327D;
+	color: #fff;
+}
+
+.featuredNeighborhoods a.thumb:hover {
+	text-decoration: none;
+}
+
+.featuredNeighborhoods a.thumb img {
+	border: 2px solid #ccc;
+}
+
+.featuredNeighborhoods a.thumb span {
+	color: #333;
+	width: 142px;
+	display: block;
+	font-size: 11px;
+	padding: 2px 0 2px 2px;
+	font-style: italic;
+	text-align: center;
+}
+
+.featuredNeighborhoods a.thumb span span {
+	width: auto;
+	display: inline;
+	padding: 0 2px;
+}
+
+.featuredNeighborhoods a.thumb span span.location {
+	font-weight: bold;
+	font-size: 12px;
+	font-style: normal;
+	word-wrap: break-word;
+}
+
+.brightBox {
+	background: transparent url(../img/brightBoxTile_new.jpg) repeat-y 0 0;
+	width: 586px;
+	margin: 22px 0 25px -1px;
+}
+
+.brightBox .top {
+	background: transparent url(../img/brightBoxTop_new.jpg) no-repeat 0 0;
+}
+
+.brightBox .bottom {
+	background: transparent url(../img/brightBoxBottom_new.jpg) no-repeat 0 100%;
+	padding: 12px 20px;
+}
+
+/*.calloutOpenHouses {
+	background: transparent url(../img/bgOpenHousesCallout_new.jpg) no-repeat 0 0;
+	height: 171px;
+	width: 333px;
+	margin-top: 22px;
+}*/
+
+.calloutOpenHouses a.button {
+    margin: 10px 0px 0px 22px;
+	/*float: right;
+	margin: 105px 20px 0 0;
+	padding: 0 20px;*/
+}
+
+.smallBox {
+	width: 288px;
+	background: #DADFE5 url(../img/tileSmallBox_new.jpg) repeat-x 0 100%;
+	border: 1px solid #fff;
+	padding: 20px;
+}
+
+img.floatLeft {
+	margin-right: 10px;
+}
+
+img.floatRight {
+	margin-left: 10px;
+}
+
+
+/* FORMS */
+input.text {
+	/*height: 30px;*/
+}
+
+div.login input.text {
+}
+
+
+
+input.text:hover, select:hover, textarea:hover, input.text:focus, select:focus, textarea:focus {
+	border-color: #acacac;
+	-moz-box-shadow: 0 0 1px #C9C9C2;
+	-webkit-box-shadow: 0 0 1px #C9C9C2;
+	box-shadow: 0 0 1px #C9C9C2;
+}
+
+div.login input.text:hover, div.login input.text:focus {
+	border-color: #780212;
+}
+
+legend {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #333;
+}
+
+.boxContainer label {
+	display: inline;
+	color: #403B42;
+	font-size: 15px;
+	line-height: 2.1em;
+	float: left;
+	width: 76px;
+	text-align: right;
+}
+
+.content .boxContainer label {
+}
+
+.ie7 .boxContainer label {
+	line-height: 19px;
+}
+
+.ie7 input[type="submit"] {
+	line-height: normal;
+}
+
+div.categoryChooser h2 {
+	margin: -32px 0 5px -5px;
+}
+
+.formWrapper {
+	/*width: 275px; why did i put this here? */
+}
+
+.login .formWrapper {
+	width: 224px;
+}
+
+.content .boxContainer .formWrapper {
+	/*width: 246px;
+    padding: 0;*/
+}
+
+.content .boxContainer .formWrapper {
+	width: 233px;
+}
+
+.formWrapper.newListings {
+	width: 289px;
+}
+
+div.login .formWhole {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.content .boxContainer .formWhole {
+	padding: 0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.ie7 .content .boxContainer .formWhole {
+	margin-bottom: 18px;
+}
+
+.content .boxContainer .formWrapper select {
+	width: 65%;
+	height: 28px; /*2.1em;*/
+	float: right;
+}
+
+.content .boxContainer .formWrapper select {
+	width: 60%;
+}
+
+.formWrapper fieldset {
+	background-color: #fdfdfd;
+}
+
+div.formWrapper div.formPhoneThree, div.formWrapper div.formPhoneFour {
+	background: transparent url(../img/phonedash.gif) no-repeat 4px center; /* dashes between phone fields */
+	padding-left: 11px;
+}
+
+.button, input.button {
+	font-family: 'MidoMedium', Arial, Helvetica, Sans-Serif;
+	background: transparent url(../img/tileButton_new.jpg) repeat-x 0 100%;
+	text-decoration: none;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	display: inline-block;
+	border: 1px solid #360105;
+	font-size: 16px;
+}
+
+div.login input.button {
+	margin: 5px 0 5px;
+	padding: 0 20px;
+}
+
+.button.grey {
+	background-image: url(../img/tileButtonGrey.jpg);
+	border: 1px solid #666;
+}
+
+.brightBox .button {
+	margin-top: 20px;
+}
+
+.button:hover, .button:focus {
+	background-position: 0 0;
+}
+
+.button:hover, .button:focus, .button a:hover, .button a:focus, .button:hover span, .button:focus span {
+	text-decoration: none;
+}
+
+.blueButtonContainer {
+	margin-top: 15px;
+}
+
+.buttonBlue, .buttonBlue:active {
+	background: transparent url(../img/tileBlueButton.jpg) repeat-x 0 0;
+	height: 43px;
+	display: inline-block;
+	line-height: 45px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	color: #fff;
+	font-weight: bold;
+	font-size: 19px;
+	border: 1px solid #333;
+	padding: 0;
+	max-width: 200px;
+	min-width: 200px;
+	text-align: center;
+	float: left;
+}
+
+.content .buttonBlue, .content .buttonBlue:active {
+	max-width: 180px;
+	min-width: 180px;
+}
+
+ie7 .buttonBlue {
+	width: 200px;
+}
+
+.ie7 .content .buttonBlue {
+	width: 180px;
+}
+
+.buttonBlue:hover, .buttonBlue:focus {
+	background-position: 0 100%;
+	text-decoration: none;
+}
+
+span.blueButtonArrow {
+	background: transparent url(../img/blueButtonArrow.jpg) no-repeat 0 0;
+	height: 43px;
+	width: 43px;
+	display: inline-block;
+	border-left: none;
+	text-indent: -9999px;
+}
+
+/* POP */
+ul.popUp ul ul {
+	z-index: 0;
+}
+
+ul.popUp.menu {
+	background: transparent url(../img/divider_new.gif) no-repeat 0 3px;
+	padding: 3px 0 3px 2px;
+	height: 56px;
+	float: left;
+}
+
+ul.popUp.menu a {
+	padding: 12px 30px 11px 30px;
+	font-family: Georgia, Serif;
+	font-size: 21px;
+	color: #000;
+	text-shadow: 0px 1px 1px #fff;
+	-moz-text-shadow: 0px 1px 1px #fff;
+	-webkit-text-shadow: 0px 1px 1px #fff;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	ul.popUp.menu > li > a {
+		padding-bottom: 12px;
+	}
+}
+
+.ie7 ul.popUp.menu a {
+	display: inline-block;
+}
+
+ul.popUp.menu li {
+	background: transparent url(../img/divider.gif) no-repeat 100% 0;
+	padding-right: 2px;
+	padding-bottom: 1px;
+}
+
+ul.popUp.menu li.home a {
+	background: transparent url(../img/home.gif) no-repeat 50% 50%;
+	text-indent: -9999px;
+	padding: 12px 30px 10px;
+	
+}
+
+.ie8 ul.popUp.menu li.home,
+.ie9 ul.popUp.menu li.home,
+.ie10 ul.popUp.menu li.home {
+	width:60px;
+}
+
+.chrome ul.popUp.menu li.home a {
+	padding: 12px 0 10px;
+}
+
+ul.popUp.menu li.search a {
+	background: transparent url(../img/search.gif) no-repeat 20% 50%;
+	padding-left: 40px;
+}
+
+ul.popUp.menu li.current a {
+	border-top: 3px solid #1F4E9E;
+	margin-top: -3px;
+}
+
+ul.popUp.menu a:hover, ul.popUp.menu li:hover a, /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu li.hover a {
+	/* Same as above for IE6 */
+	background-color: #f1f2f4;
+	text-decoration: none;
+}
+
+ul.popUp.menu li.home a:hover {
+	background: #f1f2f4 url(../img/home.gif) no-repeat 50% 50%;
+}
+
+ul.popUp.menu ul {
+	top: 56px;
+	width: 264px;
+	background: transparent url(../img/dropDownBottom.png) no-repeat 0 100%;
+	padding: 0 0 10px 0;
+}
+
+ul.popUp.menu a:hover, ul.popUp.menu a:focus, ul.popUp.menu li:hover a, ul.popUp.menu li.hover a {
+	background-color: #F1F2F4;
+}
+
+ul.popUp.menu ul li {
+	background: transparent url(../img/tileDropDown.png) repeat-y 0 0;
+}
+
+ul.popUp.menu ul a, ul.popUp.menu li:hover ul a, ul.popUp.menu li.hover ul a {
+	background: none; /* Used because lower levels would inherit from parent hover */
+	padding: 7px 0;
+	margin: 0 30px 0 20px;
+	float: none;
+	font-size: 14px;
+	color: #49444B;
+	font-weight: normal;
+	text-shadow: none;
+	-moz-text-shadow: none;
+	-webkit-text-shadow: none;
+	border-top: none;
+	border-bottom: 1px solid #DADFE5;
+}
+
+.ie7 ul.popUp.menu ul a, .ie7 ul.popUp.menu li:hover ul a, .ie7 ul.popUp.menu li.hover ul a {
+	border: none;
+}
+
+ul.popUp.menu ul li.lastLiNew a {
+	border: none;
+}
+
+ul.popUp.menu ul a:hover, ul.popUp.menu ul li:hover a, /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu ul li.hover a {
+	/* Same as above for IE6 */
+	color: #49444B;
+	background-color: transparent;
+	text-decoration: none;
+	padding-left: 5px;
+}
+
+ul.popUp.menu ul a:hover ul li a, ul.popUp.menu ul li:hover ul li a, ul.popUp.menu ul li.hover ul li a {
+	padding-left: 0;
+}
+
+ul.popUp.menu ul ul li {
+	background: transparent url(../img/tileDropDownThird.png) repeat-y 0 0;
+}
+
+ul.popUp.menu ul ul {
+	left: 255px; /* Same as width of "ul.popUp ul" */
+	top: 0; /* Positioning vertically*/
+	background: transparent url(../img/dropDownThirdBottom.png) no-repeat 0 100%;
+	z-index: 10;
+}
+
+ul.popUp.menu ul ul a, ul.popUp.menu ul li:hover ul a, ul.popUp.menu ul li.hover ul a {
+	color: #49444B;
+}
+
+ul.popUp.menu ul ul a:hover, ul.popUp.menu ul ul li:hover a, ul.popUp.menu ul ul li.hover a {
+	color: #49444B;
+	margin-left: 25px;
+}
+
+
+/* TYPOGRAPHY */
+p {
+	margin: 0 0 10px 0;
+	line-height: 1.6;
+	color: #3F3940;
+	font-size: 14px;
+}
+
+hr {
+	background: #fff;
+	border-top: 1px solid #ccc;
+	margin: 10px 0 10px;
+	height: 2px;
+}
+
+.ie7 hr {
+	height: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #851521;
+}
+
+h1 {
+	font-family: 'MidoMedium', Georgia, Serif;
+	font-size: 36px;
+}
+
+h1 span {
+	font-size: 28px;
+}
+
+h2 {
+	font-size: 24px;
+	color: #3F3940;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 18px;
+	color: #3F3940;
+}
+
+a {
+	color: #225AB8;
+	text-decoration: none;
+}
+
+
+
+a.account, a.profile {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+
+
+.loginLinks a {
+	color: #D2858D;
+	font-size: 12px;
+	font-family: Arial, Helvetica, Sans-Serif;
+}
+
+.loginLinks a.signUp {
+	font-weight: bold;
+	color: #fff;
+	font-size: 13px;
+}
+
+a.moreSearch {
+	margin: 10px auto 0;
+	width: 150px;
+	display: block;
+	font-size: 11px;
+	color: #06327D;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+}
+
+.brightBox h3 {
+	font-family: 'MidoMedium', Georgia, Serif;
+	font-size: 27px;
+	color: #780112;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.brightBox p {
+	font-size: 15px;
+	color: #333;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.smallBox h4 {
+	background: transparent url(../img/iconNewListingEmail.gif) no-repeat 0 4px;
+	font-family: 'MidoMedium', Georgia, Serif;
+	font-size: 25px;
+	color: #3F3A41;
+	padding-left: 25px;
+	margin-bottom: 5px;
+}
+
+
+
+span.copyright, span.copyright a {
+	color: #ccc;
+	float: left;
+}
+
+span.copyright.webdesign, span.copyright.webdesign a {
+	display: inline-block;
+	margin-top: 4px;
+	color: #666;
+	font-size: 11px;
+	float: none;
+}
+
+span.copyright a:hover, span.copyright.webdesign a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+/* New Styles */
+.buDirect {
+	position: relative;
+	padding-top: 26px;
+}
+
+.content.inner .rightCol.buDirectSidebar {
+	padding-top: 26px;
+}
+
+
+.content.inner .buDirect .box .top {
+	background: transparent url(../img/boxRealtorSearchTop.jpg) no-repeat 2px 1px;
+}
+
+.buDirect h2 {
+	font-size: 36px;
+	padding: 20px 0px 15px;
+	border-bottom: 1px solid #D5D5D5;
+	margin: 0 20px;
+}
+
+.buDirContent {
+	margin: 0 0 0 -10px;
+	width: 600px;
+}
+
+.buDirect ul {
+	list-style: none;
+}
+.buDirect .formWhole {
+	border-top: 1px solid #FEFEFE;
+	padding: 20px 0;
+	width: 100%;
+}
+
+.buDirect .formWhole input.text {
+	width: 270px;
+	height: 12px;
+	padding: 10px 5px;
+	margin: 5px 10px 5px 0;
+}
+
+.buDirect .formWhole input.button {
+	width: 97px;
+	margin-left: 5px;
+}
+
+.buDirect .formWhole label {
+	display: block;
+}
+
+.buList li p,
+.buList li a {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: 160%;
+}
+
+.buList li {
+	padding: 20px 0;
+	border-bottom: 1px solid #d5d5d5;
+	border-top: 1px solid #fefefe;
+}
+
+.buList li.lastLi {
+	border-bottom: none;
+}
+
+.buList {
+	margin: 0;
+	border-top: 1px solid #d5d5d5;
+	border-bottom: 1px solid #fefefe;
+}
+
+.buList li img {
+	height: 75px;
+	width: 100px;
+	float: left;
+	margin: 5px 0;
+}
+
+.buList li .textWrapper {
+	padding-left: 119px;
+}
+
+.buList li h3 {
+	font-size: 21px;
+	color: #333;
+	margin: 4px 0 0;
+}
+
+.buList a.featuredNeighborhoodLink {
+	display: block;
+	margin: 0 0 0 6px;
+	padding: 0 0 0 24px;
+	background: url(../img/iconNeighborhoods.png) no-repeat left 3px;
+	line-height: 1.6em;
+}
+
+.buList p.buDesc {
+	clear: both;
+	margin: 20px 0 0;
+}
+
+/* Map and Neighborhood extras */
+.hoods {
+	position: relative;
+	margin-top: -40px;
+}
+
+.hoods.offices {
+	margin-top: 0px;
+}
+
+.content.inner .hoods .box .bottom {
+	padding: 37px 0 30px;
+	margin: 0pt 2px;
+}
+
+.content.inner .hoods .box .top {
+	background: transparent url(../img/boxRealtorSearchTop.jpg) no-repeat 2px 1px;
+}
+
+.hoods h1, .hoods h2 {
+	font-size: 36px;
+	padding: 20px 0px 20px;
+	border-bottom: 1px solid #D5D5D5;
+	margin: 0 20px;
+	color: #3F3940;
+	font-family: Georgia, serif;
+}
+
+.hoods h1 span, .hoods h2 span {
+	font-size: 36px;
+}
+
+.hoods .hoodDetailInfo {
+	padding: 20px 25px;
+}
+
+.hoods .hoodDetailInfo img {
+	float: left;
+	width: 230px;
+	height: 160px;
+	margin: 0 20px 10px 0;
+	border: 1px solid #000;
+}
+
+.hoods .hoodDetailInfo p span.address {
+	display: block;
+}
+
+.hoods .hoodDetailInfo p span.directions {
+	font-weight: normal;
+	font-family: Arial, helvetica, sans-serif;
+}
+
+.hoods .hoodDetailInfo span {
+	font: normal 16px/160% Georgia, serif;
+}
+
+.hoods .hoodDetailInfo a.getDirections {
+	display: block;
+	text-indent: -9999px;
+	outline: none;
+	width: 136px;
+	height: 26px;
+	background: url(../img/getDirections.jpg) no-repeat;
+	float: right;
+}
+
+.hoods .hoodDetailInfo a.getDirections:hover,
+.hoods .hoodDetailInfo a.getDirections:focus {
+	background-position: 0 -25px;
+}
+
+.hoods h3 {
+	margin: 10px 0;
+}
+
+.hoods .box h3 span {
+	font-weight: bold;
+}
+
+.hoods ul.hoodTabsMenu {
+	list-style: none;
+	margin: 0 0 0 24px;
+	height: 25px;
+	/*width: 578px;*/
+	position: relative;
+	top: 1px;
+	z-index: 4;
+}
+
+.hoods ul.hoodTabsMenu li {
+	float: left;
+}
+
+.hoods ul.hoodTabsMenu a {
+	display: block;
+	background: #fefefe;
+	line-height: 12px;
+	padding: 6px 0 5px;
+	text-align: center;
+	width: 111px;
+	margin: 0 2px;
+	border: 1px solid #d5d5d5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 100%;
+	color: #666666;
+}
+
+.hoods ul.hoodTabsMenu li a:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+
+.hoods ul.hoodTabsMenu li.ui-state-active a {
+	border-top: 1px solid #d5d5d5;
+	border-right: 1px solid #d5d5d5;
+	border-bottom: 1px solid #fefefe;
+	border-left: 1px solid #d5d5d5;
+	text-decoration: none;
+	width: 109px;
+}
+
+#hoodTabs #hoodTabsPanels {
+	background: url(../img/tileHoodTabsPanels.jpg) repeat-x;
+	border-top: 1px solid #d5d5d5;
+	margin: -1px 1px 0;
+	min-height: 111px;
+	clear: both;
+}
+#hoodTabs #hoodTabsPanels p, #hoodTabs #hoodTabsPanels span {
+	font-family: georgia, serif !important;
+	font-size: 14px !important;
+	font-weight: normal;
+}
+
+#hoodTabs .hoodTabsPanel {
+	margin: 0 25px;
+	padding: 20px 0;
+	border-bottom: 1px solid #d5d5d5;
+	min-height: 111px;
+}
+
+#hoodTabs .hoodTabsPanel h4 {
+	font-size: 24px;
+}
+
+#hoodTabs .panelHide {
+	display: none;
+}
+.hoodDetailInfoWrapper, .hoodDetailImageWrapper {
+	float: left;
+}
+.hoodDetailImageWrapper {
+	width: 250px;
+}
+.hoodDetailInfoWrapper {
+	width: 660px;
+}
+.hoods .allHoods {
+	margin: 0 25px;
+	padding: 20px 0 0;
+	border-top: 1px solid #fefefe;
+}
+
+.hoods .allHoods a {
+	background: url(../img/btnAllHoods.jpg) no-repeat;
+	width: 184px;
+	height: 35px;
+	text-indent: -9999px;
+	outline: none;
+	display: block;
+}
+
+.hoods .allHoods a:hover,
+.hoods .allHoods a:focus {
+	background-position: 0 -35px;
+}
+
+.hoods .panelUlWrapper {
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.hoods .panelUlWrapper ul {
+	list-style: none;
+	float: left;
+	margin: 0 0 20px;
+	height: 122px;
+	width: 294px;
+}
+
+.hoods .panelUlWrapper ul.panelUlLeft {
+	border-right: 1px solid #fefefe;
+}
+
+.hoods .panelUlWrapper ul.panelUlRight {
+	border-left: 1px solid #d5d5d5;
+	width: 274px;
+	padding-left: 20px;
+}
+
+.hoods .panelUlWrapper ul li {
+	margin: 0 0 12px;
+}
+
+.hoods .panelTextWrapper {
+	border-top: 1px solid #fefefe;
+	padding-top: 20px;
+}
+
+.hoods #hoodTabs .panelTextWrapper.top {
+	background: none;
+	border-top: none;
+	padding-top: 0;
+}
+
+.hoods #hoodTabs ul.homesForSale li {
+	list-style-type: none;
+	display: block;
+	width: 200px;
+	height: 200px;
+	padding: 13px;
+}
+
+.hoods #hoodTabs ul.buildersList li {
+	list-style-type: none;
+	display: block;
+	width: 250px;
+	height: 270px;
+	padding: 13px 25px;
+	float: left;
+	overflow: hidden;
+}
+.hoods #hoodTabs ul.buildersList li img {
+	margin-bottom: 10px;
+}
+
+.hoods #hoodTabs ul.homesForSale li:hover {
+	background-color: #fefefe;
+}
+
+.hoods #hoodTabs ul.homesForSale li:hover a {
+	text-decoration: none;
+}
+
+.hoods #hoodTabs ul.homesForSale li a {
+	display: block;
+	width: 200px;
+	height: 200px;
+}
+
+.hoods #hoodTabs ul.homesForSale span.image {
+	margin-bottom: 10px;
+	display: block;
+	width: 200px;
+	height: 150px;
+	border: 1px solid #333333;
+}
+
+.hoods #hoodTabs ul.homesForSale span.title {
+	font-size: 14px;
+	color: #333;
+	line-height: 140%;
+}
+
+.hoods .nearbyTab {
+	font-weight: bold;
+	margin: 0;
+}
+
+.hoods .nearbyTab h5 {
+	background-color:white;
+	padding:4px 10px 6px;
+	margin:0 10px;
+	border-bottom:1px solid #ddd;
+}
+
+.hoods .nearbyTab h3 {
+	color: #333333;
+	font-family: Georgia,'Times New Roman',serif;
+	font-size: 20px;
+	height: 50px;
+	overflow: hidden;
+}
+
+.hoods .nearbyTab strong {
+	font-weight: bold;
+}
+
+.hoods .nearbyTab .item {
+	display: block;
+	border: 1px solid #DEDEDE;
+	padding: 10px;
+	margin: 10px;
+	width: 160px;
+	float: left;
+	height: 160px;
+	overflow: hidden;
+}
+
+.hoods .nearbyTab .item img {
+	margin: auto;
+	display: block;
+	border: 1px solid #333;
+}
+
+/* Map UI */
+
+
+.content.inner.map .wrapper .box {
+	background: url(../img/boxInnerTile_full.png) repeat-y;
+}
+
+.content.inner.map .wrapper .box .bottom {
+	background: url(../img/boxInnerBottom_full.png) no-repeat 0 100%;
+	padding: 39px 0 30px;
+	margin: 0;
+}
+
+.full .hoods h1, .full .hoods h2 {
+	margin: 0 25px 0;
+}
+
+.hoods .mapContainer {
+	margin-bottom: 20px;
+}
+
+.map .formWhole {
+	padding: 20px 25px 0;
+	width: 95%;
+}
+
+.map .formWhole input.text {
+	width: 270px;
+	height: 18px;
+	padding: 12px 5px 11px;
+	margin: 5px 0;
+	font-size: 18px;
+}
+
+.map .formWhole .button {
+	width: 97px;
+	margin-left: 10px;
+	height: 39px;
+	line-height: 39px;
+	width: 127px;
+	font-size: 21px;
+	background: url(../img/btnMapSearch.jpg) repeat-x;
+	text-align: center;
+}
+
+.map .formWhole .button:hover {
+	text-decoration: underline;
+}
+
+.map .formWhole label {
+	display: block;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+.map .hoodDirect {
+	width: 872px;
+	margin: 40px auto 0;
+	padding: 20px;
+	background: url(../img/bgHoodDirectoryContainer.jpg) no-repeat;
+	position: relative;
+}
+
+.map .hoods.offices .hoodDirect li span {
+	display: block;
+}
+
+.tabbedBoxContainer {
+	position: absolute;
+	background: transparent url(../img/bgBoxContainer_new.png) no-repeat 0 76px;
+	height: 434px;
+	width: 326px;
+	display: block;
+	top: -404px;
+	right: 24px;
+	z-index: 3; /*dynamic image control sits over the buy/rent box*/
+}
+
+.tabbedBoxContainer h2{
+	color: #851521;
+	font-size: 21px;
+}
+.tabbedBoxContainer ul.tabs {
+	display: none;
+}
+
+.inner .tabbedBoxContainer {
+	background: url("../img/bgTabContainerInner_new.png");
+}
+
+.inner .tabbedBoxContainer ul.tabs {
+	display: none;
+}
+
+.panes .formWrapper.newHomes {
+	padding-top: 10px;
+}
+
+.panes {
+	height: 304px!important;
+	padding: 34px 40px;
+	border-top: 0;
+	font-size: 14px;
+}
+
+.ie7 .panes div, .ie8 .panes div, .ie9 .panes div {
+	padding-top: 30px;
+}
+
+.tabbedBoxContainer .panes div div, .content.inner .tabbedBoxContainer .panes div div {
+	display: block;
+	height: auto;
+	padding: 0;
+}
+
+.showcase .editSavedSearchWrap {
+	background-color: #E0E4EA !important;
+}
+.showcase div.showcaseCategory ul li:hover {
+	 background: none repeat scroll 0 0 #fff;
+}
+
+.headerBG {
+	background: url('../img/tileInnerHeader.jpg') repeat-x;
+	margin-top: -37px;
+	width: 634px;
+}
+
+
+.content.inner .box .bottom .contactForm .headerBG {
+	margin-left: -28px;
+	margin-top: -32px;
+}
+
+
+.content.inner .box .bottom {
+	padding: 30px;
+}
+
+.content.inner .box {
+	background: url("../img/boxInnerTile_aug.jpg") repeat-y scroll 0 0 transparent;
+}
+
+.featuredNeighborhoodsContainer .backWrap,
+.featuredNeighborhoodsContainer .nextWrap {
+	position: absolute;
+	width: 21px;
+	height: 80px;
+}
+
+.featuredNeighborhoodsContainer .backWrap {
+	top: 2px;
+	left: -25px;
+	padding-right: 2px;
+	background: url(../img/testimonialsBorderLeft.jpg) no-repeat right center;
+}
+
+.featuredNeighborhoodsContainer .nextWrap {
+	top: 2px;
+	right: -25px;
+	padding-left: 2px;
+	background: url(../img/testimonialsBorderRight.jpg) no-repeat left center;
+}
+
+.featuredNeighborhoodsContainer .backWrap a,
+.featuredNeighborhoodsContainer .nextWrap a {
+	margin: 29px 0;
+	display: block;
+	text-indent: -9999px;
+	width: 21px;
+	height: 22px;
+	cursor: pointer;
+	position: absolute;
+}
+
+.featuredNeighborhoodsContainer .backWrap a:hover,
+.featuredNeighborhoodsContainer .nextWrap a:hover {
+	top: -1px;
+}
+
+.featuredNeighborhoodsContainer .backWrap a:active,
+.featuredNeighborhoodsContainer .nextWrap a:active {
+	top: 0;
+}
+
+.featuredNeighborhoodsContainer .backWrap a {
+	background: url(../img/featuredNeighborhoodsBack.png) no-repeat right 0;
+}
+
+.featuredNeighborhoodsContainer .nextWrap a {
+	background: url(../img/featuredNeighborhoodsNext.png) no-repeat left 0;
+}
+
+.header h2.phone {
+	background: transparent url(../img/iconPhone_new.gif) no-repeat 0 66%;
+}
+.map .offices .hoodDirect {
+	background: url("../img/bgOfficeDirectoryContainer.jpg") no-repeat scroll 0 0 transparent;
+}
+.map .offices .hoodDirect h3 {
+	top: -25px;
+}
+.content.inner.full .box .bottom .offices .headerBG {
+	margin-top: -40px;
+}
+.accordionContainer {
+	background: #ECEEF3 url(../img/tile-accordion-augusta.png) repeat-x 0 0;
+	border-top: 1px solid #D5D5D5;
+	padding: 0 15px;
+}

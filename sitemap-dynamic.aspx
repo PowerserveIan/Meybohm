@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="sitemap-dynamic.aspx.cs" Inherits="sitemap_dynamic" ContentType="text/xml" %>

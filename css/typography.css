@@ -1,0 +1,122 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	GENERAL TAGS
+	HEADINGS
+	LISTS
+	LINKS
+	CLASS-SPECIFIC TEXT
+	 
+	....................................... */
+
+/* =GENERAL TAGS
+    font sizing MUST remain the same for the percentages to calculate properly
+	....................................... */
+
+@font-face {
+	font-family: 'MidoMedium';
+	src: url('fonts/Mido-webfont.eot');
+	src: url('fonts/Mido-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/Mido-webfont.woff') format('woff'), url('fonts/Mido-webfont.ttf') format('truetype'), url('fonts/Mido-webfont.svg#MidoMedium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+	font: 13px/1.5 Arial, Helvetica, sans-serif;
+	color: #222;
+}
+p {
+	margin: 0 0 15px 0;
+	line-height: 1.6;
+}
+hr {
+	background: #ccc;
+	color: black;
+	margin: 10px 0 15px;
+}
+blockquote, q {
+	margin: 0 auto;
+	width: 60%;
+	line-height: 1.5;
+}
+blockquote:before {
+	content: '"';
+}
+blockquote:after {
+	content: '"';
+}
+table {
+	font-size: inherit;
+	font: 100%;
+}
+pre, code, kbd, samp {
+	font-family: monospace, sans-serif;
+}
+ins {
+	background-color: #ff9;
+	text-decoration: none;
+}
+
+/* =HEADINGS
+	....................................... */
+
+h1, h2, h3, h4, h5, h6 {
+	color: #111;
+	line-height: 1.2;
+	margin-bottom: 10px;
+}
+h1 {
+	font-size: 23px;
+}
+h2 {
+	font-size: 21px;
+}
+h3 {
+	font-size: 19px;
+}
+h4 {
+	font-size: 17px;
+}
+h5 {
+	font-size: 15px;
+}
+h6 {
+	font-size: 13px;
+}
+/* =LISTS 
+    default values can be edited
+	....................................... */
+
+li ul, li ol {
+	margin: 0 1.5em; /*default: 0 1.5em;*/
+}
+ul, ol {
+	margin: 0 1.5em 1.5em 1.5em; /*default: 0 1.5em 1.5em 1.5em;*/
+}
+ul {
+	list-style-type: disc;
+}
+ol {
+	list-style-type: decimal;
+}
+dl {
+	margin: 0 0 1.5em 0; /*default: 0 0 1.5em 0;*/
+}
+dl dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 1.5em; /*default: 1.5em;*/
+}
+
+/* =LINKS
+	....................................... */
+
+a {
+	color: #2253A1;
+	text-decoration: none;
+}
+a:focus, a:hover {
+}
+a:hover, a:active {
+	outline: none;
+}

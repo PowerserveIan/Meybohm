@@ -1,0 +1,99 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	 NEWLETTER STYLES
+	 
+	 ....................................... */
+
+/* =NEWLETTER STYLES
+	 ....................................... */
+
+h1.NewsletterHeader {
+	background: transparent url(../img/bg_newsletter.jpg) no-repeat left center;
+	color: #fff;
+	height: 141px;
+	margin: -20px 0 -40px 0;
+	padding: 0 0 0 10px;
+	line-height: 133px;
+}
+div.nlFormWhole {
+	display: inline;
+	width: 100%;
+	margin: 0 0 1em 0;
+	padding: 0 5%;
+	float: left;
+}
+div.nlFormWhole input[type="text"] {
+	width: 97%;
+}
+a#ctl00_ContentWindow_uxRssFeed img {
+	margin-bottom: -4px;
+}
+div.nlFormWhole input[type="text"] {
+	width: 97%;
+	background: #FFFFFF url(../img/input-bg.png) repeat-x scroll 0 0;
+}
+table#uxSubscribe_uxNewsletterFormat td {
+	padding-right: 30px;
+}
+ul.selectList, ul.selectList li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul.selectList {
+    margin-bottom: 10px;
+}
+body.newsletter .headerBG h1 {
+	border-bottom: 1px solid #D5D5D5;
+    color: #3F3940;
+    font-family: Georgia,serif;
+    font-size: 36px;
+    margin: 0 20px;
+    padding: 20px 0;
+	line-height: 1.2;
+	font-weight: normal;
+}
+body.newsletter .headerBG {
+	background: url("../img/tileInnerHeader.jpg") repeat-x scroll 0 0 transparent;
+    margin-left: -9px;
+    margin-top: -8px;
+    width: 103%;
+}
+body.newsletter .smallBox {
+	width: 95%;
+	margin: 20px auto;
+}
+body.newsletter .smallBox input.button {
+	margin-top: 3px;
+}
+body.newsletter .errorText {
+	font: 14px/1.5 Georgia,Arial,Sans-Serif;
+}
+body.newsletter h2 {
+	font: 21px/1.5 Georgia,Arial,Sans-Serif;
+}
+body.newsletter #uxSubscribe_uxResponseMessage {
+	border-top: 1px solid #ccc;
+	display: block;
+    margin-top: 20px;
+    padding-top: 0;
+}
+/* Button Styling (forms.css is not loaded on Newsletter Details modal) */
+.detailContainer span.button a {
+	background: #386CA0 url(../img/button-bg.png) repeat-x scroll 0 0;
+	border: 1px solid #386CA0;
+	color: #FFFFFF;
+	display: inline-block;
+	float: none;
+	font-size: 93%;
+	font-weight: bold;
+	padding: 4px 8px;
+	margin: 3px 7px 10px;
+	text-transform: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+.detailContainer span.button a:hover {
+    text-decoration: underline;
+}

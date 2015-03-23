@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /resizer.aspx
+Disallow: /tft-services/
+Disallow: /*.axd
+Sitemap: /sitemap-dynamic.aspx

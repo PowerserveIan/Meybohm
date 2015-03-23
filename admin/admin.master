@@ -1,0 +1,146 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin_Master" %>
+
+<%@ Import Namespace="BaseCode" %>
+<%@ Register TagPrefix="Admin" TagName="Menu" Src="~/admin/352AdminMenu.ascx" %>
+<!DOCTYPE html>
+<html runat="server" id="htmlEntity" lang="en">
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="Content-language" content="en" />
+	<link rel="dns-prefetch" href="//ajax.microsoft.com" />
+	<link runat="server" id="uxCSSFiles" rel="stylesheet" media="screen, projection" type="text/css" href="~/admin/css/reset.css,~/admin/css/typography.css,~/admin/css/structure.css,~/admin/css/forms.css,~/admin/css/popup.css,~/admin/css/features.css,~/admin/css/admin.css,~/css/jquery.fancybox.css" />
+	<link runat="server" id="lnkIcon" rel="SHORTCUT ICON" />
+	<asp:ContentPlaceHolder runat="server" ID="PageSpecificCSS">
+	</asp:ContentPlaceHolder>
+	<script type="text/javascript">
+		var jqueryPath = "//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js";
+		document.write(unescape("%3Cscript src='" + jqueryPath + "' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">		!window.jQuery && document.write('<script type="text/javascript" src="../../tft-js/core/jquery.min.js"><\/script>')</script>
+	<!--[if lt IE 8]>
+  	 <script type="text/javascript" src="../../tft-js/core/json2.js"></script>
+	<![endif]-->
+</head>
+<!--
+Web Design and Programming by 352 Media Group�
+422 SW 140th Terrace
+Newberry, Fl 32669
+(877) 352-Media
+sales@352media.com
+www.352media.com 
+-->
+<body>
+	<div class="perimeter">
+		<form id="form1" runat="server">
+		<asp:ScriptManager runat="server" ID="uxScriptManager" ScriptMode="Release" EnableCdn="true">
+		</asp:ScriptManager>
+		<div class="header">
+			<div class="wrapper">
+				<div id="top" class="topBar clearfix">
+					<a class="logout" href="<%=ResolveClientUrl("~/logout.aspx")%>">Log out</a>
+					<a class="icon help" href="mailto:support@352media.com">Help</a>
+					<asp:LinkButton runat="server" ID="uxClearCaches" CssClass="icon refresh" Text="Clear Site's Caches" OnClientClick="return confirm('Are you sure you want to clear the cache for your entire site?');" CausesValidation="false" OnClick="uxClearCaches_Click" ToolTip="Clears the Cache on your website to ensure all content a user sees is up to date" />
+					<a class="icon monitor" href="<%=ResolveClientUrl("~/")%>">Visit Your Website</a>
+					<ul class="popUp account clearfix">
+						<li>
+							<a>Account</a>
+							<ul>
+								<li>
+<%--									<a runat="server" href="~/change-password.aspx">Change Password</a></li>--%>
+<%--								<li>--%>
+									<a runat="server" href="~/profile.aspx">Profile</a></li>								
+							</ul>
+						</li>
+					</ul>
+					<a class="icon settings" runat="server" href="~/admin/configuration-settings.aspx" id="globalSettings">Global Settings</a>
+				</div>
+				<img class="logo" runat="server" src="~/admin/img/logo.png" alt="Logo" width="265" height="76" />
+			</div>
+			<!--end wrapper-->
+		</div>
+		<!--end header-->
+		<div class="content">
+			<div class="wrapper">
+				<asp:ContentPlaceHolder runat="server" ID="ContentMenu">
+					<div class="navWrapper">
+						<ul class="popUp menu">
+							<Admin:Menu ID="AdminMenu" runat="server" />
+						</ul>
+						<div class="moreNav">
+							<div class="moreWrapper">
+								<a href="#" title="Scroll Navigation Left" class="scrollLeft">Left</a>
+								<a href="#" title="Scroll Navigation Right" class="scrollRight">Right</a>
+							</div>
+						</div>
+					</div>
+				</asp:ContentPlaceHolder>
+				<div class="whiteContent">
+					<asp:ContentPlaceHolder ID="ContentWindow" runat="server">
+					</asp:ContentPlaceHolder>
+					<div class="clear"></div>
+				</div>
+				<!--end whiteContent-->
+			</div>
+			<!--end wrapper-->
+		</div>
+		<!--end content-->
+		<div class="footer">
+			<div class="wrapper">
+				<a class="top" href="#" title="Return to the top of the page">Top</a>
+				<div class="section" style="float: left;">
+					<h6>
+						<asp:HyperLink runat="server" ID="ux352BlogLink" NavigateUrl="http://www.352media.com/blog" Target="_blank">The 352 Blog</asp:HyperLink></h6>
+					<asp:Repeater runat="server" ID="uxBlogFeed">
+						<HeaderTemplate>
+							<ul>
+						</HeaderTemplate>
+						<ItemTemplate>
+							<li>
+								<asp:HyperLink runat="server" ID="uxBlogPostLink" Text='<%#Helpers.ForceShorten(((XElement)Container.DataItem).Element("title").Value, 50)%>' NavigateUrl='<%#((XElement)Container.DataItem).Element("link").Value%>' Target="_blank"></asp:HyperLink>
+							</li>
+						</ItemTemplate>
+						<FooterTemplate>
+							</ul>
+						</FooterTemplate>
+					</asp:Repeater>
+					<asp:Literal runat="server" ID="uxBlogError" Text="Blog feed could not be accessed.  Please try again later or contact <a href='mailto:support@352media.com' class='support'>support</a>." Visible="false"></asp:Literal>
+				</div>
+				<div class="section" style="float: left;">
+					<h6>
+						<asp:HyperLink runat="server" ID="ux352NewsLink" Target="_blank">352 News</asp:HyperLink></h6>
+					<asp:Repeater runat="server" ID="uxNewsFeed">
+						<HeaderTemplate>
+							<ul>
+						</HeaderTemplate>
+						<ItemTemplate>
+							<li>
+								<asp:HyperLink runat="server" ID="uxBlogPostLink" Text='<%#Helpers.ForceShorten(((XElement)Container.DataItem).Element("title").Value, 50)%>' NavigateUrl='<%#((XElement)Container.DataItem).Element("link").Value%>' Target="_blank"></asp:HyperLink>
+							</li>
+						</ItemTemplate>
+						<FooterTemplate>
+							</ul>
+						</FooterTemplate>
+					</asp:Repeater>
+					<asp:Literal runat="server" ID="uxNewsError" Text="News feed could not be accessed.  Please try again later or contact <a href='mailto:support@352media.com' class='support'>support</a>." Visible="false"></asp:Literal>
+				</div>
+				<div class="section tweet">
+					<asp:Label runat="server" ID="uxLatestTweet"></asp:Label>
+					<a href="http://twitter.com/352media" target="_blank">@<em>352Media</em></a>
+				</div>
+			</div>
+			<!--end wrapper-->
+		</div>
+		<!--end footer-->
+		<asp:HyperLink runat="server" ID="uxGiveFeedbackLink" CssClass="giveFeedback fancybox.iframe" ClientIDMode="Static">Give Feedback</asp:HyperLink>
+		</form>
+	</div>
+	<!--end perimeter-->
+	<div class="AJAXLoading" style="display: none;">
+		<div class="loadOverlay"></div>
+		<div class="loadMessage"><span>Loading...</span></div>
+	</div>
+	<asp:Literal runat="server" ID="uxJavaScripts" Text="~/tft-js/core/jquery.fancybox.js,~/tft-js/core/Validation.js,~/tft-js/core/jquery.ie6.js,~/tft-js/core/jquery.hoverIntent.minified.js,~/tft-js/core/jquery-ui.custom.min.js,~/tft-js/core/pagination.js,~/tft-js/core/jquery.placeholder.min.js,~/tft-js/core/admin.js" />
+	<asp:ContentPlaceHolder runat="server" ID="PageSpecificJS">
+	</asp:ContentPlaceHolder>
+</body>
+</html>

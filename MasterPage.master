@@ -1,0 +1,262 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register TagPrefix="Generic" TagName="GenericLogin" Src="~/Controls/BaseControls/GenericLoginControl.ascx" %>
+<%@ Register TagPrefix="Controls" TagName="AdminBar" Src="~/Controls/BaseControls/AdminBar.ascx" %>
+<%@ Register TagPrefix="Showcase" TagName="Search" Src="~/Controls/Showcase/Search.ascx" %>
+<!DOCTYPE html>
+<html runat="server" id="htmlEntity" lang="en">
+<head runat="server">
+	<link rel="SHORTCUT ICON" href="favicon.ico" />
+	<meta http-equiv="Content-language" content="en" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="dns-prefetch" href="//ajax.aspnetcdn.com" />
+	<link media="print" type="text/css" runat="server" id="uxPrintCSS" href="~/css/print.css" rel="stylesheet" />
+	<link runat="server" type="text/css" media="screen, projection" rel="stylesheet" href="~/css/reset.css,~/css/typography.css,~/css/structure.css,~/css/forms.css,~/css/jquery.fancybox.css,~/css/popup.css,~/css/features.css,~/css/micrositeshared.css"
+		id="uxCSSFiles" />
+    <link href="/dev/css/print.css" rel="stylesheet" media="print"/><link href="/dev/css/reset.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/typography.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/structure.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/forms.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/jquery.fancybox.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/popup.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/features.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/micrositeshared.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/micrositeaugusta.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/contentManager.css" rel="stylesheet" media="screen, projection"/><link href="/dev/css/slideshow.css" rel="stylesheet" media="screen, projection"/>
+	<asp:ContentPlaceHolder runat="server" ID="PageSpecificCSS">
+	</asp:ContentPlaceHolder>
+	<script type="text/javascript">
+	    var jqueryPath = "//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js";
+	    document.write(unescape("%3Cscript src='" + jqueryPath + "' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<asp:Literal runat="server" ID="uxJQuery" Text="<script type='text/javascript'>!window.jQuery && document.write('<script type=\'text/javascript\' src=\'[[ROOT]]tft-js/core/jquery.min.js\'><\/script>')</script>"></asp:Literal>
+	<script type="text/javascript">
+	    var _gaq = _gaq || [];
+	    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+	    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+	    _gaq.push(['_setAccount', 'UA-18152881-1']);
+	    _gaq.push(['_trackPageview']);
+
+	    (function () {
+	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	</script>
+	<asp:Literal runat="server" ID="uxLiveChatJS"></asp:Literal>
+	<script type="text/javascript">
+	    (function () {
+	        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+	        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	    })();
+	</script>
+</head>
+<!--
+Web Design and Programming by 352 Media Group®
+422 SW 140th Terrace
+Newberry, Fl 32669
+(877) 352-Media
+sales@352media.com
+www.352media.com 
+-->
+<body>
+	<asp:ContentPlaceHolder runat="server" ID="EntireBody">
+		<form id="form1" runat="server">
+		<asp:ScriptManager ID="uxScriptManager" runat="server" EnablePartialRendering="true" EnablePageMethods="true" ScriptMode="Release" EnableCdn="true">
+		</asp:ScriptManager>
+		<div class="perimeter">
+			<div class="header">
+				<div class="wrapper">
+                    <a href="#" class="logo">Meybohm REALTORs<sup>&reg;</sup></a>
+					<a href="#" class="redirect">Properties</a>
+					<asp:LinkButton runat="server" ID="uxNewExistingToggle" CssClass="redirect" CausesValidation="false">New Homes</asp:LinkButton>
+					<div class="right">
+						<% if (Page.User.Identity.IsAuthenticated)
+		 { %>
+						<asp:HyperLink runat="server" ID="uxMyAccount" CssClass="account"></asp:HyperLink>
+						<a href="saved-searches" class="account">Saved Searches</a>
+						<% }
+		 else
+		 { %>
+						<a href="register" class="account">Create an Account to Save Searches &raquo;</a><% } %>
+						<div class="clear"></div>
+						<h2 class="phone">1-352-248-todo</h2>
+						<div class="clear"></div>
+						<a href="staff" class="contactAgent"></a>
+						<div class="clear"></div>
+						<div id="uxLiveChat" class="liveChat">
+							<a class="liveChat" href="http://www.livechatinc.com/?partner=lc_<%= System.Configuration.ConfigurationManager.AppSettings["LiveChat_LicenseNumber"] %>">Live Chat Assistance &raquo;</a>
+						</div>						
+					</div>
+					<Language:Selector ID="Selector1" runat="server" />
+					<div class="clear"></div>
+						<ul class="popUp menu"><li class="topLi current home"><a href="/dev/augusta/home">Home</a></li><li class="topLi parent"><a href="/dev/augusta/search?Filters=289%3AResidential&amp;mID=17">Search</a><ul><li><a href="/dev/augusta/search?Filters=289%3AResidential&amp;mID=112">Existing Homes Listings</a></li><li><a href="/dev/augusta/new-search">New Homes Listings</a></li><li><a href="/dev/augusta/search-lots-land">Lots/Land</a></li></ul></li><li class="topLi parent"><a href="/dev/augusta/rentals">Rent</a><ul><li><a href="/dev/augusta/rent">Property Management Services</a></li></ul></li><li class="topLi parent"><a href="/dev/augusta/services">Services</a><ul><li><a href="/dev/augusta/home-value">Free Home Value Estimate</a></li><li><a href="/dev/augusta/relocation-services">Relocation Services</a></li><li><a href="/dev/augusta/insurance">Insurance</a></li><li><a href="/dev/augusta/mortgage">Mortgage</a></li><li><a href="/dev/augusta/careers">Careers</a></li></ul></li><li class="topLi"><a href="/dev/augusta/offices">Offices</a></li></ul>
+					<div class="loginContainer landingForm">
+						<asp:HyperLink ID="uxLoginLink" runat="server" Text="Login" CssClass="login loginExpander"></asp:HyperLink>
+						<asp:HyperLink ID="uxLogout" runat="server" Text="Logout" NavigateUrl="~/logout.aspx" CssClass="login"></asp:HyperLink>
+						<div class="login lp" style="display: none; padding: 8px 27px 2px 20px; right: 0">
+							<div class="formWrapper loginMini">
+								<Generic:GenericLogin ID="uxLogin" runat="server" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<asp:ContentPlaceHolder runat="server" ID="ContentContentDiv">
+				<div class="content inner"></div>
+			</asp:ContentPlaceHolder>
+			<div class="wrapper">
+				<asp:ContentPlaceHolder runat="server" ID="ContentDynamicHeader">
+					<%--<div class="dynamicHeaderContainer">
+						<div class="bottom">
+							<DynamicHeader:DynamicHeader runat="server" ID="uxDynamicHeaderQV" ImageHeight="325" ImageWidth="922" ShowNavigation="false" GenericThumbnail="true" />
+							<div class="clear"></div>
+						</div>
+					</div>--%>
+				</asp:ContentPlaceHolder>
+				<div class="leftCol">
+					<div class="box" style="width:100%">
+						<div class="top">
+							<asp:ContentPlaceHolder runat="server" ID="ContentBreadCrumbs">
+								<cm:BreadCrumbs runat="server" ID="uxBreadCrumbs" />
+							</asp:ContentPlaceHolder>
+							<div class="bottom clearfix">
+								<asp:ContentPlaceHolder runat="server" ID="ContentWindow">
+								</asp:ContentPlaceHolder>
+							</div>
+						</div>
+					</div>
+				</div>
+				<asp:ContentPlaceHolder runat="server" ID="ContentSideCol">
+					<div class="rightCol">
+						<Showcase:Search runat="server" ID="uxSearchWidget" />
+						<asp:PlaceHolder runat="server" ID="uxAugustaWeatherPH">
+							<a target="_blank" href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:30901.1.99999&bannertypeclick=wu_bluestripes">
+								<img src="http://weathersticker.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=wu_bluestripes&airportcode=KDNL&ForcedCity=Augusta&ForcedState=GA" alt="Click for Augusta, Georgia Forecast" /></a>
+						</asp:PlaceHolder>
+						<asp:PlaceHolder runat="server" ID="uxAikenWeatherPH">
+							<a target="_blank" href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:29801.1.99999&bannertypeclick=wu_bluestripes">
+								<img src="http://weathersticker.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=wu_bluestripes&airportcode=KAIK&ForcedCity=Aiken&ForcedState=SC" alt="Click for Aiken, South Carolina Forecast" /></a>
+							<div class="clear"></div>
+						</asp:PlaceHolder>
+					</div>
+				</asp:ContentPlaceHolder>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<asp:ContentPlaceHolder ID="ContentFooter" runat="server">
+			<div class="footer">
+				<div class="shadow"></div> <!-- end shadow -->
+				<div class="wrapper">
+					<div class="top">
+						<div class="left">
+							<div class="column one"><span>Area Info</span>
+								<ul>
+									<li>
+										<a href="area-info">Which City and State?
+										</a></li>
+									
+									<li>
+										<a href="relocation-guide">Relocation Guide</a></li>
+								</ul>
+							</div>
+							<div class="column two"><span>Sell</span>
+								<ul>
+									<li>
+										<a href="why-list-with-us">Why List With Us</a></li>
+									<li>
+										<a href="home-value">Home Value Estimate</a></li>
+									<li>
+										<a href="relocation-services">Relocation Services</a></li>
+									<li>
+										<a href="property-management">Property Management</a></li>
+								</ul>
+							</div>
+							<div class="column three"><span>Buy</span>
+								<ul>
+									<li>
+										<a href="search">Search</a></li>
+									<li>
+										<a href="insurance">Insurance</a></li>
+									<li>
+										<a href="mortgage">Mortgage</a></li>
+									<li>
+										<a href="services">Other Services</a></li>
+								</ul>
+							</div>
+							<div class="column four"><span>Meybohm</span>
+								<ul>
+									<li>
+										<a href="our-history">Our History</a></li>
+									<li>
+										<a href="offices">Office Locations</a></li>
+									<li>
+										<a href="careers">Careers</a></li>
+									<li>
+										<a href="contact-us">Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="right">
+							<div class="logoPhone" style="height: 66px;"></div>
+							<h2 class="phone" style="float: none; margin-top: -18px; margin-left: 20px;">1-800-TODO</h2>
+							<a href="contact-us" class="contactAgent dark">Contact an Agent</a>
+							<div class="socialLinks">
+								<a href="https://www.facebook.com/meybohmrealtors" id="facebook" target="_blank">Meybohm REALTORs<sup>&reg;</sup> on Facebook</a>
+								<a href="https://twitter.com/meybohmrealtors" id="twitter" target="_blank">Meybohm REALTORs<sup>&reg;</sup> on Twitter</a>
+								<a href="http://www.youtube.com/user/MeybohmRealtors" id="youtube" target="_blank">Meybohm REALTORs<sup>&reg;</sup> on YouTube</a>
+							</div>
+							<a class="luxury-logo" href="http://meybohm.luxuryrealestate.com/" target="_blank"><img runat="server" src="~/img/luxury-logo.png" /></a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="right">
+						<span class="copyright">&copy; Meybohm REALTORs<sup>&reg;</sup></span>
+						<div class="fbLike">
+							<Facebook:LikeButton runat="server" ID="uxFacebookLikeMain" ShowFriendText="false" ButtonWidth="90" />
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="left"><span class="copyright webdesign">Web Design Company: 352 Media Group</span></div>
+					<div class="right">
+						<ul class="links">
+							<li>
+								<a href="<%= ResolveClientUrl("~/privacy-policy") %>">Privacy Policy</a></li>
+							<li>
+								<a href="<%= ResolveClientUrl("~/legal") %>">Legal</a></li>
+							<li>
+								<a href="<%= ResolveClientUrl("~/copyright") %>">Copyright</a></li>
+							<li class="lastLi">
+								<a href="<%= ResolveClientUrl("~/sitemap.aspx") %>">Sitemap</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</asp:ContentPlaceHolder>
+		
+		    <%--end content inner--%>
+		<div class="AJAXLoading" style="display: none;">
+			<div class="loadOverlay"></div>
+			<div class="loadMessage"><span>Loading...</span></div>
+		</div>
+		
+		</form>
+	</asp:ContentPlaceHolder>
+	<script type="text/javascript">
+	    var fbAppID = '<%= System.Configuration.ConfigurationManager.AppSettings["Facebook_ApplicationID"] %>';
+	    var dotsToRoot = "../";
+	</script>
+	
+	<script type="text/javascript">
+	    var __lc_buttons = __lc_buttons || [];
+	    __lc_buttons.push({
+	        elementId: 'uxLiveChat',
+	        skill: '0',
+	        type: 'text',
+	        labels: {
+	            online: 'Live Chat Assistance &raquo;',
+	            offline: ''
+	        }
+	    });
+	</script>
+	<div id="fb-root"></div>
+	<!--[if lte IE 6]>
+	<script type="text/javascript" src="tft-js/core/jquery.ie6.js"></script>		
+	<![endif]-->
+	<asp:ContentPlaceHolder runat="server" ID="PageSpecificJS">
+	    <%--<asp:Literal runat="server" ID="uxJavaScripts" Text="~/tft-js/core/Validation.js,~/tft-js/core/jquery.fancybox.js,~/tft-js/core/jquery.placeholder.min.js,~/tft-js/core/jquery.design.js" />--%>
+	</asp:ContentPlaceHolder>
+</body>
+</html>

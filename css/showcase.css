@@ -1,0 +1,2903 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	 SHOWCASE FEATURE
+	    PROJECT LISTING
+	        PROJECT LISTING FILTERS
+	            Left Side Filters
+	    PROJECT DETAILS
+	        PROJECT DETAILS FILTERS
+	            Left Side Filters
+	        TABS MEDIA
+	            Slider
+	 
+	 ....................................... */
+
+/* =SHOWCASE FEATURE
+	 ....................................... */
+
+.leftCol {
+	width: 960px;
+}
+.advanced-search-feature .content.inner {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffcecece,endColorstr=#ffe0e4ea,GradientType=0)";
+	padding: 23px 0;
+	background-image: linear-gradient(-90deg,rgb(206,206,206) 0%,rgb(224,228,234) 7%,rgb(224,228,234) 100%);
+}
+
+.advanced-search-feature.theme-aiken .content.inner {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#C3C4B2,endColorstr=#ffe0e4ea,GradientType=0)";
+	background-image: linear-gradient(-90deg,rgb(195, 196, 178) 0%,rgb(224,228,234) 7%,rgb(224,228,234) 100%);
+}
+
+div.showcase {
+	width: 100%;
+	position: relative;
+	clear: both;
+	/*padding: 20px 0 0;*/
+}
+
+div.showcaseWrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+div.showcase ul, div.showcase li {
+	list-style: none;
+	background: none;
+	float: left;
+
+}
+
+div.showcase h1 {
+	text-transform: none;
+}
+
+div.showcase ul.filterRadio, div.showcase ul.filterCheckbox {
+	margin: 0;
+}
+
+div.showcase ul.filterRadio li, div.showcase ul.filterCheckbox li {
+	padding: 2px 0;
+	margin: 0;
+}
+
+div.mapLoading div.loadMessage span {
+	padding: 0 40px;
+	background: transparent url(../img/loading.gif) no-repeat left center;
+	display: block;
+	line-height: 35px;
+	height: 35px;
+	margin: 0 auto;
+}
+
+div.mapLoading div.loadMessage {
+	display: block;
+	position: absolute;
+	width: 150px;
+	padding: 25px 50px 25px 70px;
+	top: 50%;
+	left: 50%;
+	margin: -45px 0 0 -125px;
+	background: #fff;
+	border: 4px solid #666;
+	z-index: 20;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	color: #000;
+}
+/* =PROJECT LISTING
+   ....................................... */
+
+div.ResultsControls {
+	float: right;
+	width: 145px;
+	text-align: right;
+}
+
+div.ResultsControls a {
+	text-decoration: none;
+}
+
+div.ResultsControls a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+div.ResultsControls a.previous.disabled, div.ResultsControls a.next.disabled {
+	color: #666;
+	cursor: auto;
+}
+
+div.ResultsControls a.previous.disabled:hover, div.ResultsControls a.next.disabled:hover {
+	text-decoration: none;
+}
+
+div.categoryWrapper {
+	float: left;
+	min-height: 1260px;
+	overflow: hidden;
+	width: 649px;
+	position: relative;
+	margin: 4px 11px;
+}
+
+div.showcase.full div.categoryWrapper {
+	height: 755px;
+	width: 840px;
+}
+div.showcaseCategory {
+	position: relative;
+}
+div.showcaseCategory .categoryWrapper ul {
+	list-style: none;
+	margin: 0 0 7px 0;
+	overflow: hidden;
+	height: 1050px;
+	width: 650px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+div.showcase.full div.categoryWrapper ul {
+	height: 745px;
+	width: 840px;
+}
+
+div.categoryWrapper ul#category2 {
+	visibility: hidden;
+}
+
+.advanced-search-feature div.showcaseCategory .categoryWrapper ul li {
+	float: left;
+	padding: 12px;
+	margin: 0;
+	text-align: center;
+	min-height: 125px;
+	display: block;
+	height: auto !important;
+	height: 125px; /* This is needed so when filtering the thumbnails will not become mushed and will stay in a nice grid format */
+}
+
+div.categoryWrapper ul li.invisible {
+	visibility: hidden;
+}
+/* This controls LI widths for the location showcase view */
+div.categoryWrapper ul li a img {
+	display: block;
+}
+
+div.showcaseCategory.display4 .categoryWrapper ul li {
+	width: 301px;
+	padding: 12px;
+}
+
+div.showcaseCategory.display4 .categoryWrapper ul,
+div.showcaseCategory.display9 .categoryWrapper ul,
+div.showcaseCategory.display16 .categoryWrapper ul {
+	height: auto !important;
+}
+
+div.showcaseCategory.display9 .categoryWrapper ul li {
+	width: 192px;
+	padding: 12px;
+	min-height: 120px;
+	height: auto !important;
+	height: 120px;
+}
+
+div.showcaseCategory.display16 .categoryWrapper ul li {
+	width: 138px;
+	min-height: 145px;
+	max-height: 180px;
+	height: 180px;
+	padding: 12px;
+}
+
+div.showcaseCategory.display25 .categoryWrapper ul li,
+div.showcaseCategory.display50 .categoryWrapper ul li,
+div.showcaseCategory.display100 .categoryWrapper ul li {
+	min-height: 85px;
+	height: 220px;
+	padding: 11px;
+	margin: 6px 0;
+	width: 140px;
+}
+
+/* This controls LI widths for the full showcase view */
+div.showcase.full div.showcaseCategory .categoryWrapper ul li a img {
+	display: block;
+}
+
+div.showcase.full div.showcaseCategory.display4 .categoryWrapper ul li {
+	width: 262px;
+	margin: 0 75px;
+}
+
+div.showcase.full div.showcaseCategory.display9 .categoryWrapper ul li {
+	width: 165px;
+	margin: 0 52px;
+}
+
+div.showcase.full div.showcaseCategory.display16 .categoryWrapper ul li {
+	width: 114px;
+	min-height: 145px;
+	height: auto !important;
+	height: 105px;
+	padding: 12px;
+}
+
+div.showcase.full div.showcaseCategory.display25 .categoryWrapper ul li,
+div.showcase.full div.showcaseCategory.display50 .categoryWrapper ul li,
+div.showcase.full div.showcaseCategory.display100 .categoryWrapper ul li {
+	width: 110px;
+	min-height: 85px;
+	height: auto !important;
+	height: 85px;
+}
+
+div.showcaseCategory.display16 .categoryWrapper ul li a, 
+div.showcaseCategory.display25 .categoryWrapper ul li a,
+div.showcaseCategory.display50 .categoryWrapper ul li a,
+div.showcaseCategory.display100 .categoryWrapper ul li a {
+	font-size: 100%;
+}
+
+div.showcaseCategory .categoryWrapper ul li a:hover, div.showcase.full div.showcaseCategory .categoryWrapper ul li a:hover {
+	text-decoration: underline;
+}
+
+div.showcaseCategory .categoryWrapper ul a {
+	font-size: 110%;
+}
+
+div.showcaseCategory .categoryWrapper div.showcaseDisplayWrapper {
+	margin: 0 auto;
+	width: 550px;
+	height: 413px;
+	position: relative;
+}
+
+div.showcaseCategory .categoryWrapper div.showcaseDisplay {
+	margin: 0 auto;
+	width: 200px;
+	height: 275px;
+}
+
+#map_canvas {
+	width: 663px;
+	border: 4px solid #FFFFFF;
+	box-shadow: inset 0 0 5px #000;
+}
+
+div#map_canvas.collapsed {
+	border: none;
+}
+
+div.showcaseCategory div.showcaseResults p {
+	margin: 0;
+	float: left;
+	width: 300px;
+}
+
+div.showcaseResults {
+	padding: 19px 20px 5px 20px;
+	margin: 0;
+}
+
+div.showcaseCategory .categoryWrapper ul a:hover {
+	text-decoration: none;
+}
+
+ul.filterTitle {
+	width: 40%;
+	float: right;
+	clear: right;
+}
+
+ul.filterTitle li {
+	width: 33%;
+	float: left;
+	list-style: none;
+}
+
+.attributeHalf {
+	width: 60%;
+	float: left;
+	clear: left;
+}
+
+ul.filterHalf {
+	width: 40%;
+	float: right;
+	clear: right;
+}
+
+#tabs .mapContainer {
+	height: 346px; /*gets rid of scrollbar, old height 420*/
+	width: 695px;
+}
+
+.pageSizeSelector span, .pageSizeSelector li,
+.sortFields span, .sortFields li {
+	float: left;
+}
+div.showcase div.slideWrapper.linkWrapper.resultsLink {
+	top: 0 !important;
+	margin-right: 10px;
+}
+
+/* =Left Side Filters
+----------------------------------*/
+div.showcase.full {
+	margin: 0 0 0 10px;
+	position: relative;
+}
+
+div.showcaseCategory, div.showcase.full div.showcaseCategory {
+	background: transparent url(../img/showcase-bottom.jpg) no-repeat center bottom;
+	padding: 0 0 100px 0;
+	margin: 0 0 10px -12px;
+}
+
+div.full div.showcaseCategory div.showcaseTile {
+	background: #E0E4EA url(../img/showcase-tile.jpg) repeat-y top center;
+	padding: 0 40px 0 40px;
+}
+
+div.showcaseCategory div.showcaseTile {
+	background: #E0E4EA url(../img/tile_showcaseTile.png) repeat-x top center;
+	padding: 0;
+}
+
+div.showcaseCategory {
+	width: 671px;
+	float: left;
+	background: none;
+	padding: 0 0 0 15px;
+	margin: 0 0 20px;
+}
+
+div.showcase.full div.showcaseCategory {
+	width: 920px;
+}
+/* This controls width of results on showcase view */
+
+div.showcaseCategory div.showcaseDisplayWrapper {
+	width: 671px;
+	height: 413px;
+	background: #fff;
+	margin-bottom: 10px;
+}
+
+div.showcaseCategory div.showcaseDisplay {
+	width: 671px;
+	height: 405px;
+}
+div.showcaseCategory a.linkToPage.btnShowcaseDetail {
+    padding-right: 14px;
+}
+a.linkToPage.btnShowcaseDetail {
+	height: 27px;
+    padding: 7px 15px 0 40px;
+	width: 105px;
+}
+div.showcase div.slideWrapper.linkWrapper.resultsLink {
+	width: 400px;
+}
+div.showcase div.slideWrapper.linkWrapper.resultsLink div.linkContainer, div.showcase div.slideWrapper.linkWrapper.resultsLink div.linkContainer .slide #LinkPopup {
+	width: 336px;
+	margin-right: 22px;
+}
+div.mapMarker {
+	width: 297px;
+	min-height: 86px;
+	height: auto !important;
+}
+
+div.mapMarker a, div.mapMarker span {
+	font-family: Arial, sans-serif;
+	line-height: 120%;
+}
+
+div.mapMarker a {
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 120%;
+	margin: 0 0 5px;
+	padding: 0 35px 0 0;
+	display: block;
+	float: right;
+	width: 177px;
+}
+div.mapMarker a:hover {
+	text-decoration: underline;
+}
+div.mapMarker span.mapAddress a {
+	float: none;
+	padding-top: 5px;
+}
+
+div.mapMarker img.mapImage {
+	display: block;
+	float: left;
+	height: 50px;
+	width: 70px;
+	overflow: hidden;
+	margin: 0px 12px 0 0;
+	border: 1px solid #000;
+}
+
+div.mapMarker span.mapAddress {
+	display: block;
+	float: left;
+	width: 160px;
+	line-height: 120%;
+	font-size: 12px;
+	color: #333;
+}
+
+div.mapMarker a.fancybox-iframe.more {
+	font-size: 13px;
+	display: block;
+	margin-top: 5px;
+}
+
+div.showcaseCategory.side div.showcaseResults p {
+	padding: 0 8px 3px;
+}
+
+div.showcaseCategory ul li:hover{
+	background: #eeece8;
+}
+div.showcaseCategory .showcaseResults ul li:hover {
+	background: none;
+}
+/* =GLOBAL SEARCH RESULTS
+   ....................................... */
+ul.search-category {
+	list-style-type: none;
+	margin: 0;
+	padding-bottom: 15px;
+}
+ul.search-category li {
+	padding: 11px;
+	height: 224px;
+}
+ul.search-category li:hover {
+	background: #fff;
+}
+div.search-results {
+padding-top: 3px;
+}
+div.search-results .search-results-items {
+	margin-top: 13px;
+}
+div.search-results .search-results-items h2 {
+	color: #FFF;
+	background: #851521;
+	padding: 10px;
+}
+div.search-results .search-results-items h2 span {
+	font: 15px/140% Arial, sans-serif;
+	color: #D8B5B2
+}
+
+div.search-results div.search-bar {
+	float: right;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin: 0;
+}
+div.search-results div.search-bar input {
+	float: left;
+}
+div.search-results h3.search-info {
+	font-style: italic;
+	color: #3F393F;
+	float: left;
+	margin-bottom: 0;
+	line-height: 40px;
+}
+div.search-results h3.search-info span {
+	color: #1B4889;
+}
+div.search-results hr {
+	margin: 15px 0;
+}
+/* =PROJECT LISTING FILTERS
+   ....................................... */
+/*
+*/
+div.showcase.full a.filterShow {
+	display: block;
+	position: absolute;
+	right: 13px;
+	top: 31px;
+	width: 37px;
+	height: 175px;
+	text-indent: -9999px;
+	overflow: hidden;
+	outline: none;
+	background: transparent url(../img/filter-button.jpg) no-repeat 0 0;
+}
+
+div.showcase.full a.filterShow:hover {
+	background-position: -37px 0;
+}
+
+div.showcase.full a.filterShow.expanded {
+	background-position: -74px 0;
+}
+
+div.showcase.full a.filterShow.expanded:hover {
+	background-position: -111px 0;
+}
+
+div.showcase.full a.filterShow.top {
+	position: relative;
+	top: auto;
+	right: auto;
+	left: 10px;
+	width: 602px;
+	height: 37px;
+	background-image: url(../img/filter-button-top.jpg);
+}
+
+div.showcase.full a.filterShow.top:hover {
+	background-position: 0 -37px;
+}
+
+div.showcase.full a.filterShow.top.expanded {
+	background-position: 0 -74px;
+}
+
+div.showcase.full a.filterShow.top.expanded:hover {
+	background-position: 0 -111px;
+}
+
+div.showcase.full div.filterWrapper.slideOut {
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	right: 0;
+	padding: 15px 0 0;
+	width: 609px;
+	background: transparent url(../img/slideFilterTop.png) no-repeat center top;
+}
+/*
+*/
+div.showcase div.filterSlideHide {
+	width: 609px;
+	overflow: hidden;
+	position: absolute;
+	right: 48px;
+	height: 9999px;
+	top: 29px;
+}
+
+div.showcase div.filterSlideHide.top {
+	right: auto;
+	top: 37px;
+}
+
+div.showcase div.filterSlideHide .filterWrapper.top {
+	top: -9999px;
+	right: auto;
+}
+
+div.showcase div.filterSlideHide .filterWrapper {
+	right: -9999px;
+}
+/*
+div.showcase.full .slideOut div.FilterWrapperTop {
+    background: transparent url(../img/slideFilterBottom.png) no-repeat center bottom;
+    padding: 0 0 17px;
+  }
+div.showcase.full .slideOut div.FilterWrapperBottom {
+    background: transparent url(../img/slideFilterTile.png) repeat-y center top;
+    padding: 0 20px;
+}
+div.showcase.full div.filterWrapper.slideOut.top {
+    top: 0;
+    right: auto;
+    left: 9px;
+    background: transparent url(../img/topSlideFilterTop.png) no-repeat center top;
+    padding: 15px 0 0;
+}
+div.showcase.full .slideOut.top div.FilterWrapperTop {
+    background: transparent url(../img/topSlideFilterBottom.png) no-repeat center bottom;
+    padding: 0 0 17px;
+  }
+div.showcase.full .slideOut.top div.FilterWrapperBottom {
+    background: transparent url(../img/topSlideFilterTile.png) repeat-y center top;
+    padding: 0 20px;
+}
+div.showcase.full div.filterWrapper.slideOut div.slideWrapper {
+	background: none;
+	min-height: 0;
+	position: static;
+}
+div.showcase.full div.filterWrapper.slideOut div#filter div.revealSlide a.expand {
+	background: none;
+	height: auto;
+	position: static;
+	text-indent: 0;
+	width: auto;
+}
+*/
+div.filterWrapper {
+	width: 895px;
+}
+
+div.filterWrapper h1 {
+	background: none;
+	padding: 10px 10px 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 24px;
+	color: #333333;
+}
+
+ul#filter {
+	float: left;
+	list-style: none;
+	margin: 0;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+div.showcase.full div.showcaseWrapper {
+}
+
+ul#filter li {
+	float: left;
+}
+
+ul#filter a {
+	text-decoration: none;
+	color: #333;
+	display: block;
+	background: transparent url(../images/radio.png) no-repeat 0 -82px;
+	padding: 2px 18px 2px 17px;
+}
+
+ul#filter li.current a {
+	color: #000;
+	background-position: 0 6px;
+}
+
+div.showcase h1.filterHead, div.showcase.full h1.filterHead {
+	float: left;
+}
+
+div.showcase span.filterReset a, div.showcase.full span.filterReset a {
+	font-weight: bold;
+	float: left;
+	cursor: pointer;
+	margin-top: 22px;
+	color: #fff;
+}
+
+div.showcase div.divide1, div.showcase.full div.divide1 {
+	clear: both;
+	height: 0px;
+	line-height: 0px;
+	font-size: 0%;
+	padding: 0;
+	margin: 0;
+}
+
+div.showcase div#filter span, div.showcase.full div#filter span {
+	display: block;
+	font-size: 17px;
+}
+div.showcase a.searchButton.button span {
+	display: inline-block !important;
+}
+
+div.showcase div#filter .attributeWrapper ul li span {
+	font-size: 13px;
+}
+
+div#filter .ui-slider-scale span.ui-slider-label {
+	font: normal 10px/1 'Arial', sans-serif;
+	color: #991321;
+}
+
+div.showcase div#filter div.filters select, div.showcase.full div#filter div.filters select {
+	width: 100%;
+}
+
+div.showcase div#filter div.filters label, div.showcase.full div#filter div.filters label {
+	padding: 0 10px 0 0;
+}
+
+div.showcase div.filterContainer, div.showcase.full div.filterContainer {
+	padding-bottom: 45px;
+}
+
+div.showcase .filterSlideHide div.filterContainer {
+	padding-bottom: 15px;
+}
+
+div.showcase div.slideWrapper, div.showcase.full div.slideWrapper {
+	position: relative;
+	min-height: 45px;
+	height: auto !important;
+	height: 45px;
+	background: transparent url(../img/showcase-top-tile.jpg) repeat-y 0 0;
+}
+
+div.showcase div#filter div.revealSlide a.expand, div.showcase.full div#filter div.revealSlide a.expand {
+	bottom: 7px;
+	left: 9px;
+	display: block;
+	position: absolute;
+	z-index: 15;
+	margin: 8px 0 0 0;
+}
+
+div.showcase div#filter div.revealSlide a.expand.up, div.showcase.full div#filter div.revealSlide a.expand.up {
+	background-position: 0 0;
+}
+
+div.showcase div.slide, div.showcase.full div.slide {
+	z-index: 5;
+}
+div.showcase div.slide span, div.showcase.full div.slide span {
+	word-break: break-all;
+}
+
+div.filters td.first, div.filters td.last, div.filters td.rangeSlider {
+	vertical-align: bottom;
+	height: 4em;
+}
+
+div.filters td.first, div.filters td.last {
+	vertical-align: top;
+	text-align: center;
+	width: 25px;
+}
+.filters.attributes.first label {
+    color: #3F393F;
+    display: inline-block;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+    margin: 0 0 2px;
+    vertical-align: 1px;	
+}
+.filters.attributes.first input.text {
+	width: 96%;
+	margin: 0 0 15px 0;
+}
+.filters.attributes.first .button span {
+	background: none;
+	border: none;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	color: #ffffff;
+	font-weight: normal;
+}
+div.filters input#rangeAmount {
+	border: 0px none;
+	float: left;
+}
+
+div.showcase div#filter div.filters span.rangeClear {
+	display: inline;
+}
+
+div.filters span.rangeClear a {
+	font-weight: bold;
+	cursor: pointer;
+	font-family: Arial,sans-serif;
+	vertical-align: middle;
+	padding: 0 5px 0;
+	font-size: 11px;
+	color: #1F58B0;
+	text-decoration: none;
+}
+div.filters span.rangeClear a:hover {
+	text-decoration: underline;
+}
+.showcase .projectPage .editSavedSearch {
+	margin: 0 auto 10px;
+    text-align: center;
+    width: 134px;
+}
+.editSavedSearchWrap {
+	background: #CFCFCF;
+	height: 32px;
+	margin: -1px auto 0;
+	padding: 16px 6px;
+}
+div.showcase div#filter div.filters span.filterMinimize {
+	float: right;
+	display: inline;
+	padding: 10px 0 0 0;
+	width: 25px;
+}
+
+div.filters span.filterMinimize a {
+	display: block;
+	float: right;
+	width: 37px;
+	height: 19px;
+	text-indent: -9999px;
+	outline: none;
+	background: transparent url(../img/plus.png) no-repeat center top;
+}
+
+div.filters span.filterMinimize.open a {
+	background: transparent url(../img/minus.png) no-repeat center top;
+}
+
+div.filters span.filterMinimize a:hover {
+	background-position: center bottom;
+}
+
+div#filter div.divide {
+	height: 0;
+	font-size: 0%;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+div#filter div.divide.end {
+	clear: both;
+}
+
+/* =Left Side Filters
+----------------------------------*/
+
+div.filterWrapper.side {
+	width: 274px;
+	float: left;
+	position: relative;
+}
+
+div.FilterWrapperTop {
+	background: url(../img/bottom_advSearchSidebar.png) no-repeat 0 100%;
+	padding-bottom: 3px;
+}
+
+div.FilterWrapperBottom {
+	background: url(../img/tile_advSearchSidebar.png) repeat-y;
+	border-top: 1px solid #fff;
+}
+.filterHeader {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #eceef3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eceef3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#eceef3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#eceef3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#eceef3 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#eceef3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eceef3',GradientType=0 ); /* IE6-9 */
+	border-bottom: 1px solid #D5D5D5;	
+	margin-left: 1px;
+    width: 272px;	
+}
+.filterHeader.small {
+	height: 46px;
+}
+.filterHeader h1 {
+}
+.filterHeader a.resetAllFilters {
+	padding-top: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.filterHeader a.resetAllFilters:hover {
+	text-decoration: underline;
+}
+.filterHeader a {
+	padding: 0 10px 10px;;
+	color: #1F58B0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	display: block;
+}
+.filterHeader a:hover {
+	text-decoration: underline;
+}
+div.filterWrapper.side h2.filterHead {
+	padding: 15px 20px 13px;
+	margin: 0;
+}
+
+div.filterWrapper.side div#filter {
+}
+
+div.showcase div.filterWrapper.side div#filter div.filters {
+	border-top: 1px solid #ccc;
+	margin: 0 2px;
+	padding: 0 18px 18px;
+	border-top: 1px solid #FEFEFE;
+	border-bottom: 1px solid #D5D5D5;
+	background: none;
+}
+div.showcase div.filterWrapper.side div#filter div.filters.first {
+	padding-top: 18px;
+}
+div.showcase div.filterWrapper.side div#filter .slideWrapper.filters {
+	padding: 0;
+}
+
+div.filterWrapper.side div.attributeWrapper {
+	display: block;
+	overflow: visible;
+	height: auto;
+	margin-top: 10px;
+}
+
+div.filterWrapper.side div.attributeWrapper label {
+	clear: right;
+}
+
+div.showcase div.filterWrapper.side span.filterReset a {
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	color: #fff;
+	position: absolute;
+	top: 28px;
+	left: 110px;
+}
+
+div.filterWrapper.side iv.filters td.first, div.filters td.last, div.filters td.rangeSlider {
+	height: auto;
+}
+
+div.filterWrapper.side div#filter span.filterTitle {
+	padding-top: 6px;
+	width: 235px;
+}
+
+div.showcase.side div#filter div.filters select {
+	width: 100%;
+}
+
+div.filterWrapper div.attributeWrapper input.text {
+	width: 365px;
+	margin-bottom: 5px;
+}
+
+div#filter input.text.blurred {
+	color: #bbb;
+}
+
+div.filterWrapper.side div.attributeWrapper input.text {
+	width: 223px;
+}
+
+.attributeHalf {
+	width: 50%;
+	float: left;
+	clear: left;
+}
+
+div.showcase ul.filterTitle, div.showcase ul.filterHalf {
+	width: 50%;
+	float: right;
+	clear: right;
+	margin: 0;
+	padding: 0;
+}
+
+div.showcase ul.filterTitle li, div.showcase ul.filterHalf li {
+	width: 33%;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+div.showcase ul.filterHalf label {
+	display: none;
+}
+
+div.showcase .wrapperShort {
+	width: 350px;
+}
+
+
+/* =PROJECT DETAILS
+   ....................................... */
+div.showcase div.projectPage {
+	width: 920px;
+	height: 565px;
+	padding: 20px;
+	position: relative;
+	background: #f2f2f2;
+	
+}
+
+div.showcase div.topArea img {
+	margin-bottom: 10px;
+}
+
+div#tabs {
+	height: 565px;
+}
+
+div#tabs div.rightSide {
+	width: 640px;
+	height: 430px;
+	padding: 10px 20px;
+	float: right;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-left: 2px solid #ccc;
+	background: transparent url(../img/showcaseRightBG.jpg) no-repeat right bottom;
+}
+
+div#tabs h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 24px;
+	font-weight: normal;
+	color: #333;
+	padding-left: 0;
+}
+
+div#tabs h1.projectTitle {
+	padding-top: 10px;
+}
+
+div#tabs h3.projectDescription {
+	font-size: 100%;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #999;
+}
+
+div.mediaText {
+	float: left;
+	width: 185px;
+	padding-right: 15px;
+	margin-right: 10px;
+	height: 420px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div#tabs div.leftSide {
+	float: left;
+	padding: 0 10px;
+	width: 200px;
+	height: 440px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+a.linkToPage {
+	font: 13px/160% Arial, sans-serif;
+	color: #666666;
+	float: right;
+	display: inline-block;
+	margin: 10px 0;
+}
+div.slideWrapper.linkWrapper.resultsLink {
+	width: 185px;
+}
+a.btnShowcaseDetail.printSummary {
+	background-position: 0 -33px;
+}
+a.btnShowcaseDetail.virtualTour {
+	background-position: 0 -264px;
+    text-align: left;
+    width: 99px;
+	margin-bottom: 0;
+	padding-right: 0;
+	padding-left: 61px;
+}
+a.linkToPage:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+
+div.linkContainer {
+	float: right;
+	clear: right;
+    position: absolute;
+    width: 425px;
+    top:50px;
+}
+
+div.showcase div.slideWrapper.linkWrapper {
+	float: right;
+	height: 33px;
+	width: 160px;
+	z-index: 5;
+	position: relative;
+	background: none;
+}
+
+
+div.slideWrapper div#LinkPopup {
+	border: 1px solid #fff;
+	background: #EBEEF1;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 8px;
+	border-width: 1px;
+	box-shadow: 0 1px 1px #aaa;
+	color: #1F58B0;
+	font: 13px/120% Arial,sans-serif;
+}
+
+div.showcase div.slideWrapper div#LinkPopup span {
+	display: inline-block;
+	text-align: right;
+}
+
+div.showcase div.slideWrapper.linkWrapper.resultsLink {
+}
+
+div.showcase.full div.slideWrapper.linkWrapper.resultsLink {
+	right: 50px;
+}
+
+div.showcase .resultsLink a.linkToPage {
+	outline: none;
+}
+div.left, div.right {
+	float: left;
+	margin-bottom: 5px;
+}
+div.right {
+	float: right;
+}
+div.smaller {
+	width: 190px;
+}
+div.larger {
+	width: 440px;
+}
+div.smaller.right {
+	margin-right: 10px;
+}
+div.larger.left {
+	margin-right: 35px;
+}
+.bottomSection h2 {
+	color: #333;
+	margin-bottom: 0px;
+}
+.bottomSection h2 + hr {
+	margin-top: 0;
+}
+.bottomSection p {
+	color: #333;
+}
+div.full {
+	width: 700px;
+	margin-bottom: 15px;
+}
+div.full a {
+	width: 430px;
+	margin: 0 auto;
+	display: block;
+	text-align: right;
+}
+div.full img {
+	border: 1px solid #DDD;
+}
+div.full a span {
+	margin-top: 10px;
+	display: block;
+}
+div.half {
+	width: 320px;
+	float: left;
+}
+div.brokerRecip {
+    padding-top:10px;
+}
+table.attributes.full {
+}
+div.description.realtor {
+	float: right;
+	width: 200px;
+	text-align: center;
+	padding-top: 10px;
+    margin-right:75px;
+}
+div.realtor span {
+	display: block;
+}
+div.realtor span em {
+	color: #851521;
+}
+div.description.realtor img {
+	margin: 10px auto;
+}
+
+.attributeWrapper input + span.floatLeft {
+	padding: 3px 8px 0;
+}
+.showcase .printLogo {
+	display: none;
+}
+
+/* =PROJECT DETAILS FILTERS
+   ....................................... */
+
+table.attributes td {
+	vertical-align: top;
+	padding: 2px 7px 2px 0;
+	border-bottom: 1px solid #ddd;
+	color: #444;
+}
+
+table.attributes span {
+	font-weight: bold;
+	color: #222;
+}
+
+table.attributes.featured {
+	width: 176px;
+	margin-bottom: 8px;
+}
+
+table.attributes.featured td {
+	font-size: 77%;
+	width: 50%;
+}
+
+table.attributes.featured span {
+}
+
+table.attributes.full td {
+	font-size: 100%;
+}
+table.attributes {
+	font-family: Arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+table.attributes.full td {
+	width: 126px;
+}
+table.attributes.full span {
+	width: 180px;
+	display: block;
+}
+
+/* =TABS MEDIA
+----------------------------------*/
+
+.largevideo {
+	margin: auto;
+	text-align: center;
+}
+
+.mediaCaption {
+	color: #666;
+	font-size: 85%;
+	font-weight: bold;
+	text-align: center;
+	margin: 2px auto 0;
+}
+
+.thumbnails a.item {
+	display: block;
+	float: left;
+	width: 149px;
+	margin: 10px;
+	outline: none;
+}
+
+.thumbnails img:hover {
+	border: 1px solid #AB1C2A;
+}
+
+.thumbnails a img {
+	border: 1px solid #fff;
+	width: 149px;
+	height: 98px;
+
+}
+
+/* =Slider
+----------------------------------*/
+
+.sliderWrapper {
+	position: relative;
+	margin-top: 30px;
+}
+
+div.showcase div#filter span.rangeAmount {
+	display: block;
+	margin-top: 28px;
+	font: bold 11px/1 "Arial",sans-serif;
+}
+
+.sliderWrapper .ui-state-default, .sliderWrapper .ui-widget-content, .sliderWrapper .ui-state-default {
+	background: url("../img/slider-handle.png");
+	outline: none;
+}
+
+.sliderWrapper .ui-state-hover, .sliderWrapper .ui-widget-content .sliderWrapper .ui-state-hover, .sliderWrapper .ui-state-focus, .sliderWrapper .ui-widget-content, .sliderWrapper .ui-state-focus {
+	background: #BDB4A7 url(../img/slider-handle.png);
+	outline: none;
+	cursor: pointer;
+}
+
+.sliderWrapper .ui-state-hover a, .sliderWrapper .ui-state-hover a:hover {
+	color: #212121;
+	text-decoration: none;
+	outline: none;
+}
+
+.sliderWrapper .ui-state-active, .sliderWrapper .ui-widget-content, .sliderWrapper .ui-state-active {
+	background: url("../img/slider-handle.png");
+	outline: medium none;
+}
+
+.sliderWrapper .ui-state-active a, .sliderWrapper .ui-state-active a:link, .sliderWrapper .ui-state-active a:visited {
+	color: #212121;
+	outline: none;
+	text-decoration: none;
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 13px;
+	height: 28px;
+	cursor: default;
+}
+
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 1px solid #ccc;
+}
+
+.ui-slider-horizontal, .sliderWrapper .ui-slider.ui-slider-horizontal {
+	height: .8em;
+	background: transparent;
+	border: none;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+	top: -9px;
+	margin-left: -.6em;
+	cursor: pointer;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+	top: 9px;
+	height: 2px;
+}
+
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.thumbnails {
+	width: 100%;
+	padding: 0;
+}
+
+.sliderContent .viewer img, .content-conveyor img, .thumbnails .item img {
+	border: 1px solid #000;
+}
+.ui-corner-all {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 13px;
+	height: 28px;
+	cursor: pointer;
+}
+
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 1px solid #ccc;
+	background: #991322;
+}
+
+.ui-slider-horizontal, .sliderWrapper .ui-slider.ui-slider-horizontal {
+	height: 1.5em;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.6em;
+	margin-left: -.45em;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+	top: 9px;
+	height: 2px;
+}
+
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.ui-slider-vertical {
+	width: .8em;
+	height: 100px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+	left: -.3em;
+	margin-left: 0;
+	margin-bottom: -.6em;
+}
+
+.ui-slider-vertical .ui-slider-range {
+	left: 0;
+	width: 100%;
+}
+
+.ui-slider-vertical .ui-slider-range-min {
+	bottom: 0;
+}
+
+.ui-slider-vertical .ui-slider-range-max {
+	top: 0;
+}
+
+.ui-slider {
+	text-decoration: none !important;
+}
+
+.ui-slider .ui-slider-handle {
+	overflow: visible !important;
+}
+
+.ui-slider .ui-slider-tooltip {
+	display: none;
+}
+
+.ui-slider .screenReaderContext {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	left: -999999999px;
+}
+
+.ui-slider .ui-state-active .ui-slider-tooltip, .ui-slider .ui-state-focus .ui-slider-tooltip, .ui-slider .ui-state-hover .ui-slider-tooltip {
+	display: block;
+	position: absolute;
+	bottom: 2.5em;
+	text-align: center;
+	padding: .3em .2em .4em;
+	font-size: .9em;
+	width: 8em;
+	margin-left: -3.7em;
+}
+
+.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down, .ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner {
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	border-bottom-width: 0;
+	background: none;
+}
+
+.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down {
+	border-left: 7px dashed transparent;
+	border-right: 7px dashed transparent;
+	border-top-width: 8px;
+	bottom: -8px;
+	right: auto;
+	left: 50%;
+	margin-left: -7px;
+}
+
+.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner {
+	border-left: 6px dashed transparent;
+	border-right: 6px dashed transparent;
+	border-top: 7px solid #fff;
+	bottom: auto;
+	top: -9px;
+	left: -6px;
+}
+
+.ui-slider a {
+	text-decoration: none;
+}
+
+.ui-slider ol, .ui-slider li, .ui-slider dl, .ui-slider dd, .ui-slider dt {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ui-slider ol, .ui-slider dl {
+	position: relative;
+	top: -29px;
+	width: 100%;
+	height: 18px;
+}
+
+.ui-slider dt {
+	top: 1.5em;
+	position: absolute;
+	padding-top: .2em;
+	text-align: center;
+	border-bottom: 1px dotted #ddd;
+	height: .7em;
+	color: #999;
+}
+
+.ui-slider dt span {
+	background: #fff;
+	padding: 0 .5em;
+}
+
+.ui-slider li, .ui-slider dd {
+	position: absolute;
+	overflow: visible;
+	color: #666;
+}
+
+div.showcase div#filter span.ui-slider span.ui-slider-label,
+div.showcase.full div#filter span.ui-slider span.ui-slider-label {
+	position: absolute;
+}
+
+span.ui-slider-label,
+div.showcase div#filter .ui-slider li span.ui-slider-label, div.showcase div#filter .ui-slider dd span.ui-slider-label,
+div.showcase.full div#filter .ui-slider li span.ui-slider-label, div.showcase.full div#filter .ui-slider dd span.ui-slider-label {
+	display: none;
+}
+
+span.ui-slider-label-show,
+div.showcase div#filter .ui-slider li span.ui-slider-label-show, div.showcase div#filter .ui-slider dd span.ui-slider-label-show,
+div.showcase.full div#filter .ui-slider li span.ui-slider-label-show, div.showcase.full div#filter .ui-slider dd span.ui-slider-label-show {
+	display: block;
+}
+
+.ui-slider span.ui-slider-tic {
+	position: absolute;
+	left: 0;
+	height: 5px;
+	top: 14px;
+	background: none;
+	border: 0px none;
+	color: #991321;
+	display: block !important;
+}
+
+.ui-slider li span.ui-widget-content, .ui-slider dd span.ui-widget-content {
+	border-right: 0;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.ui-slider .first .ui-slider-tic, .ui-slider .last .ui-slider-tic {
+	display: none;
+}
+
+
+/* Custom Styles Declarations */
+
+.colContainer {
+	background: #E0E4EA url(../img/tileContent.jpg) repeat-x 0 0;
+	padding: 23px 0;
+}
+
+.filterWrapper.side .formWhole label {
+	font: 17px/100% 'Georgia', serif;
+	margin: 0 4px;
+}
+
+.filtersHeader h2, .filtersHeaderTop h2 {
+	margin: 0;
+	display: inline-block;
+}
+
+.filtersHeaderTop h2 {
+	display: block;
+}
+
+.theme-augusta .filtersHeaderTop h2,
+.theme-new .filtersHeaderTop h2 {
+	font-size: 22px;
+}
+
+.filtersHeader h2 span {
+	font-size: 20px;
+}
+
+.filtersHeader a, a.filtersReset {
+	color: #1F58B0;
+	font: bold 13px/160% Arial, sans-serif;
+}
+
+.filtersHeaderTop a.crossSearchLink {
+	font: bold 13px Arial, sans-serif;
+}
+
+.filtersHeader {
+	padding: 15px 20px 13px;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.filtersHeader a.filterReset {
+	float: right;
+	margin-top: 7px;
+	font-size: 12px;
+}
+
+.filtersHeaderTop {
+	background: url(../img/tile_mlsSearchHead.jpg) repeat-x;
+	margin: 0 2px;
+	padding: 15px 18px 13px;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+h2.filters {
+	margin: 0;
+}
+
+a.filtersReset {
+	font-size: 12px;
+	float: right;
+	margin-top: -22px;
+}
+
+.borderedContainer {
+	margin: 0 2px;
+	padding: 18px;
+	border-top: 1px solid #FEFEFE;
+}
+
+a.saveFilters {
+	background: url(../img/saveFilter.jpg) no-repeat;
+	text-indent: -9999px;
+	height: 33px;
+	width: 270px;
+	margin: 20px auto;
+	display: block;
+}
+
+.resultsHeader {
+	padding-bottom: 30px;
+}
+
+.resultsHeader h4 {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.resultsHeader input[type="checkbox"] {
+	margin: 5px;
+}
+
+.resultsHeader label {
+	vertical-align: 1px;
+}
+
+.resultsHeader .numResults {
+	float: left;
+}
+
+.resultsHeader .sortBy {
+	float: right;
+	text-align: right;
+}
+
+div.showcaseCategory div.showcaseResults p, div.ResultsControls {
+	font: 12px/120% Arial, sans-serif;
+}
+
+#category a,
+.search-category a {
+	text-decoration: none;
+}
+
+#category img,
+.search-category img {
+	margin-bottom: 5px;
+	font: Bold 12px Arial,sans-serif;
+	border: 1px solid #333;
+}
+
+#category li span,
+.search-category span {
+	text-align: left;
+	color: #333;
+	font: 13px/140% Arial, sans-serif;
+	display: block;
+	width: 108px;
+}
+
+#category li a.showcaseId6 span,
+#category li a.showcaseId5 span {
+	width: 126px;
+}
+
+div.showcaseResults.srBottom {
+	height: 12px;
+	padding: 19px 20px;
+	background: url(../img/tile_displayResults.png) repeat-x;
+	float: left;
+	width: 631px;
+}
+
+a.toggleMap {
+	color: #666666;
+	padding: 0px 0 0px 20px;
+	background: url("../img/toggleMap.png") no-repeat;
+	font: 13px/15px Arial,sans-serif;
+	margin: 15px 0 10px;
+	display: inline-block;
+	height: 14px;
+}
+
+a.toggleMap.collapsed {
+	background-position: 0 -14px;
+}
+
+a.toggleMap:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+
+.showcase div.leftSide {
+	float: left;
+	width: 160px;
+	height: 565px;
+	margin-right: 20px;
+}
+.leftSide hr {
+	margin: 10px 0 10px;
+}
+.showcase div.leftSide a.visitWebsite {
+	display: block;
+	margin-top: 5px;
+	color: #666;
+}
+.showcase div.leftSide a.visitWebsite:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+.showcase div.rightSide {
+	float: right;
+	width: 740px;
+	height: 565px;
+	background: #F8F8F8;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, .50);
+}
+
+div.propInfoSum {
+	text-align: center;
+}
+div.propInfoSum p.propAddress {
+	font-size: 12px;
+}
+.leftSide div.propInfoSum p.propAddress {
+	margin: 0 0 10px;
+}
+.topSection {
+	width: 740px;
+	height: 41px;
+}
+.bottomSection {
+	width: 740px;
+	height: 524px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.bottomSection::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+}
+.bottomSection::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: rgba(156, 156, 156, .6);
+}
+
+a.saveSearch {
+	background: url(../img/saveSearch.jpg) no-repeat;
+	height: 33px;
+	width: 160px;
+	display: block;
+	text-indent: -9999px;
+	outline: none;
+	margin: 10px 0 15px;
+}
+
+.propInfoSum, .otherServices a {
+	font-family: Arial, Sans-Serif;
+}
+
+.propInfoSum {
+	padding: 10px 0;
+}
+.leftSide .propInfoSum {
+	padding: 0;
+}
+
+.propInfoSum, .propInfoSum span {
+	font-size: 11px;
+}
+
+.propInfoSum span {
+	display: inline-block;
+}
+
+.propInfoSum span.propAddress {
+	font-size: 12px;
+	line-height: 140%;
+	padding: 5px 0;
+}
+
+.propInfoSum span.propPrice {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 140%;
+	display: block;
+	padding-bottom: 5px;
+}
+.realtorInfo {
+	text-align: center;
+	line-height: 1.25em;
+}
+.realtorInfo img {
+	margin: 0 auto 8px;
+}
+.leftSide .realtorInfo {
+	font-size: 0.87em;
+}
+.realtorInfo span {
+	display: block;
+	margin-bottom:0.5em;
+}
+	.realtorInfo .realtorNumber .value {
+		white-space:nowrap;
+	}
+a.printSummary {
+	font: 13px/160% Arial, sans-serif;
+	color: #666666;
+	float: right;
+	display: block;
+	padding: 6px 16px 6px 46px;
+	height: 21px;
+	margin: 10px 0 0;
+}
+
+a.btnShowcaseDetail:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+
+a.getDirections {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 160%;
+	text-align: center;
+	display: block;
+}
+
+a.getDirections:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+.otherServices h4 {
+	font-size: 13px;
+	font-style: italic;
+	line-height: 120%;
+	font-weight: normal;
+	margin: 0 0 4px;
+}
+
+.otherServices a {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 170%;
+}
+
+.otherServices {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffffff,endColorstr=#ffeceef3)";
+	border: 1px solid #D5D5D5;
+	padding: 10px;
+	margin: 5px 0 0;
+	background-image: linear-gradient(rgb(255,255,255) 0%,rgb(236,238,243) 99%);
+}
+
+#tabs .topTabs li a {
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+}
+div.projectPage #tabs ul.ui-tabs-nav li:last-child a {
+	background: url("../img/btnShowcaseContact.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #360105;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    text-decoration: none;
+	font-weight: bold;
+}
+div.projectPage #tabs ul.ui-tabs-nav li:last-child a:hover, div.projectPage #tabs ul.ui-tabs-nav li:last-child.ui-state-active a {
+	background-position: 0 -37px;
+}
+.overviewWrapper {
+	padding-top: 5px;
+}
+
+ul.roomsLeft {
+	float: left;
+	width: 225px;
+	padding-right: 20px;
+}
+
+ul.roomsRight {
+	float: left;
+	width: 205px;
+}
+.schoolsWrapper {
+	padding: 20px 0 0 15px;
+}
+
+.schoolsWrapper ul li {
+	height: 102px;
+	padding: 0 0 30px;
+}
+
+.schoolsWrapper li img {
+	float: left;
+}
+
+.schoolsWrapper li h2 {
+	padding: 30px 0 0 154px;
+	margin: 0;
+}
+
+.schoolsWrapper li p {
+	padding: 5px 0 5px 154px;
+}
+
+.schoolsWrapper p {
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.schoolsWrapper p span {
+	font-weight: normal;
+}
+
+.mapWrapper h2 {
+	width: 70%;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+#mapviewer {
+	margin: 10px 0 25px;
+	border: 1px solid #666666;
+}
+
+#LME_maplinks {
+	float: right;
+}
+
+a#LME_birdsEye {
+	background: url(../img/bingBtn.png) no-repeat;
+	color: #666666;
+	display: block;
+	float: right;
+	font: 13px/160% Arial,sans-serif;
+	margin: 0 0 2px;
+	padding: 6px 21px 6px 49px;
+}
+
+a#LME_birdsEye:hover {
+	color: #225AB8;
+	text-decoration: none;
+}
+.bottomSection p.propAddress {
+	font-size: 20px;
+	font-family: Georgia,'Times New Roman', serif;
+	width: 275px;
+	margin: 10px 0;
+}
+.bottomSection p.propDirections {
+	float: left;
+	width: 275px;
+}
+
+.lifestyleWrapper, .hoodWrapper {
+	padding: 10px 5px 0 10px;
+}
+
+div#tabs .lifestyleWrapper h1, div#tabs .hoodWrapper h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 32px;
+	line-height: 100%;
+	border-bottom: 1px solid #D5D5D5;
+	padding-bottom: 15px;
+	margin: 0 0 15px;
+}
+
+.lifestyleWrapper .textWrapper p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: 160%;
+	font-weight: normal;
+}
+
+.lifestyleWrapper .textWrapper img {
+	float: right;
+	margin: 5px 10px 10px 25px;
+}
+
+.hoodInfo {
+	padding: 5px 0 20px;
+	height: 166px;
+}
+
+.hoodWrapper .hoodInfo img {
+	float: left;
+	height: 166px;
+	width: 230px;
+	margin-right: 25px;
+}
+
+.hoodWrapper .hoodInfo p {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.hoodInfo span {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	line-height: 160%;
+	font-weight: normal;
+	display: block;
+	padding: 2px 0 0;
+}
+
+.hoodInfo a.moreInfo {
+	background: url(../img/moreInfo.jpg) no-repeat;
+	height: 26px;
+	width: 116px;
+	display: block;
+	text-indent: -9999px;
+	outline: none;
+	margin: 10px 0 0 255px;
+}
+.hoodDetailInfo div.floatLeft p strong, .hoodDetailInfoWrapper p strong {
+	padding-bottom: 7px;
+	display: block;
+}
+.hoodDetailInfoWrapper a {
+	text-decoration: none;
+    display:block;
+}
+.hoodDetailInfo hr {
+	margin-bottom: 20px;
+}
+.hoodDetailInfo h3 {
+	font-size: 20px;
+}
+.hoodDetailInfo  img {
+	border: 1px solid #000;
+	margin-right: 30px;
+}
+.hoodDetailInfo .neighborhoodName, .hoodDetailInfo .builderName {
+	font-size: 36px;
+}
+.hoodDetailInfo p span {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 16px;
+}
+.hoodDetailInfo a.builderWebsite {
+	text-decoration: none;
+	color: #666;
+	font-family: Arial, helvetica, sans-serif;
+	padding-top: 8px;
+	display: inline-block;
+}
+.hoodDetailInfo a.builderWebsite:hover {
+	color: #225AB8;
+}
+.hoodHighlights {
+	clear: both;
+}
+
+.hoodWrapper ul {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	font-weight: normal;
+	height: 125px;
+	padding: 15px 35px 10px 0;
+	/*width: 270px;*/
+	margin-right: 35px;
+	float: left;
+}
+
+.hoodWrapper h2 {
+	padding-bottom: 10px;
+}
+
+.hoodWrapper ul li {
+	line-height: 14px;
+	padding: 0 0 21px;
+}
+
+.hoodWrapper ul.hoodUlLeft {
+	background: url(../img/dividerHood.png) no-repeat right 15px;
+}
+
+.builderWrapper p,
+.builderWrapper a {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: 160%;
+}
+
+.builderWrapper {
+	padding-top: 10px;
+}
+
+.builderWrapper img {
+	height: 102px;
+	width: 134px;
+	float: left;
+	margin-top: 5px;
+}
+
+.builderWrapper .textWrapper {
+	padding-left: 156px;
+}
+
+.builderWrapper h2 {
+	font-size: 24px;
+	margin: 0;
+}
+
+
+.contactWrapper {
+	padding: 20px 0 0;
+}
+.contactWrapper .realtor {
+	width: 195px;
+	padding-right: 25px;
+	border-right: 1px solid #D5D5D5;
+	margin-right: 25px;
+	text-align: center;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 14px;
+	color: #3F393F;
+}
+.contactWrapper .realtor p {
+	font-family: Arial, helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	text-align: justify;
+	width: 165px;
+	margin: auto;
+}
+.contactWrapper .realtor em.questions {
+	font-size: 13px;
+}
+.contactWrapper .realtor .realtorName {
+	font-size: 15px;
+}
+.contactWrapper .realtor hr {
+	margin: 50px 0 20px;
+}
+.contactWrapper .realtor img {
+	border: 1px solid #999;
+	margin: 10px auto;
+}
+.contactWrapper .panelLeft {
+	width: 195px;
+	margin-right: 30px;
+	border-right: 1px solid #D5D5D5;
+}
+
+.contactWrapper .panelRight {
+	width: 433px;
+}
+
+.contactWrapper .panelLeft h2 {
+	font-size: 14px;
+	font-style: italic;
+	line-height: 120%;
+	text-align: center;
+	padding-top: 0;
+}
+
+.contactWrapper .panelLeft sup {
+	font-size: 9px;
+}
+
+.contactWrapper .panelLeft img {
+	margin: 3px auto 10px;
+}
+
+.contactWrapper .contactRealInfo p {
+	text-align: center;
+	word-wrap: break-word;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	line-height: 180%;
+}
+
+.contactWrapper .contactRealInfo {
+	padding-bottom: 50px;
+}
+
+.contactWrapper .contactTip h6 {
+	font-size: 13px;
+	font-style: italic;
+	padding: 15px 0 0;
+	margin-bottom: 7px;
+	color: #3F393F;
+	text-align: center;
+}
+
+.contactWrapper .contactTip p {
+	padding: 0 20px;
+	font-size: 11px;
+	line-height: 140%;
+}
+
+.contactWrapper hr {
+	color: #d5d5d5;
+	margin: 0 10px;
+	width: auto;
+}
+
+.contactWrapper .formHalf {
+	padding: 0 0 20px 0;
+	width: 48%;
+}
+
+.contactWrapper .formHalf.leftHalf {
+	padding-right: 15px;
+}
+
+.contactWrapper .panelRight label, .contactWrapper .panelRight .formWhole label {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-weight: normal;
+	padding-bottom: 5px;
+	display: block;
+	width: 195px;
+	line-height: 1.2;
+}
+
+.contactWrapper .panelRight input.text {
+	width: 184px;
+	height: 25px;
+	display: block;
+	margin-bottom: 20px;
+}
+.contactWrapper .panelRight select {
+	padding: 8px;
+}
+.contactWrapper textarea {
+	width: 384px;
+	padding: 10px;
+	color: #CCCCCC;
+	font-style: italic;
+	height: 100px;
+}
+.contactWrapper .charLimit {
+	padding-right: 10px;
+	padding-top: 7px;
+}
+.contactWrapper textarea.focused {
+	color: #333;
+	font-style: normal;
+}
+
+.contactWrapper .form label span {
+	color: #AA1B2A;
+	font-size: 20px;
+	font-style: normal;
+}
+
+.contactWrapper .form span.charLimit {
+	position: absolute;
+	right: 10px;
+	top: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+}
+
+.contactWrapper .formWhole {
+	position: relative;
+	padding: 0 0 20px 0 !important;
+}
+
+.contactWrapper .formWhole input.button {
+	margin-top: 20px;
+	font-size: 20px;
+	padding: 0 30px;
+	background: url(../img/tileSend.jpg);
+	height: 43px;
+}
+.contactWrapper #emailDiv, .contactWrapper #phoneDiv {
+	float: left;
+}
+.contactWrapper #emailDiv label, .contactWrapper #phoneDiv label {
+	padding-top: 22px;
+}
+.contactWrapper .formWhole label.full {
+	width: 100%;
+}
+.contactWrapper .formWhole ul li {
+	width: 134px;
+	float: left;
+	display: block;
+}
+.contactWrapper .panelRight .formWhole ul li label {
+	display: inline-block;
+	width: 100px;
+	font-size: 16px;
+}
+.mlsSearchForm.formWhole a.button {
+	padding: 0 20px;
+}
+
+.advSearchSidebarBottom {
+	background: url(../img/bottom_advSearchSidebar.png) no-repeat 0 100%;
+	padding-bottom: 3px;
+}
+
+.advSearchSidebarTile {
+	background: url(../img/tile_advSearchSidebar.png) repeat-y;
+	border-top: 1px solid #fff;
+}
+
+.mlsSearchForm.formWhole {
+	padding-bottom: 0;
+}
+
+.mlsSearchForm.formWhole input.text {
+	height: 25px;
+	margin: 11px 0 12px;
+}
+
+.mlsSearchForm.formWhole a.button {
+	padding: 0 20px;
+}
+
+a.saveFilters {
+	background: url(../img/saveFilter.jpg) no-repeat;
+	text-indent: -9999px;
+	height: 33px;
+	width: 270px;
+	margin: 20px auto;
+	display: block;
+}
+
+.resultsListContainer {
+	clear: both;
+}
+
+.resultsListContainer {
+	display: inline-block;
+}
+
+.resultsListContainer .left {
+	float: left;
+}
+
+.resultsListContainer .right {
+	float: right;
+	text-align: right;
+}
+
+.resultsListContainer .left,
+.resultsListContainer .right {
+	width: 335px;
+}
+
+.priceRange .rangeSlider ol li span.ui-slider-label {
+	/* Safari */
+	-webkit-transform: rotate(-90deg);
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+	/* IE */
+	-ms-transform: rotate(-90deg);
+	/* Opera */
+	-o-transform: rotate(-90deg);
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	margin-left: -17px !important;
+}
+
+div.filterWrapper.side div.attributeWrapper.priceRange {
+	height: 106px;
+}
+
+div.filterWrapper.side div.attributeWrapper.priceRange .sliderWrapper {
+	margin-top: 60px;
+}
+
+div.filterWrapper.side div.attributeWrapper.priceRange .sliderWrapper ol {
+	top: -44px;
+}
+
+div.filterWrapper.side div.attributeWrapper.priceRange .sliderWrapper span.ui-slider-tic {
+	top: 30px;
+}
+
+.filterWrapper.side .mlsSearchForm.formWhole label {
+	line-height: 120%;
+}
+
+.fancybox-wrap div.showcase {
+	overflow-x: hidden;
+}
+
+
+
+
+/* Map UI */
+
+.content.inner.map .wrapper {
+	width: 962px;
+}
+
+.content.inner.map .wrapper .box {
+	width: 962px;
+}
+ .content.inner.map .wrapper .box {
+	background: none;
+}
+
+ .content.inner.map .wrapper .box .bottom {
+	background: url(../img/boxMapInnerBottom.png) no-repeat 0 100%;
+	padding: 19px 0 30px;
+	margin: 0;
+}
+
+ .map .hoods h2 {
+	margin: 0 25px 0;
+}
+
+.mapContainer {
+	border: 1px solid #666666;
+	width: 910px;
+	height: 480px;
+	margin: 0 auto;
+}
+
+ .map .formWhole {
+	padding: 20px 25px 0;
+	width: 95%;
+}
+
+ .map .formWhole input.text {
+	width: 270px;
+	height: 18px;
+	padding: 12px 5px 11px;
+	margin: 5px 0;
+	font-size: 18px;
+}
+
+.map .formWhole .button {
+	width: 97px;
+	margin-left: 10px;
+	height: 41px;
+	width: 127px;
+	font-size: 21px;
+	background: url(../img/btnMapSearch.jpg) repeat-x;
+}
+
+ .map .formWhole label {
+	display: block;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+ .map .hoodDirect {
+	width: 872px;
+	margin: 40px auto 0;
+	padding: 20px;
+	background: url(../img/bgHoodDirectoryContainer.jpg) no-repeat;
+	position: relative;
+}
+ .map .hoodDirect ul {
+	padding: 10px 0 15px;
+}
+
+ .map .hoodDirect li {
+	padding: 0 12px 12px;
+	width: 265px;
+	min-height: 40px;
+}
+
+div.login input.button {
+	margin: 5px 0 5px;
+	padding: 0 20px;
+}
+.pageSizeSelector {
+	margin: 0 0 37px 0;
+	height: 20px;
+	float: left;
+	width: 240px;
+}
+.pageSizeSelector ul {
+	margin: 0 0 0 10px;
+}
+.sortFields {
+	float: right;
+	width: 373px;
+}
+div.showcase .sortFields ul {
+	float: right;
+	margin: 0;
+}
+.sortFields ul li:last-child {
+	padding: 2px 0 0 0;
+}
+.pageSizeSelector span, .sortFields span, .sortFields a {
+	color: #3F393F;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	margin: 0 10px 0 0;
+}
+.sortFields a {
+	color: #1F58B0;
+	line-height: 16px;
+}
+.sortFields a:hover {
+	text-decoration: underline;
+}
+.pageSizeSelector li {
+	padding: 2px 11px 0 0;
+}
+.sortFields li {
+	padding: 3px 11px 0 0;
+}
+.price {
+	font-size: 20px!important;
+	color: #333333;
+	font-weight: bold;
+}
+.leftSide .price {
+	display: block;
+}
+ul.nearbyTab {
+    font-weight: bold;
+    margin: 0;
+}
+ul.nearbyTab li {
+	display: block;
+	border: 1px solid #DEDEDE;
+	padding: 10px;
+	margin: 10px;
+    width: 160px;
+	float: left;
+}
+ul.nearbyTab li img {
+	margin: auto;
+	display: block;
+	border: 1px solid #333;
+}
+ul.nearbyTab p a {
+	font-size:11px;
+    word-wrap:break-word;
+}
+ul.schoolTab {
+	margin-top: 15px;
+}
+.nearbyTab strong, .schoolInfo strong {
+	font-weight: bold;
+}
+.schoolInfo h3, .hoodDetailInfo h3, .nearbyTab h3 {
+	font-size: 20px;
+	color: #333;
+	padding-top: 25px;
+	font-family: Georgia, 'Times New Roman', serif;
+}
+ul.schoolTab li {
+	display: block;
+	width: 665px;
+	margin: 0 0 30px 0;
+}
+ul.schoolTab li img {
+	margin-right: 20px;
+}
+
+ul.openHouse li {
+	font-weight: normal;
+	font-family: Georgia, serif;
+	font-size: 16px;
+	padding: 10px 0;
+}
+
+.content.inner.map.showcaseBox .wrapper .box .bottom {
+	background: none;
+}
+
+.showcase label, .showcase span.label {
+	display: inline-block;
+	cursor: pointer;
+}
+.ui-tabs-panel .contactWrapper ul li {
+	padding: 0;
+}
+.fancybox-next, .fancybox-prev {
+	width: 60px;
+}
+.fancybox-next span, .fancybox-prev span {
+	background: transparent url(../img/showcaseItemButtons.png) no-repeat 0 0;
+	width: 60px;
+	height: 57px;
+}
+.fancybox-next {
+    right: -60px;
+}
+.fancybox-next span{
+	left: auto;
+	right: 0px;
+	background-position: 100% 0;
+}
+.fancybox-next:hover span {
+	background-position: 100% 100%;
+	right: 0;
+}
+.fancybox-prev {
+    left: -60px;
+}
+.fancybox-prev span {
+	left: 0px;
+}
+.fancybox-prev:hover span {
+	background-position: 0 100%;
+	left: 0;
+}
+.filter .filters.realtor {
+	padding: 18px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #D5D5D5;
+	margin-left: 1px;
+    width: 236px;
+	text-align: center;
+}
+.filter .filters.realtor h2 {
+	font-size: 16px;
+	margin: 0 0 2px;
+	font-style: italic;
+}
+.filter .filters.realtor img {
+	margin: 10px auto;
+}
+
+li input[type="radio"], li input[type="checkbox"] {
+	margin-right: 5px;
+}
+div.showcase div#filter div.filters ul.filterRadio li label, div.showcase div#filter div.filters ul.filterCheckbox li label {
+	margin: 0;
+	padding: 0 15px 5px 0;
+}
+.showcase .showcaseDisplayWrapper {
+	position: relative;
+}
+.showcase a.resultsMap, .showcase .controlsBottom a {
+	text-transform: uppercase;
+	color: #fff;
+	font-family: Mido, Georgia, serif;
+	font-size: 11px;
+	text-decoration: none;
+	display: block;
+	height: 25px;
+	line-height: 24px;
+	margin: 10px 0;
+	z-index: 30;
+}
+.showcase .controlsBottom a {
+	background: transparent url(../img/btn-showcase-page.png) no-repeat 0 0;
+}
+.showcase a.resultsMap {
+	position: absolute;
+	bottom: 20px;
+	background: transparent url(../img/btn-showcase-map.png) no-repeat 0 0;
+	text-indent: -9999px;
+	width: 20px;
+}
+.showcase a.resultsMap:hover, .showcase .controlsBottom a:hover {
+	text-decoration: none;
+}
+ .showcase .controlsBottom a.previous {
+	background-position: 0 0;
+	left: 10px;
+	padding-left: 21px;
+	width: 83px;
+}
+.showcase a.resultsMap.previous {
+	top: 0;
+	left: 45%;
+	background-position: 0 0;
+}
+.showcase .controlsBottom a.previous {
+	float: left;
+	margin-left: 20px;
+}
+.showcase .controlsBottom.controlsTop a.previous {
+	margin-left: 0;
+	margin-top: 0px;
+}
+.showcase a.resultsMap.previous:hover, .showcase .controlsBottom a.previous:hover {
+	background-position: 0 -31px;
+}
+.showcase a.resultsMap.previous.disabled, .showcase .controlsBottom a.previous.disabled {
+	background-position: 0 -62px;
+}
+ .showcase .controlsBottom a.next {
+	background-position: -110px 0;
+	right: 10px;
+	padding-left: 16px;
+	width: 88px;
+}
+.showcase a.resultsMap.next {
+	top: 0;
+	right: 45%;
+	background-position: -23px 0;
+}
+.showcase .controlsBottom a.next {
+	float: right;
+	margin-right: 20px;
+}
+.showcase .controlsBottom.controlsTop a.next {
+	margin-right: 0;
+	margin-top: 0px;
+}
+.showcase .controlsBottom a.next:hover {
+	background-position: -110px -31px;
+}
+.showcase a.resultsMap.next:hover {
+	background-position: -23px -31px;
+}
+.showcase .controlsBottom a.next.disabled {
+	background-position: -110px -62px;
+}
+.showcase a.resultsMap.next.disabled {
+	background-position: -23px -62px;
+}
+.showcase a.resultsMap.previous.disabled, .showcase a.resultsMap.next.disabled, .showcase .controlsBottom a.previous.disabled, .showcase .controlsBottom a.next.disabled {
+	cursor: default;
+}
+.showcase ul.openHouse li {
+	padding-bottom: 15px;
+}
+.showcase ul li {
+	position: relative;
+}
+.showcase ul#category li a.icon {
+	display: block;
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	background: transparent url(../img/icon-showcase.png) no-repeat 0 0;
+	right: 5px;
+	cursor: default;
+}
+.showcase ul#category li a.icon.openHouse {
+	bottom: 5px;
+}
+.showcase ul#category li a.icon.virtualTour {
+	background-position: -29px 0;
+	bottom: 25px;
+}
+.showcase div.showcaseCategory.display4 .categoryWrapper ul#category li a.icon {
+	width: 20px;
+	height: 20px;
+	right: 11px;
+}
+.showcase div.showcaseCategory.display4 .categoryWrapper  ul#category li a.icon.virtualTour {
+	background-position: -29px -29px;
+	bottom: 40px;
+}
+.showcase div.showcaseCategory.display4 .categoryWrapper  ul#category li a.icon.openHouse {
+	background-position: 0 -29px;
+	bottom: 15px;
+}
+.photoWrapper {
+    position:relative;
+	width: 472px; 
+	height: 275px;
+}
+
+.playPauseWrapper:hover div.playPause {
+    display:block !important;
+}
+div.playPause {
+    position:absolute;
+    top:42%;
+    left:42%;
+}
+div.playPause .pause,
+div.playPause .play {
+    background:transparent url(../img/playPause.png) no-repeat 0 100%;
+    height: 64px;
+	width: 64px;
+    display:block;
+    text-indent:-9999px;
+    transition:opacity 0.45s ease-in-out 1s;
+}
+div.playPause .pause {
+    background-position:100% 100%;
+}
+div.playPause .pause:hover {
+    background-position:100% 0; 
+}
+div.playPause .play:hover {
+    background-position:0 0;
+}
+a.leftArrow,
+a.rightArrow {
+    background: transparent url(../img/photoPrev.png) no-repeat 50% 50%;
+    display: block;
+    height: 24px;
+    width: 28px;
+    position: absolute;
+    top: 35%;
+    text-indent:-9999px;
+    left:-25px;
+    padding:30px 20px;
+}
+a.rightArrow {
+    background-image:url(../img/photoNext.png);
+    left:430px;
+}
+a.leftArrow:hover div.playPause,
+a.rightArrow:hover div.playPause {
+    display:none;
+}
+
+.showcaseAddress { margin-bottom: 10px; width: 100% !important; }
+
+.paymentCalculator { font: 12px Arial, helvetica, sans-serif; margin: 46px 0 0 40px; }
+.paymentCalculator div label { display: inline-block; font: bold 12px Arial, helvetica, sans-serif; width: 110px; }
+.paymentCalculator .notice { margin-top: 10px; }
+.paymentCalculator .toggle div { font-size: 16px; }
+.paymentCalculator #interestRate { margin-left: 7px; width: 50px; }
+.paymentCalculator #yearsCount { margin-left: 7px; width: 50px; }

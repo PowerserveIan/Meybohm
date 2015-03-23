@@ -1,0 +1,467 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	FORM FIELDS
+	FORM ASSETS
+	FORM FRAMEWORK
+	FORM FRAMEWORK EXTRAS
+	MISC STYLES
+	 
+	....................................... */
+
+
+/* =FORM FIELDS
+	....................................... */
+
+input.text, select, textarea {
+	background: #FFFFFF;
+	border: 1px solid #D6D6D6;
+	color: #555;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px;
+}
+textarea {
+	padding: 3px 5px;
+	width: 450px;
+	height: 150px;
+}
+input.text:hover, select:hover, textarea:hover, input.text:focus, select:focus, textarea:focus {
+	border-color: #acacac;
+	-moz-box-shadow: 0 0 3px #C9C9C2;
+	-webkit-box-shadow: 0 0 3px #C9C9C2;
+	box-shadow: 0 0 3px #C9C9C2;
+}
+select {
+	background-image: none;
+	padding: 4px 5px;
+	line-height: 20px;
+}
+
+input.text.integer, .formHalf input.text.integer, .formWhole input.text.integer {
+	width: 50px;
+}
+.formWrapper.fullWidth {
+	width: 95%;
+}
+
+/* =FORM ASSETS
+	....................................... */
+
+fieldset {
+	padding: 1.4em;
+	margin: 0 0 1.5em 0;
+	border: 1px solid #adadad;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+legend {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #18568B;
+}
+label, span.label {
+	display: block;
+	font-weight: bold;
+	margin: 0 0 2px 0;
+	font-size: 13px;
+	line-height: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #666;
+}
+input + label, label.inputLabel {
+	/* targets any label that directly follows an input; typically labels for radio inputs or checkboxs */
+	font-weight: normal;
+	padding-left: 3px;
+	display: inline;
+	cursor: pointer;
+}
+input:hover, input:active, input:focus, select, textarea {
+	outline: none;
+}
+input[type="submit"]::-moz-focus-inner {
+	border: 0;
+}
+
+.labelReset label, label.labelReset {
+	display: inline;
+	font-size: 100%;
+	font-weight: normal;
+	line-height: normal;
+	margin: 0;
+}
+/* This style is a reset for labels that should not recieve global "label" styling. */
+div.formInternational {
+	width: 100%;
+}
+div.formInternational input {
+	display: inline;
+}
+label span.spanReset {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 13px;
+	display: inline;
+}
+/* Resetting span to display as a normal span tag (w/o additional styling). */
+
+label em, table.addressTable em {
+	display: inline;
+	font-family: Georgia, "Times New Roman" , Times, serif;
+	font-size: 18px;
+	line-height: 16px;
+	color: #AE4C4C;
+	font-weight: normal;
+	font-style: normal;
+}
+.masked .placeholder {
+	color: #999;
+}
+.masked label{
+	display: none;
+}
+div.formHalf label em, div.formThird label em, div.formWhole label em {
+	margin: 0 0 0 3px;
+	position: inline;
+}
+div.formHalf table.addressTable em, div.formThird table.addressTable em, div.formWhole table.addressTable em {
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+label span, span.label span {
+	font-weight: normal;
+	font-style: italic;
+	font-size: 11px;
+	display: block;
+}
+label span.asterisk, span.label span.asterisk, span.errorMessage span.asterisk{
+	display: inline;
+	line-height: 1;
+}
+div.formContainer, div.categoryChooser {
+	padding: 9px;
+	background: #fff;
+	margin-bottom: 20px;
+	border: 1px solid #E9E9E7;
+}
+div.categoryChooser {
+	background: #FAFAFA;
+	margin-top: 20px;
+}
+div.categoryChooser label {
+	display: inline;
+}
+div.categoryChooser div.btnContainer {
+	margin: 0;
+}
+div.categoryChooser div.btnContainer.floatRight {
+	padding-right: 0px;
+}
+div.categoryChooser h2 {
+	margin: 0 0 5px;
+	font-size: 32px;
+	color: #ccc;
+	text-transform: lowercase;
+}
+div.categoryChooser .text {
+	width: 180px;
+}
+table.addressTable td {
+	padding: 4px 10px 0 0;
+}
+div.productSuggestionsContainer, div.productOptionsContainer, div.productVolumePriceContainer, div.productImagesContainer {
+	border: solid 1px #99CC33;
+	margin-top: 15px;
+	padding: 15px;
+}
+div.productSuggestionsContainer h5, div.productOptionsContainer h5, div.productVolumePriceContainer h5, div.productImagesContainer h5 {
+	margin-bottom: 1em;
+}
+
+ul.inputList, ul.inputList li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.inputList {
+	padding-bottom: 5px;
+}
+
+/* =FORM FRAMEWORK
+	....................................... */
+
+.formWrapper {
+	width: 500px;
+}
+.formHalf {
+	float: left;
+	width: 46.999%;
+}
+.formThird {
+	float: left;
+	width: 30.299%;
+}
+.formWhole {
+	clear: both;
+	width: 97%;
+}
+.formHalf, .formWhole, .formThird {
+	padding: 0 3% 10px 0;
+}
+.formHalf.last, .formWhole.last, .formThird.last {
+	padding-right: 0;
+}
+.formWrapper select {
+	width: 96%;
+	height: 2.1em;
+}
+.formWrapper select.dynamic {
+	width: auto;
+}
+.formHalf input.text, .formHalf textarea {
+	width: 92%;
+}
+.formThird input.text, .formThird textarea {
+	width: 88%;
+}
+.formWhole input.text, .formWhole textarea {
+	width: 96%;
+}
+.formWrapper fieldset {
+	padding: 0 0 0 3%;
+}
+.formWrapper fieldset input[type=submit], .formWrapper fieldset input[type=button], .formWrapper fieldset input[type=reset] {
+	margin-bottom: 3%;
+}
+.formWrapper fieldset .button, .formWrapper fieldset input.submit, .formWrapper fieldset input.button, .formWrapper fieldset input.reset {
+	margin-bottom: 3%;
+}
+.formWrapper hr {
+	width: 97%;
+	margin: 0 3% 10px 0;
+	clear: both;
+}
+
+/* =FORM FRAMEWORK EXTRAS (delete if not on your site)
+	....................................... */
+
+.formWrapper label.twoLines {
+	margin-top: 1.2em;
+}
+.formHalf .RadInput input.text {
+	width: 92% !important;
+}
+.formWhole .RadInput input.text {
+	width: 96% !important;
+}
+.formWhole .formInternational .RadInput input.text, .formWhole .formInternational input.text {
+	width: 44.5% !important;
+}
+.formInternational .RadInput {
+	vertical-align: baseline !important;
+}
+div.formWrapper div.formPhoneArea, div.formWrapper div.formExpirationMonth, div.formWrapper div.formExpirationYear, div.formWrapper div.formCCV {
+	display: inline;
+	width: auto;
+	margin: 0;
+}
+div.formWrapper div.formPhoneArea input {
+	width: 2.4em;
+}
+div.formWrapper div.formExpirationMonth select, div.formWrapper div.formHalf div.formCCV input {
+	width: 3.4em;
+}
+div.formWrapper div.formExpirationYear select {
+	width: 6em;
+	margin-left: 0.5em;
+}
+.formExpirationMonth select, .formExpirationYear select {
+	display: inline;
+}
+div.formWrapper span.inputInfo {
+	display: block;
+	font-style: italic;
+	font-size: 77%;
+}
+
+a.button.contactToggle {
+	margin-bottom: 5px;
+}
+.formWrapper.globalContact {
+	width: auto;
+}
+.formWrapper.globalContact .formHalf {
+	float: none;
+	clear: both;
+	width: 97%;
+}
+.formWrapper.globalContact .formHalf input.text {
+	width: 96%;
+}
+
+/* =MISC STYLES
+	....................................... */
+
+select.country {
+	width:140px;	
+}
+
+/* Button Styling */
+
+.button {
+	display: inline-block;
+	text-decoration: none;
+}
+.button input, .button span, input.button {
+	display: inline-block;
+	cursor: pointer;
+	padding: 4px 10px;
+	background: #ccc;
+	border: 1px solid #999;
+	color: #000;
+	font-size: 12px;
+	line-height: 1;
+	font-weight: bold;
+	text-decoration: none;
+}
+.ie input.button {
+	overflow: visible;
+}
+.button:hover, .button:focus, .button:hover input, .button:focus input, .button:hover span, .button:focus span {
+	text-decoration: none;
+	border-color: #aaa;
+	background: #ddd;
+	color: #fff;
+}
+a.editButton {
+    background: url("../img/btnIcons/icon_edit.png") no-repeat scroll 0 5px transparent;
+    display: inline-block;
+    padding: 8px 0 0 22px;
+}
+
+/* AJAX Loading */
+div.ko_AJAXLoading div.loadOverlay,
+div.AJAXLoading div.loadOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	z-index: 30;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+div.ko_AJAXLoading div.loadMessage,
+div.AJAXLoading div.loadMessage {
+	display: block;
+	position: fixed;
+	width: 150px;
+	padding: 25px 50px 25px 70px;
+	top: 50%;
+	left: 50%;
+	margin: -45px 0 0 -125px;
+	background: #fff;
+	border: 1px solid #000;
+	z-index: 30;
+}
+div.ko_AJAXLoading div.loadMessage span,
+div.AJAXLoading div.loadMessage span {
+	padding: 0 40px;
+	background: transparent url(../../img/loading.gif) no-repeat left center;
+	display: block;
+	line-height: 35px;
+	height: 35px;
+	margin: 0 auto;
+}
+
+/* Validation */
+.requiredFields {
+	margin-right: 3%;
+	float: right;
+}
+.validation, span.validation {
+	display: block;
+	color: #F00000;
+}
+.validation ul, .validation li {
+	margin: 0;
+	padding: 0;
+	list-style-type: disc;
+}
+.formWrapper span.confirmationMessage {
+	background-color: #92C300;
+	color: White;
+	display: block;
+	margin-left: 0;
+	margin-right: -3.2%;
+	margin-top: -10px;
+	padding: 10px;
+}
+.requiredFields {
+	clear: both;
+	padding: 15px 0;
+	font-size: 11px;
+	color: #AE4C4C;
+	font-weight: bold;
+}
+.requiredFields span {
+	font-family: Georgia, "Times New Roman" , Times, serif;
+	font-size: 18px;
+	line-height: 16px;
+}
+.validationSummary {
+	padding: 10px;
+	width: 90%;
+	margin: 0 auto 20px;
+	color: #D50000;
+	font-size: 12px;
+	background-color: #F7E8E8;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.validationSummary ul {
+	margin: 5px 0 0;
+}
+.errorSummaryHeader {
+	border-right: 1px solid #ccc;
+	margin-right: 10px;
+}
+.successMessage, .errorMessage {
+	clear: both;
+	color: #669966;
+	padding: 10px 0;
+}
+.errorMessage {
+	color: #CC0000;
+}
+.errorMessage h3, .successMessage h4 {
+	border-right: 1px solid #ccc;
+	margin: 0;
+	padding-top: 7px;
+	padding-bottom: 0;
+	background-position: left center;
+}
+.errorMessage h3 {
+	border-right-color: #CC0000;
+}
+.errorMessage p, .successMessage p {
+	display: block;
+	float: left;
+	padding: 13px 0 0 0;
+	margin: 0 0 0 10px;
+	font-size: 11px;
+}
+span.errorMessage {
+	padding: 0;
+	display: block;
+}
+span.errorMessage, span.errorMessage span {
+	font-style: normal;
+}
+input.text.error, select.error, textarea.error, input.text.error:hover, select.error:hover, textarea.error:hover, input.text.error:focus, select.error:focus, textarea.error:focus {
+	border-color: #F00000;
+}

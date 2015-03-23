@@ -1,0 +1,56 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	HTML AND REUSABLE STYLES
+	MAIN STRUCTURE STYLES
+	HOME PAGE STYLES 
+	INNER PAGE STYLES
+
+	 ....................................... */
+
+/* =HTML AND REUSABLE STYLES
+	....................................... */
+
+body {
+	background: #fff;
+}
+img.floatLeft {
+    margin-right: 15px;
+}
+img.floatRight {
+    margin-left: 15px;
+}
+.facebookLike {
+	height: 23px;
+}
+ul.breadcrumbs, ul.breadcrumbs li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.breadcrumbs li {
+	float: left;
+	padding: 3px 15px 5px 0;
+	background: transparent url(../img/breadcrumb.png) no-repeat 100% 50%;
+}
+ul.breadcrumbs li.currentBreadcrumb {
+	padding-right: 0;
+	background: none;
+}
+
+/* =MAIN STRUCTURE STYLES
+	....................................... */
+.perimeter, .header, .content, .footer {
+	width: 100%;
+}
+.wrapper {
+	width: 960px; /*main page size*/
+	margin: 0 auto;
+}
+
+/* =HOME PAGE STYLES
+	....................................... */
+
+
+/* =INNER PAGE STYLES
+	....................................... */

@@ -1,0 +1,40 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	 MEMBER HOME FEATURE
+	 
+	 ....................................... */
+
+/* =MEMBER HOME FEATURE 
+	....................................... */
+
+div.membersArea div.section ul.links, div.membersArea div.section p.accountInfo {
+	float: left;
+}
+div.membersArea div.section p.accountInfo {
+	padding: 10px;
+	background: #F6F6F4;
+	border: 1px solid #eee;
+}
+table.tableWidth, table.tableWidth tbody tr td table {
+	width: 100%;
+}
+table.tableWidth table td {
+	padding-left: 3%;
+}
+table.tableWidth input {
+	margin-left: 3%;
+}
+table.tableWidth table input {
+	margin: 0;
+}
+table.tableWidth div.formHalf input, table.tableWidth div.formWhole input {
+	margin: 0;
+}
+.forumcontent h1 {
+	background-image: none;
+	padding: 0;
+}
+table.createUserWizard {
+	width: 100%;
+}

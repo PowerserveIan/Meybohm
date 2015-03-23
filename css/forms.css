@@ -1,0 +1,1033 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	FORM FIELDS
+	FORM ASSETS
+	FORM FRAMEWORK
+	FORM FRAMEWORK EXTRAS
+	MISC STYLES
+	 
+	 ....................................... */
+
+
+/* =FORM FIELDS
+	....................................... */
+
+input.text, select, textarea {
+	background: #FFFFFF;
+	border: 1px solid #D9D9D9;
+	color: #555;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 5px;
+}
+textarea {
+	padding: 3px 5px;
+	width: 450px;
+	height: 150px;
+}
+
+input.text:hover, select:hover, textarea:hover, input.text:focus, select:focus, textarea:focus {
+	border-color: #acacac;
+	-moz-box-shadow: 0 0 3px #C9C9C2;
+	-webkit-box-shadow: 0 0 3px #C9C9C2;
+	box-shadow: 0 0 3px #C9C9C2;
+}
+
+input.text {
+	height: 25px;
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(0, 0, 0, 0.11);
+			box-shadow: inset 0px 2px 2px 0px rgba(0, 0, 0, 0.11);
+}
+select {
+	background-image: none;
+	padding: 7px 5px;
+	line-height: 20px;
+}
+.panes .formWrapper .formHalf {
+	margin-bottom: 15px;
+	margin-right: 6px;
+}
+.panes .formWrapper select {
+	padding: 4px 5px;
+	height: 28px;
+	display: inline-block;
+}
+.panes .formWrapper label {
+	display: inline-block;
+	font-family: Arial, helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	width: 75px;
+	margin-right: 8px;
+	margin-bottom: 0;
+}
+.panes .formWrapper.newHomes {
+	padding-top: 10px;
+}
+.panes .formWrapper.newHomes .buttonBlue {
+	width: 235px;
+	max-width: 235px;
+}
+.panes .formWrapper.newHomes .buttonBlue {
+}
+.listingTable input.text, .listingTable select {
+	padding: 2px 3px;
+}
+div.search-bar {
+	height: 38px;
+	margin-left: 10px;
+	margin-top: 30px;
+	margin-bottom: 14px;
+	-webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+	display: inline-block;
+}
+div.search-bar input[type=text] {
+	border: 1px solid #333;
+	padding: 8px 15px 8px 30px;
+	background-image: url(../img/search.png);
+	background-position: 8px 10px;
+	background-repeat: no-repeat;
+	font-size: 17px;
+	width: 180px;
+	color: #222;
+}
+div.search-bar input[type=text]:focus {
+	border: 1px solid #2880FF;
+	-webkit-box-shadow: 0px 0px 9px 1px rgba(255, 255, 255, 0.3);
+	box-shadow: 0px 0px 9px 1px rgba(255, 255, 255, 0.3); 
+}
+div.search-bar input[type=submit] {
+	background: #235bb8; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIzNWJiOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzE3NDM4MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzBlMzU2YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTM1NmMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #235bb8 0%, #174382 50%, #0e356c 50%, #0e356c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#235bb8), color-stop(50%,#174382), color-stop(50%,#0e356c), color-stop(100%,#0e356c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #235bb8 0%,#174382 50%,#0e356c 50%,#0e356c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #235bb8 0%,#174382 50%,#0e356c 50%,#0e356c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #235bb8 0%,#174382 50%,#0e356c 50%,#0e356c 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #235bb8 0%,#174382 50%,#0e356c 50%,#0e356c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#235bb8', endColorstr='#0e356c',GradientType=0 ); /* IE6-8 */
+	border: 1px solid #222;
+	padding: 8px 10px 8px 10px;
+	font-size: 17px;
+	color: #FFF;
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4); 
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4); 
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+div.search-bar input[type=submit]:hover {
+	background: #1b4889; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFiNDg4OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjQ4ODkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #1b4889 0%, #1b4889 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1b4889), color-stop(100%,#1b4889)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1b4889 0%,#1b4889 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1b4889 0%,#1b4889 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1b4889 0%,#1b4889 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1b4889 0%,#1b4889 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b4889', endColorstr='#1b4889',GradientType=0 ); /* IE6-8 */
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); 
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); 
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+}
+div.search-bar input::-webkit-input-placeholder {
+   font-size: 12px;
+   position: relative;
+   top: 3px;
+}
+
+div.search-bar input:-moz-placeholder { /* Firefox 18- */
+   font-size: 12px;
+   position: relative;
+   top: 3px;
+}
+
+div.search-bar input::-moz-placeholder {  /* Firefox 19+ */
+   font-size: 12px;
+   position: relative;
+   top: 3px;
+}
+
+div.search-bar input:-ms-input-placeholder {  
+   font-size: 12px;
+   position: relative;
+   top: 3px;
+}
+
+.listingTable select {
+	line-height: 16px;
+}
+
+input.text.large {
+	width: 500px;
+}
+
+input.text.small {
+	width: 70px;
+}
+
+select.text.small {
+	width: 80px;
+}
+
+select.text {
+	width: 250px;
+}
+span.label em {
+	font-size: 80%;
+	color: #999;
+}
+span.failureText {
+	display: block;
+	color: #9F0E1F;
+	font-size: 17px;
+	height: auto;
+}
+
+
+/* =FORM ASSETS
+	....................................... */
+
+fieldset {
+	padding: 1.4em;
+	margin: 0 0 1.5em 0;
+	border: 1px solid #adadad;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+legend {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #000;
+}
+
+label, span.label {
+	display: block;
+	font-weight: normal;
+	margin: 0 0 12px 0;
+	font-size: 16px;
+	line-height: 16px;
+	font-family: Georgia, 'Times New Roman', serif;
+	color: #3F393F;
+	vertical-align: 1px;
+}
+.roundedBox label {
+	font-size: 17px;
+}
+input + label {
+	/* targets any label that directly follows an input; typically labels for radio inputs or checkboxs */
+	font-weight: normal;
+	padding-left: 3px;
+	display: inline;
+	cursor: pointer;
+	font-size: 11px;
+	position: relative;
+	top: -2px;
+	font-family: Arial, helvetica, sans-serif;
+}
+
+input:hover, input:active, input:focus, select, textarea {
+	outline: none;
+}
+input[type="radio"] {
+	cursor: pointer;
+}
+input[type="submit"]::-moz-focus-inner {
+	border: 0;
+}
+.labelReset label, label.labelReset {
+	display: inline;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: normal;
+	margin: 0;
+}
+/* This style is a reset for labels that should not recieve global "label" styling. */
+div.formInternational {
+	width: 100%;
+}
+
+div.formInternational input {
+	display: inline;
+}
+
+div.formInternational input[id*=uxInternationalNumber] {
+	margin-top: 6px;
+}
+
+div.formInternational.formPhone label[for*=uxInternationalNumber] {
+	padding: 5px 10px 0 0;
+}
+
+label span.spanReset {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 13px;
+}
+/* Resetting span to display as a normal span tag (w/o additional styling). */
+
+label em, table.addressTable em {
+	display: inline;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	line-height: 16px;
+	color: #AE4C4C;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.masked .placeholder {
+	color: #999;
+}
+.masked label {
+	display: none;
+}
+/* Shared attributes grouped for consistency. */
+div.formRow em {
+	margin: 0 0 0 3px;
+	position: absolute;
+	top: 4px;
+	left: 172px;
+}
+
+div.formHalf label em, div.formThird label em, div.formWhole label em {
+	margin: 0 0 0 3px;
+	position: inline;
+}
+
+div.formHalf table.addressTable em, div.formThird table.addressTable em, div.formWhole table.addressTable em {
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/* Resetting inherited styles. */
+
+label span, div.formRow p span {
+	font-weight: normal;
+	font-size: inherit;
+}
+label span.asterisk, div.formRow p span.asterisk {
+	color: #A91A28;
+}
+label small {
+	font-size: 10px;
+}
+span.charLimit {
+	font-size: 11px;
+	color: #666;
+	float: right;
+	font-family: Arial, helvetica, sans-serif;
+}
+span.charLimit + label {
+	float: left;
+}
+div.formContainer, div.categoryChooser {
+	padding: 9px;
+	background: #fff;
+	margin-bottom: 20px;
+	border: 1px solid #E9E9E7;
+}
+
+div.categoryChooser {
+	background: #FAFAFA;
+	margin-top: 20px;
+}
+
+div.categoryChooser label {
+	display: inline;
+}
+
+div.categoryChooser div.btnContainer {
+	margin: 0;
+}
+
+div.categoryChooser div.btnContainer.floatRight {
+	padding-right: 0px;
+}
+
+div.categoryChooser h2 {
+	margin: 0 0 5px;
+	font-size: 32px;
+	color: #ccc;
+	text-transform: lowercase;
+}
+
+div.categoryChooser .text {
+	width: 180px;
+}
+
+div.formRow {
+	clear: both;
+	margin: 0 0 18px 0;
+	position: relative;
+}
+
+div.formRow div.formRightColumn {
+	margin-left: 191px;
+}
+
+div.formRow .textLink {
+	display: block;
+	margin-left: 191px;
+}
+
+div.formRow label, div.formRow p {
+	float: left;
+	/*width: 175px;*/
+	/*margin: 0;*/
+	padding: 5px 16px 1px 0;
+	/*text-align: right;*/
+	font-weight: bold;
+}
+
+div.formRow .labelStyleReset label, div.formRow .labelStyleReset p {
+	float: none;
+	width: auto;
+	padding: 0;
+	text-align: left;
+	font-weight: normal;
+}
+/* Inherited style resets for labels in form's right column. */
+
+div.formRow label strong, div.formRow p strong {
+	color: #000000;
+}
+
+div.formRow .notice {
+	color: #CC0000;
+}
+
+div.productSuggestionsContainer, div.productOptionsContainer, div.productVolumePriceContainer, div.productImagesContainer {
+	border: solid 1px #99CC33;
+	margin-top: 15px;
+	padding: 15px;
+}
+
+div.productSuggestionsContainer h5, div.productOptionsContainer h5, div.productVolumePriceContainer h5, div.productImagesContainer h5 {
+	margin-bottom: 1em;
+}
+
+table.addressTable {
+}
+
+table.addressTable td {
+	padding: 4px 10px 0 0;
+}
+
+.chbox {
+	display: block;
+	padding: 4px 12px 0 0;
+	margin: 0;
+}
+
+.chbox.horiz {
+	padding-top: 7px;
+}
+
+.chbox input, div.formRow table.chbox_list td input {
+	display: inline;
+	margin: 0;
+	width: 13px;
+}
+
+.chbox label, div.formRow table.chbox_list td label {
+	display: inline;
+	line-height: 14px;
+	font-size: 13px;
+	padding: 0 0 0 4px;
+}
+
+div.formRow table.chbox_list {
+	margin: 5px 0 0 0;
+	border-left: 1px solid #ccc;
+}
+
+div.formRow table.chbox_list td {
+	padding: 2px 2px 2px 10px;
+}
+
+div.formRow table.chbox_list td label {
+	font-weight: normal;
+	padding: 0 4px 0 10px;
+	margin: 0 0 8px 0;
+	width: auto;
+	float: none;
+	text-align: left;
+}
+
+div.formRow table.chbox_list td label:hover {
+	color: #006699;
+}
+
+.radioList td {
+	vertical-align: top;
+}
+
+.radioList label, div.formRow .radioList label {
+	font-weight: normal;
+	float: right;
+	padding: 4px 0;
+	text-align: left;
+}
+
+.radioList input, div.formRow .radioList input {
+	margin-top: 5px;
+}
+
+ul.inputList, ul.inputList li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.inputList {
+	padding-bottom: 5px;
+}
+ul.inputList.horizontal.checkboxes li {
+	float: left;
+	margin-right: 30px;
+}
+.blue.padded.optionsList {
+	padding: 10px 3% 20px 0;
+}
+label.block {
+	display: block;
+}
+
+/* =FORM FRAMEWORK
+	....................................... */
+	
+.formHalf {
+	float: left;
+	width: 46.999%;
+}
+
+.formThird {
+	float: left;
+	width: 30.299%;
+}
+
+.formWhole {
+	clear: both;
+	width: 97%;
+}
+
+.formHalf, .formWhole, .formThird {
+	padding: 0 3% 20px 0;
+}
+
+.formHalf.last, .formWhole.last, .formThird.last {
+	padding-right: 0;
+}
+
+.formWrapper select {
+	width: 96%;
+	height: 37px;
+}
+
+.formHalf input.text, .formHalf textarea {
+	width: 92%;
+}
+.formHalf select {
+	width: 95%;
+}
+
+.formThird input.text, .formThird textarea {
+	width: 88%;
+}
+
+.formWhole input.text, .formWhole textarea {
+	width: 96%;
+}
+.formWhole input.text.integer {
+	width: 15%;
+	margin-right: 10px;
+}
+.formWhole input.text.integer + span {
+	padding-right: 10px;
+}
+.formWrapper fieldset {
+	padding: 0 0 0 3%;
+}
+
+.formWrapper fieldset input[type=submit], .formWrapper fieldset input[type=button], .formWrapper fieldset input[type=reset] {
+	margin-bottom: 3%;
+}
+
+.formWrapper fieldset .button, .formWrapper fieldset input.submit, .formWrapper fieldset input.button, .formWrapper fieldset input.reset {
+	margin-bottom: 3%;
+}
+
+.formWrapper hr {
+	width: 97%;
+	margin: 0 3% 10px 0;
+	clear: both;
+}
+
+/* =FORM FRAMEWORK EXTRAS (delete if not on your site)
+	....................................... */
+
+.formWrapper label.twoLines {
+	margin-top: 1.2em;
+}
+
+.formHalf .RadInput input.text {
+	width: 92% !important;
+}
+
+.formWhole .RadInput input.text {
+	width: 96% !important;
+}
+
+.formWhole .formInternational .RadInput input.text, .formWhole .formInternational input.text {
+	width: 44.5% !important;
+}
+
+.formInternational .RadInput {
+	vertical-align: baseline !important;
+}
+
+div.formWrapper div.formPhoneArea, div.formWrapper div.formPhoneThree, div.formWrapper div.formPhoneFour, div.formWrapper div.formExpirationMonth, div.formWrapper div.formExpirationYear, div.formWrapper div.formCCV {
+	display: inline;
+	width: auto;
+	margin: 0;
+}
+
+div.formWrapper div.formPhoneArea input, div.formWrapper div.formPhoneThree input {
+	width: 2.4em;
+}
+
+div.formWrapper div.formPhoneFour input, div.formWrapper div.formExpirationMonth select, div.formWrapper div.formHalf div.formCCV input {
+	width: 3.4em;
+}
+
+div.formWrapper div.formExpirationYear select {
+	width: 6em;
+	margin-left: 0.5em;
+}
+
+.formExpirationMonth select, .formExpirationYear select {
+	display: inline;
+}
+
+div.formWrapper span.inputInfo {
+	display: block;
+	font-style: italic;
+	font-size: 77%;
+}
+
+a.button.contactToggle {
+	margin-bottom: 5px;
+}
+
+.formWrapper.globalContact {
+	width: auto;
+}
+
+.formWrapper.globalContact .formHalf {
+	float: none;
+	clear: both;
+	width: 97%;
+}
+
+.formWrapper.globalContact .formHalf input.text {
+	width: 96%;
+}
+
+/* =MISC STYLES
+	....................................... */
+
+/* Button Styling */
+
+
+
+.button {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.button, input.button, .theme-shared a.button {
+	font-family: 'MidoMedium', Arial, Helvetica, Sans-Serif;
+	background: transparent url(../img/tileButton_new.jpg) repeat-x 0 100%;
+	text-decoration: none;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	display: inline-block;
+	border: 1px solid #360105;
+	font-size: 16px;
+}
+
+
+.ie input.button {
+	overflow: visible;
+}
+a.button#searchButton {
+	padding: 0 33px;
+}
+.button:hover, .button:focus, .button:hover input, .button:focus input, .button:hover span, .button:focus span, .theme-shared a.button:hover, .theme-shared a.button:focus {
+	text-decoration: none;
+}
+
+.btnContainer {
+	margin: 0 0 15px;
+}
+
+.btnContainer.horizForm {
+	padding: 0 0 0 180px;
+}
+
+.btnContainer.floatRight {
+	padding-right: 5px;
+}
+
+a.textLinkBtn {
+	display: inline-block;
+	width: 0;
+	padding: 4px 15px 4px 15px;
+	overflow: visible;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+	cursor: pointer;
+	color: #FFFFFF;
+	vertical-align: middle;
+	text-decoration: none;
+	outline: none;
+	background-color: #2253A1;
+}
+
+a.textLinkBtn {
+	width: auto;
+	padding: 5px 15px 6px;
+}
+
+a.textLinkBtn:hover {
+	color: #fff;
+	background-image: none;
+	text-decoration: underline;
+}
+
+input.button.floatLeft {
+	margin-left: 10px;
+}
+
+
+.button, input.button {
+	font-family: 'MidoMedium', Arial, Helvetica, Sans-Serif;
+	background: transparent url(../img/tileButton_new.jpg) repeat-x 0 100%;
+	text-decoration: none;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	display: inline-block;
+	border: 1px solid #360105;
+	font-size: 16px;
+}
+.button:hover, .button:focus, .button:hover input, .button:focus input, .button:hover span, .button:focus span, .theme-shared a.button:hover, .theme-shared a.button:focus {
+	border: 1px solid #360105;
+    color: #FFFFFF;
+
+	background: transparent url(../img/tileButton_new.jpg) repeat-x 0 0;
+	cursor: pointer;
+}
+.button a, .button a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Registration From Styles */
+
+.formWrapper.reCaptcha {
+	padding: 10px 0 15px;
+}
+
+.fbLoginHeading {
+	padding-top: 20px;
+}
+
+.fb-login-button {
+	padding-bottom: 10px;
+}
+
+.roundedBox {
+	width: 633px;
+	margin: 10px auto 40px;
+	padding: 17px;
+	border-radius: 10px;
+	background: #EDEEEF;
+	background-image: -moz-linear-gradient(50% 0 -90deg, #E9EAEC 0%, #EDEEEF 21%, #EDEEEF 100%);
+	border: 2px solid #F2F2F2;
+	background-image: -webkit-linear-gradient(50% 0 -90deg, #E9EAEC 0%, #EDEEEF 21%, #EDEEEF 100%);
+	background-image: linear-gradient(50% 0 -90deg, #E9EAEC 0%, #EDEEEF 21%, #EDEEEF 100%);
+	box-shadow: 2px 2px 4px rgba(0,0,0,.40), inset 0px 0px 1px rgba(0,0,0,.50);
+}
+
+.theme-shared ul.regBreadCrumbs {
+	padding-left: 47px;
+}
+
+.theme-shared ul.regBreadCrumbs a {
+	color: #ccc;
+}
+
+
+/* AJAX Loading */
+.ko_AJAXLoading {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+}
+div.ko_AJAXLoading div.loadOverlay,
+div.AJAXLoading div.loadOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 671px;
+	height: 100%;
+	background: #000;
+	z-index: 30;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+div.ko_AJAXLoading div.loadMessage,
+div.AJAXLoading div.loadMessage {
+	display: block;
+	position: fixed;
+	width: 110px;
+	padding: 15px 20px;
+	margin: 0 0 0 254px;
+	background: #fff;
+	border: 1px solid #000;
+	z-index: 30;
+	-webkit-box-shadow:  1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:  1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+	opacity: 0.7;
+}
+
+div.loadMessage span {
+	padding-left: 40px;
+	background: transparent url(../img/loading.gif) no-repeat left center;
+	display: block;
+	line-height: 35px;
+	height: 35px;
+	margin: 0 auto;
+}
+
+/* Validation */
+.requiredFields {
+	margin-right: 3%;
+	float: right;
+}
+
+.validation, span.validation {
+	display: none; /* all validation is inline */
+	color: #F00000;
+}
+
+.validation ul, .validation li {
+	margin: 0;
+	padding: 0;
+	list-style-type: disc;
+}
+
+.formWrapper span.confirmationMessage {
+	background-color: #934343;
+	color: White;
+	display: block;
+	margin-left: 0;
+	margin-right: -3.2%;
+	margin-top: -10px;
+	padding: 10px;
+}
+
+.requiredFields {
+	clear: both;
+	padding: 15px 0;
+	font-size: 11px;
+	color: #AE4C4C;
+	font-weight: bold;
+}
+
+.requiredFields span {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	line-height: 16px;
+}
+
+.validationSummary {
+	padding: 10px;
+	width: 90%;
+	margin: 0 auto 20px;
+	color: #D50000;
+	font-size: 12px;
+	background-color: #F7E8E8;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.validationSummary ul {
+	margin: 5px 0 0;
+}
+
+.errorSummaryHeader {
+	border-right: 1px solid #ccc;
+	margin-right: 10px;
+}
+
+.successMessage, .errorMessage {
+	clear: both;
+	color: #669966;
+	padding: 10px 0;
+}
+#emailDiv label, #phoneDiv label {
+	padding-top: 13px;
+}
+.errorMessage {
+	color: #CC0000;
+}
+
+.errorMessage h3, .successMessage h4 {
+	border-right: 1px solid #ccc;
+	margin: 0;
+	padding-top: 7px;
+	padding-bottom: 0;
+	background-position: left center;
+}
+
+.errorMessage h3 {
+	border-right-color: #CC0000;
+}
+
+.errorMessage p, .successMessage p {
+	display: block;
+	float: left;
+	padding: 13px 0 0 0;
+	margin: 0 0 0 10px;
+	font-size: 11px;
+}
+
+span.errorMessage {
+	padding: 0;
+	display: block;
+}
+
+span.errorMessage, span.errorMessage span {
+	font-style: normal;
+}
+
+input.text.error, select.error, textarea.error {
+	border-color: #F00000;
+}
+
+ span.asterisk {
+	color: #A51D2B;
+}
+
+.maintForm h3 {
+	margin: 20px 0 20px;
+}
+
+.maintForm h3.failure {
+	margin: 0;
+}
+
+.maintForm .formHalf, .maintForm .formWhole {
+	margin-bottom: 10px;
+}
+
+.maintForm label.section {
+	margin: 30px 0 20px;
+	margin-bottom: 20px;
+}
+
+.maintForm span.charLimit {
+	position: absolute;
+	right: 28px;
+	top: 0;
+}
+
+.maintForm input.button {
+	background: url("../img/tileSearchButton.jpg") repeat-x scroll 0 0 transparent;
+	display: block;
+	font-size: 21px;
+	height: 45px;
+	padding: 0 20px;
+	width: 127px;
+}
+
+.maintForm div[id*=uxMaintenanceErrorSummary] ul {
+	margin: 10px 20px;
+}
+
+.maintForm span.validator {
+	position: absolute;
+	left: 2px;
+	top: 24px;
+}
+
+.maintForm .errorWrapper {
+	position: relative;
+}
+/* Admin Toolbar */
+.adminToolbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 352;
+}
+.adminToolbarWrapper {
+	border-bottom: 1px solid #a9a9a9;
+	background: #f4f4f4; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f4f4f4 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f4f4f4 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f4f4f4 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f4f4f4 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f4f4f4 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	-webkit-box-shadow:  0 0 3px 0 rgba(0, 0, 0, .5);
+	box-shadow:  0 0 3px 0 rgba(0, 0, 0, .5);
+}
+.adminToolbar a {
+	position: relative;
+	display: block;
+	float: left;
+	border-right: 1px solid #f4f4f4;
+	border-left: 1px solid #aaa;
+	padding: 10px 20px 9px;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 1;
+	color: #19568C;
+	text-transform: lowercase;
+	text-shadow: 0 1px 1px #fff;
+}
+a.adminToolbarLast {
+	-webkit-box-shadow:  1px 0 0 0 #aaa;
+	box-shadow:  1px 0 0 0 #aaa;
+}
+a.adminToolbarFirst {
+	border-left: 0px none;
+	color: #fff;
+	text-shadow: 0 -1px 1px #0F3657;
+	background: #19568C;
+}
+a.adminToolbarHide {
+	padding-right: 35px;
+	border-right: 0px none;
+	background: transparent url(../admin/img/admin-toolbar-hide.png) no-repeat 54px 50%;
+}
+a.adminToolbarHide, a.adminToolbarLogout {
+	float: right;
+}

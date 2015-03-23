@@ -1,0 +1,116 @@
+﻿/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	CONTENT REGION STYLES
+	MICROSITES
+	LANGUAGE STYLES
+	 
+	 ....................................... */
+
+/* =CONTENT REGION STYLES
+	....................................... */
+
+a.editButton {
+	display: inline-block;
+	padding: 8px 0 0 22px;
+	background: transparent url(../img/icon_edit.png) no-repeat 0 5px;
+}
+a.showApprovalDetails {
+	display: block;
+	padding: 1px 0 0 22px;
+	outline: none;
+	background: transparent url(../img/icon_rightArrow.gif) no-repeat 0 0;
+}
+a.showApprovalDetails.down {
+	background-image: url(../img/icon_downArrow.gif);
+}
+.editedByDiv {
+	padding: 10px 22px;
+}
+.CMWrapper.editing{
+	padding-bottom: 50px;
+	position: absolute;
+}
+.CMWrapper.editing .CMBackground {
+	background: #069;
+	border: 1px solid #999;
+	padding: 5px 3px;
+	text-align: left;	
+	z-index: 5;
+}
+table.CMTop {
+	margin: 0;
+}
+table.CMTop td {
+	border: 0px none;
+}
+.CMTop label {
+	display: inline;
+	color: #fff;
+}
+.reWrapper {
+	position: inherit !important;
+}
+.CMWrapper .reResizeCell div {
+	background-image: url(../img/radResizer.gif);
+	background-position: center top;
+}
+.CMWrapper .reResizeCell div:hover {
+	background-position: center bottom;
+}
+ul.popUp.editPage {
+	width: auto;
+	float: left;
+	z-index: 41;
+}
+ul.popUp.editPage ul {
+	left: 0;
+	top: 32px;
+	background: #fff;
+	border: 1px solid #aaa;
+	padding: 0;
+	-webkit-box-shadow: -2px 16px 16px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: -2px 16px 16px 3px rgba(0, 0, 0, 0.2);
+}
+ul.popUp.editPage ul li {
+	float: none;
+	width: 210px;
+}
+ul.popUp.editPage ul a {
+	display: block;
+	float: none;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	border: 0px none;
+	font-weight: normal;
+	text-transform: none;
+}
+ul.popUp.editPage ul a:hover {
+	background: #DDEDFA;
+	text-decoration: none;
+}
+.regionInFocus {
+	background-color: #ff9;
+}
+
+/* =MICROSITES
+	....................................... */
+div.microsites div.eventsList {
+	width: 100%;
+}
+div.microsites {
+	margin: 20px 0;
+}
+div.micrositeListing input#ctl00_ContentWindow_uxMicrositeListing_uxSearch {
+	margin-left: 5px;
+}
+span.micrositeLocation {
+	font-size: 88%;
+	color: #999;
+}
+div.microsites div.eventsList img {
+	background-color: #CCCCCC;
+	border: 2px solid #386BA0;
+}
+a.pageButton {
+}

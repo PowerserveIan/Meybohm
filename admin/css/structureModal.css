@@ -1,0 +1,74 @@
+/* STYLESHEET SECTIONS
+   CSS Flags marked with [=]
+	 
+	HTML STYLES
+	MAIN STRUCTURE STYLES
+	MODAL STYLES
+	....................................... */
+
+/* =HTML STYLES
+	....................................... */
+
+body {
+	background: none;
+}
+img.floatLeft {
+    margin-right: 15px;
+}
+img.floatRight {
+    margin-left: 15px;
+}
+
+ul.breadcrumbs{
+	display: none;
+}
+
+/* =MAIN STRUCTURE STYLES
+	....................................... */
+
+.perimeter, .header, .content, .footer {
+	width: 100%;
+}
+.wrapper {
+	margin: 0 auto;
+}
+
+/* =MODAL STYLES
+	....................................... */
+
+html .wrapper {
+	width: auto;
+}
+html .header {
+	display: none;
+}
+html .perimeter {
+	background: none;
+}
+html .whiteContent {
+	position: static;
+	padding: 0;
+}
+html .title {
+	padding-top: 15px;
+}
+html .title a.back {
+	display: none;
+}
+html .rightCol {
+	float: none;
+	padding-left: 20px;
+}
+html .rightCol .inputList label {
+	color: #666;
+	font-size: 13px;
+}
+html .rightCol.indent {
+	padding-top: 20px;
+}
+html .formWrapper {
+	width: auto;
+}
+a.giveFeedback, .footer{
+	display: none !important;
+}

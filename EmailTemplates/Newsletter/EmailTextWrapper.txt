@@ -1,0 +1,7 @@
+﻿To view the HTML version of this newsletter, visit this URL: [[NewsletterLink]]
+
+[[NewsletterBody]]
+
+This email was sent to you by: [[FullCompanyName]] [[FullPhysicalMailAddress]]
+To unsubscribe from this newsletter, please visit this URL: [[UnsubscribeLink]]
+To share this newsletter with a friend, please visit this URL: [[ForwardLink]] 

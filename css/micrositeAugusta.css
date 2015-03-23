@@ -1,0 +1,810 @@
+﻿/* STRUCTURE */
+body {
+	background: #4C474D;
+}
+
+
+.content {
+	background: #CFCFCF url(../img/tileContent_aug.jpg) repeat-x 0 0;
+	padding-bottom: 23px;
+}
+
+.dynamicHeaderContainer {
+	background: transparent url(../img/tileDynamicHeader_aug.jpg) repeat-y 0 0;
+}
+
+.dynamicHeaderContainer .bottom {
+	background: transparent url(../img/dynamicHeaderBottom_aug.jpg) no-repeat 0 100%;
+	padding: 0 18px 107px 18px;
+}
+
+.dynamicHeaderContainer img {
+	float: left;
+	margin-top: -1px;
+}
+
+.tabbedBoxContainer {
+	position: absolute;
+	height: 434px;
+	width: 326px;
+	display: block;
+	top: -435px;
+	right: 24px;
+	background: transparent url(../img/bgTabContainer_aug2.png) no-repeat 0 82px;
+	z-index: 3; /*dynamic image control sits over the buy/rent box*/
+}
+
+.inner .tabbedBoxContainer {
+	background-image: url(../img/bgTabContainerInner_aug.png);
+}
+
+.content .leftCol {
+	float: left;
+	width: 586px;
+	margin-top: -94px;
+	padding-top: 26px;
+    position: relative;
+}
+.content .rightCol {
+	float: right;
+	padding: 24px 22px 0 0;
+	position: relative;
+}
+
+.content.inner .leftCol {
+	float: left;
+	width: 637px;
+	margin-top: 0;
+}
+
+.content.inner .rightCol {
+	float: right;
+	width: 304px;
+	/*margin-top: 25px;*/
+	padding: 26px 0 0 0;
+}
+
+.brightBox {
+	background: transparent url(../img/brightBoxTile_aug.jpg) repeat-y 0 0;
+	width: 586px;
+	margin: 22px 0 25px -1px;
+}
+
+.brightBox .top {
+	background: transparent url(../img/brightBoxTop_aug.jpg) no-repeat 0 0;
+}
+
+.brightBox .bottom {
+	background: transparent url(../img/brightBoxBottom_aug.jpg) no-repeat 0 100%;
+	padding: 12px 20px;
+}
+
+.brightBox .icon {
+	background: transparent url(../img/relocationIcon.png) no-repeat 0 0;
+	text-indent: -9999px;
+	height: 71px;
+	width: 73px;
+	float: left;
+	margin-right: 16px;
+}
+
+.brightBox .middle {
+	float: left;
+	width: 350px;
+}
+
+.calloutNewHomes,  .calloutOpenHouses {
+	height: 50px;
+	width: 282px;
+	float: left;
+	margin-right: 21px;
+}
+.calloutOpenHouses {
+	margin-right: 0;
+}
+ .calloutNewHomes a.button, .calloutOpenHouses a.button {
+	border:none;
+	display:block;
+	height: 50px;
+	width: 282px;
+	margin:0;
+	padding:0;
+	line-height:50px;
+	text-align:left;
+	text-indent:-9999px;
+}
+.calloutOpenHouses a.button {
+	background: transparent url(../img/bgOpenHousesCallout3.png) no-repeat 0 0;
+}
+ .calloutNewHomes a.button{
+ 	background: transparent url(../img/bgNewHomeCallout3.png) no-repeat 0 0;
+ }
+
+.content .box {
+	background: transparent url(../img/boxTile_aug.jpg) repeat-y 0 0;
+	width: 586px;
+	padding: 0;
+}
+
+.content .box .bottom {
+	background: transparent url(../img/boxBottom_aug.jpg) no-repeat 0 100%;
+	padding: 30px;
+}
+
+.content.inner .box {
+	background: transparent url(../img/boxInnerTile_aug.jpg) repeat-y 0 0;
+	width: 637px;
+}
+
+
+.content.inner .box .bottom {
+	background: transparent url(../img/boxInnerBottom_aug.jpg) no-repeat 0 100%;
+	padding: 30px;
+}
+
+.smallBox {
+	width: 288px;
+	background: #E6E6E3 url(../img/tileSmallBox_aug.jpg) repeat-x 0 100%;
+	border: 1px solid #fff;
+	padding: 20px;
+}
+
+
+.footer {
+	background: transparent url(../img/tileFooter.jpg) repeat 0 0;
+	font-family: Arial, Helvetica, Sans-Serif;
+	position: relative;
+	}
+.footer .shadow {
+	background: transparent url(../img/footer-shadow.png) repeat-x 0 0;
+	position: absolute;
+	top: 0;
+	z-index: 3;
+	height: 10px;
+	width: 100%;
+}
+.footer .top {
+	background: transparent url(../img/tileFooterTop.jpg) repeat 0 0;
+	margin-bottom: 10px;
+	padding: 40px 30px 20px;
+
+}
+
+.footer .top .left, .footer .left {
+	float: left;
+}
+
+.footer .top .right, .footer .right {
+	float: right;
+}
+
+.footer .top .right {
+	width: 240px;
+}
+
+.footer .column {
+	background: transparent url(../img/columnDivider_aug.jpg) no-repeat 100% 50%;
+	float: left;
+	width: auto;
+	min-width: 90px;
+	max-width: 130px;
+	padding: 0 37px 0 27px;
+}
+
+.footer .column.one {
+	padding-left: 0;
+}
+
+.footer .column.four {
+	background: none;
+}
+
+.footer .column span {
+	background: transparent url(../img/iconRegional.jpg) no-repeat 0 0;
+	font-family: 'MidoMedium', Georgia, Serif;
+	color: #fff;
+	font-size: 15px;
+	padding-left: 37px;
+	text-shadow: 1px 1px 1px #333;
+	-moz-text-shadow: 1px 1px 1px #333;
+	-webkit-text-shadow: 1px 1px 1px #333;
+	height: 31px;
+	display: block;
+	line-height: 31px;
+	margin-bottom: 10px;
+}
+
+.footer .column.two span {
+	background-image: url(../img/iconSell.jpg);
+}
+
+.footer .column.three span {
+	background-image: url(../img/iconBuy.jpg);
+}
+
+.footer .column.four span {
+	background-image: url(../img/iconRealtor.jpg);
+}
+
+.footer .column ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.footer .column ul li a {
+	color: #dbdbdb;
+	font-size: 12px;
+	padding: 9px 0;
+	display: block;
+}
+
+.footer .column ul li a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+/*.hoods.offices {
+	margin-top: 20px;
+}*/
+.logoPhone {
+	background: transparent url(../img/logoPhone.jpg) no-repeat 0 0;
+	height: 95px;
+	width: 218px;
+	display: block;
+	margin: 0 0 8px 11px;
+}
+
+a.fb, a.tw, a.yt {
+	background: transparent url(../img/sn.jpg) no-repeat 0 0;
+	height: 32px;
+	width: 32px;
+	text-indent: -9999px;
+	display: inline-block;
+	margin: 10px 0 0 40px;
+	padding-right: 3px;
+}
+
+.ie7 a.fb, .ie7 a.tw, .ie7 a.yt {
+	float: left;
+	margin: 10px 5px 0 0;
+}
+
+.ie7 a.fb {
+	margin-left: 40px;
+}
+
+ a.tw {
+	background-position: 0 50%;
+	margin: 0;
+}
+
+a.yt {
+	background-position: 0 100%;
+	margin: 0;
+}
+
+.fbLike {
+	float: right;
+}
+
+ul.links {
+	list-style-type: none;
+	margin: 5px 0 0;
+}
+
+ul.links li {
+	border-right: 1px solid #666;
+}
+
+ul.links li.lastLiAik {
+	border: none;
+}
+
+ul.links li a {
+	color: #ccc;
+	font-size: 11px;
+	padding-right: 5px;
+}
+
+ul.links li.lastLiAik a {
+	padding: 0;
+}
+
+ul.links li a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.panes {
+	padding: 15px 40px;
+	border-top: 0;
+	height: 252px;
+	font-size: 14px;
+}
+
+.ie7 .panes div,  .ie8 .panes div,  .ie9 .panes div {
+	padding-top: 30px;
+}
+.content.inner .panes {
+	padding: 15px 30px;
+}
+
+.tabbedBoxContainer .panes div div,  .content.inner .tabbedBoxContainer .panes div div {
+	display: block;
+	height: auto;
+	padding: 0;
+}
+
+ul.tabs {
+	list-style: none;
+	margin: 0 !important;
+	padding: 11px 10px 0;
+	height: 45px;
+}
+
+.content.inner ul.tabs {
+	padding: 0;
+}
+
+ul.tabs li {
+	float: left;
+	text-indent: 0;
+	padding: 0;
+	margin: 0 !important;
+	list-style-image: none !important;
+}
+
+ul.tabs a {
+	background: url(../img/tabs_aug2.png) no-repeat 0 0;
+	font-size: 20px;
+	font-family: 'MidoMedium', Georgia, Sans-Serif;
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	width: 92px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #333;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	top: 1px;
+	text-shadow: 0px 1px 1px #fff;
+	-moz-text-shadow: 0px 1px 1px #fff;
+	-webkit-text-shadow: 0px 1px 1px #fff;
+}
+
+ul.tabs a:active,  ul.tabs a:focus {
+	outline: none;
+}
+
+ul.tabs a:hover {
+}
+
+ul.tabs a.current,  ul.tabs a.current:hover,  ul.tabs li.current a {
+	background-position: 0 100%;
+}
+
+.wrapper {
+	width: 960px; /*main page size*/
+	margin: 0 auto;
+}
+
+.header {
+	background: transparent url(../img/tileHeader_aug.png) repeat-x 0 0;
+	height: 213px;
+}
+
+.right {
+	float: right;
+}
+
+a.logo {
+	background: transparent url(../img/logoAug.jpg) no-repeat 0 0;
+	float: left;
+	text-indent: -9999px;
+	height: 151px;
+	width: 267px;
+	display: block;
+}
+
+a.logo:hover,  a.logo:focus {
+	background-position: 100% 0;
+	outline: none;
+}
+
+a.redirect {
+    font-family: 'MidoMedium', Arial, Helvetica, Sans-Serif;
+    height: 19px;
+    display: block;
+    background: transparent url(../img/btnRedirect.jpg) no-repeat 100% 100%;
+    float:left;
+    font-size:13px;
+    color:#fff;
+    margin:10px 0 0 20px;
+    padding: 2px 35px 3px 20px;
+    line-height:19px;
+    border-left:1px solid #000;
+}
+.chrome a.redirect {
+    padding:3px 35px 2px 20px;
+}
+a.redirect:hover,  a.redirect:focus {
+	background-position:100% 0;
+    text-decoration:none;
+}
+
+a.account,  a.profile {
+	background: transparent url(../img/iconAccount.gif) no-repeat 0 50%;
+	float: right;
+	display: block;
+	padding: 0 0 1px 20px;
+	margin-top: 14px;
+}
+
+a.profile {
+	background-image: url(../img/iconProfile.gif);
+	background-position: 0 0;
+	margin-right: 10px;
+}
+
+
+a.contactAgent, a.findAgent {
+	background: transparent url(../img/buttonContactAgent_aug.jpg) no-repeat 0 0;
+	float: right;
+	height: 34px;
+	width: 207px;
+	display: block;
+	text-indent: -9999px;
+	margin: 0 -2px 2px 0;
+}
+
+a.contactAgent.dark, a.findAgent.dark {
+	background: url(../img/buttonContactAgentDarkExists.jpg);
+	float: none;
+	margin: 0 0 2px 15px;
+}
+
+a.contactAgent:hover,  a.contactAgent:focus, a.findAgent:hover, a.findAgent:focus {
+	background-position: 100% 0;
+	outline: none;
+}
+
+a.contactAgent:active, a.findAgent:active {
+	background-position: 100% 2px;
+	margin-bottom: 0;
+	height: 36px;
+}
+a.findAgent, a.findAgent.dark  {
+	background: transparent url(../img/buttonFindAgent.png) no-repeat 0 0;
+}
+
+/* FORMS */
+
+/* POPUP */
+
+ul.popUp.menu {
+	background: transparent url(../img/divider_aug.gif) no-repeat 0 3px;
+	padding: 3px 0 3px 2px;
+	height: 56px;
+	float: left;
+}
+ul.popUp.menu a {
+	display: block;
+	float: left;
+	padding: 12px 17px 11px;
+	font-family: Georgia, Serif;
+	font-size: 21px;
+	color: #000;
+	text-shadow: 0px 1px 1px #fff;
+	-moz-text-shadow: 0px 1px 1px #fff;
+	-webkit-text-shadow: 0px 1px 1px #fff;
+	font-weight: normal;
+}
+ul.popUp.menu li, ul.popUp.menu li.topLi {
+	background: transparent url(../img/divider.gif) no-repeat 100% 0;
+	padding-right: 2px;
+	padding-bottom: 1px;
+}
+
+ul.popUp.menu li.lastLi a {
+	padding: 16px 0px 17px 2px;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #252027;
+	text-decoration: none;
+}
+ul.popUp.menu a {
+	padding: 12px 30px 13px 30px;
+	text-decoration: none;
+}
+
+ul.popUp.menu a:hover, ul.popUp.menu a:focus, ul.popUp.menu li:hover a, /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu li.hover a {
+	/* Same as above for IE6 */
+	background-color: #EBEBE4;
+}
+
+ul.popUp.menu ul li.lastLiAik a {
+	border: none;
+}
+
+ul.popUp.menu li.home a:hover {
+	background: #EBEBE4 url(../img/home.gif) no-repeat 50% 50%;
+}
+
+ul.popUp.menu ul li.lastLiAik a {
+	border: none;
+}
+ul.popUp.menu li.home a {
+	background: transparent url(../img/home.gif) no-repeat 50% 50%;
+	text-indent: -9999px;
+	padding: 12px 30px 10px;
+	display: inline-block;
+}
+
+ul.popUp.menu li.search a {
+	background: transparent url(../img/search.gif) no-repeat 20% 50%;
+	padding-left: 40px;
+}
+
+ul.popUp.menu li.current a {
+	border-top: 3px solid #AF1E2D;
+	margin-top: -3px;
+}
+
+ ul.popUp.menu.landingMenu li.current a {
+	border-top: none;
+	margin-top: 0;
+}
+/*.theme-shared ul.popUp.menu.landingMenu li a:hover
+{
+    border-top: 3px solid #F1F2F4;
+    margin-top: -3px;
+}*/
+
+ul.popUp.menu a:hover, ul.popUp.menu li:hover a,  /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu li.hover a {
+	/* Same as above for IE6 */
+	color: Black;
+	background-color: #f1f2f4;
+	text-decoration: none;
+}
+
+ul.popUp.menu li.hover a {
+	/* Same as above for IE6 */
+	background-color: #f1f2f4;
+	text-decoration: none;
+}
+
+ul.popUp.menu li.home a:hover {
+	background: #f1f2f4 url(../img/home.gif) no-repeat 50% 50%;
+}
+
+ul.popUp.menu ul {
+	left: 0px;
+	top: 56px;
+	width: 264px;
+	background: transparent url(../img/dropDownBottom.png) no-repeat 0 100%;
+	margin: 0;
+	padding: 0 0 10px 0;
+}
+
+ul.popUp.menu ul li {
+	background: transparent url(../img/tileDropDown.png) repeat-y 0 0;
+	float: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+ul.popUp.menu ul a, ul.popUp.menu li:hover ul a, ul.popUp.menu li.hover ul a {
+	background: none; /* Used because lower levels would inherit from parent hover */
+	padding: 7px 0;
+	margin: 0 30px 0 20px;
+	float: none;
+	font-size: 14px;
+	color: #49444B;
+	font-weight: normal;
+	text-shadow: none;
+	-moz-text-shadow: none;
+	-webkit-text-shadow: none;
+	border-top: none;
+	border-bottom: 1px solid #DADFE5;
+}
+
+.ie7 ul.popUp.menu ul a, .ie7 ul.popUp.menu li:hover ul a, .ie7 ul.popUp.menu li.hover ul a {
+	border: none;
+}
+
+ul.popUp.menu ul li.lastLi a {
+	border: none;
+}
+
+ul.popUp.menu ul a:hover, ul.popUp.menu ul li:hover a, /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu ul li.hover a {
+	/* Same as above for IE6 */
+	color: #49444B;
+	background-color: transparent;
+	text-decoration: none;
+	padding-left: 5px;
+}
+
+ul.popUp.menu ul a:hover ul li a, ul.popUp.menu ul li:hover ul li a, ul.popUp.menu ul li.hover ul li a {
+	padding-left: 0;
+}
+
+ul.popUp.menu li.topLi ul li.parent ul li a:hover {
+	padding-left: 5px;
+}
+
+ul.popUp.menu ul ul li {
+	background: transparent url(../img/tileDropDownThird.png) repeat-y 0 0;
+}
+
+ul.popUp.menu ul ul {
+	left: 255px; /* Same as width of "ul.popUp ul" */
+	top: 0; /* Positioning vertically*/
+	background: transparent url(../img/dropDownThirdBottom.png) no-repeat 0 100%;
+}
+
+ul.popUp.menu ul li.hover ul a {
+	color: #49444B;
+}
+
+ul.popUp.menu ul ul li.hover a {
+	color: #49444B;
+	margin-left: 25px;
+}
+/* Dropdown Form Li Styles */
+ul.popUp.menu li.lastLi ul {
+	background: none;
+}
+
+ul.popUp.menu ul li.formLi {
+	background: transparent url(../img/bgLoginForm.jpg) repeat-x 0 0;
+	border: 1px solid #7F1620;
+	float: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.loginLinks a.signUp {
+	font-weight: bold;
+	color: #fff;
+	font-size: 13px;
+}
+ul.popUp.menu li.lastLi a:hover, ul.popUp.menu li.lastLi:hover a, /* Keeps parent tab hovered when in sublevels */ ul.popUp.menu li.lastLi.hover a {
+	/* Same as above for IE6 */
+	/*background: url('../img/tileLastLi.jpg') repeat-x;*/
+}
+
+ ul.popUp.menu li.lastLi ul {
+	width: 263px;
+	left: -170px;
+}
+
+.ie9 ul.popUp.menu li.lastLi ul {
+	left: -173px;
+}
+
+@-moz-document url-prefix() {
+	.theme-shared ul.popUp.menu li.lastLi ul;
+
+{
+	left: -173px;
+}
+
+}
+
+li.formLi .formWhole {
+	padding: 20px;
+	width: 223px;
+}
+
+li.formLi .formWhole input.button {
+	background: url(../img/formLogin.jpg) repeat-x 0 0;
+	text-shadow: 1px 1px 1px #252027;
+	border: 1px solid #676667;
+	font-size: 15px;
+}
+
+li.formLi .formWhole input.button:hover {
+	background-position: 0 100%;
+}
+
+li.formLi input.text, .theme-shared li.formLi input.password {
+	margin-bottom: 16px;
+}
+
+/* TYPOGRAPHY */
+a.account,  a.profile {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	margin-left: 10px;
+}
+
+
+.loginLinks a.signUp {
+	font-weight: bold;
+	color: #fff;
+	font-size: 13px;
+}
+
+a.moreSearch {
+	margin: 10px auto 0;
+	width: 150px;
+	display: block;
+	font-size: 11px;
+	color: #06327D;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+	text-decoration: none;
+}
+a.moreSearch:hover {
+	text-decoration: underline;
+}
+
+.brightBox h3 {
+	font-family: 'MidoMedium', Georgia, Serif;
+	font-size: 27px;
+	color: #780112;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.brightBox p {
+	font-size: 15px;
+	color: #333;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.smallBox h4 {
+	background: transparent url(../img/iconNewListingEmail.gif) no-repeat 0 4px;
+	font-family: 'MidoMedium', Georgia, Serif;
+	font-size: 25px;
+	color: #3F3A41;
+	padding-left: 25px;
+	margin-bottom: 5px;
+}
+
+span.copyright,  span.copyright a {
+	color: #ccc;
+	float: left;
+}
+
+span.copyright.webdesign,  span.copyright.webdesign a {
+	display: inline-block;
+	margin-top: 4px;
+	color: #666;
+	font-size: 11px;
+	float: none;
+}
+
+span.copyright a:hover,  span.copyright.webdesign a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+/*.content.inner.realtorSearch .box .bottom .headerBG {
+	margin-top: 8px;
+}
+.content.inner.full .box .bottom .headerBG {
+	margin-top: -40px;
+}
+.content.inner .box .bottom .newsPress .headerBG, .content.inner .box .bottom .newsletter .headerBG {
+	margin-top: -30px;
+}*/
+.header h2.phone {
+	background: transparent url(../img/iconPhone_aug.gif) no-repeat 0 66%;
+}
+.accordionContainer {
+	background: #ECEEF3 url(../img/tile-accordion-augusta.png) repeat-x 0 0;
+	border-top: 1px solid #D5D5D5;
+	padding: 0 15px;
+}
+
+.virtualMagazine.aiken { display: none; }

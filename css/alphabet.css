@@ -1,0 +1,41 @@
+﻿ul.AtoZ {
+	width: 100%;
+	height: 42px;
+	margin: 0;
+	border-top: 1px solid #fefefe;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+ul.AtoZ li {
+	float: left;
+	text-align: center;
+}
+
+ul.AtoZ li a {
+	font-size: 19px;
+	line-height: 215%;
+	padding: 0 5px;
+	height: 42px;
+	display: block;
+}
+
+ul.AtoZ li.aLi a {
+	padding-left: 0px;
+}
+
+ul.AtoZ li.zLi a {
+	padding-right: 2px;
+}
+
+ul.AtoZ li a:hover {
+	background: #fefefe;
+	text-decoration: none;
+}
+
+.AtoZ .active {
+	color: black;
+}
+
+.AtoZ .unavailable {
+	color: grey;
+}

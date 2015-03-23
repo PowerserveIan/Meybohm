@@ -1,0 +1,879 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ assembly name="System.Configuration.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Configuration" #>
+<#@ output extension=".cs"#>
+<#
+string inputFile = @"Entity.edmx";
+EdmItemCollection itemCollection = new MetadataLoader(this).CreateEdmItemCollection(inputFile);
+List<string> adminPaths = new List<string>();
+foreach (EntityType entity in itemCollection.GetItems<EntityType>().Where(e=>e.Documentation.LongDescription.ToLower().Contains("admin")).OrderBy(e => e.Name))
+{	
+	string adminPath = Host.ResolvePath("").Substring(0, Host.ResolvePath("").IndexOf("App_Code")) + "admin\\";
+	if (entity.Documentation != null && entity.Documentation.Summary != null)
+		adminPath += FormatStringToLowerHyphenated(entity.Documentation.Summary) + "\\";		
+	else
+		adminPath += "give-me-a-component-name\\";
+	
+	if (!adminPaths.Contains(adminPath))
+		adminPaths.Add(adminPath);
+
+	if (!Directory.Exists(adminPath))
+		Directory.CreateDirectory(adminPath);
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+	ListingAspxTemplate(entity);
+	SaveOutput(adminPath + "admin-" + FormatStringToLowerHyphenated(entity.Name) + ".aspx");
+	ListingAspxCsTemplate(entity);
+	SaveOutput(adminPath + "admin-" + FormatStringToLowerHyphenated(entity.Name) + ".aspx.cs");
+	
+	EditAspxTemplate(entity);
+	SaveOutput(adminPath + "admin-" + FormatStringToLowerHyphenated(entity.Name) + "-edit.aspx");
+	EditAspxCsTemplate(entity);
+	SaveOutput(adminPath + "admin-" + FormatStringToLowerHyphenated(entity.Name) + "-edit.aspx.cs");
+	
+	InsertSiteComponent(entity.Documentation.Summary);
+}
+foreach (string adminPath in adminPaths)
+{
+	bool overwrite = true;
+	string menuPath = adminPath + "menu.ascx";
+	if (File.Exists(menuPath))
+	{
+		string menuText = File.ReadAllText(menuPath);
+		if (!menuText.Contains("<%--Delete this line"))
+			overwrite = false;
+	}
+	List<EntityType> entities = itemCollection.GetItems<EntityType>().Where(e=>e.Documentation.LongDescription.ToLower().Contains("admin") && adminPath.EndsWith(FormatStringToLowerHyphenated(e.Documentation.Summary) + "\\")).OrderBy(e => e.Name).ToList();
+	if (entities.Any()){
+		MenuTemplate(entities);
+		SaveOutput(menuPath + (overwrite ? "" : ".txt"));
+	}
+}
+
+List<string> components = new List<string>();
+foreach (EntityType entity in itemCollection.GetItems<EntityType>().Where(e=>e.Documentation.LongDescription.ToLower().Contains("quickview")).OrderBy(e => e.Name))
+{	
+	string componentName = string.Empty;
+	if (entity.Documentation != null && entity.Documentation.Summary != null)
+		componentName = entity.Documentation.Summary;		
+	else
+		componentName = "give-me-a-component-name";
+	
+	if (componentName.Equals("ConfigurationSettings", StringComparison.OrdinalIgnoreCase) ||
+		componentName.Equals("Media352_MembershipProvider", StringComparison.OrdinalIgnoreCase) ||
+		componentName.Equals("PaymentGateway", StringComparison.OrdinalIgnoreCase) ||
+		componentName.Equals("SEOComponent", StringComparison.OrdinalIgnoreCase) ||
+		componentName.Equals("SiteLanguages", StringComparison.OrdinalIgnoreCase) ||
+		componentName.Equals("StateAndCountry", StringComparison.OrdinalIgnoreCase) ||
+		components.Contains(componentName))
+		continue;
+
+	components.Add(componentName);
+	string quickViewPath = Host.ResolvePath("").Substring(0, Host.ResolvePath("").IndexOf("App_Code")) + "Controls\\";
+	quickViewPath += componentName + "\\";
+
+	if (!Directory.Exists(quickViewPath))
+		Directory.CreateDirectory(quickViewPath);
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+	QuickViewAscxTemplate(componentName);
+	SaveOutput(quickViewPath + "AdminQuickView.ascx");
+	QuickViewAscxCsTemplate(componentName);
+	SaveOutput(quickViewPath + "AdminQuickView.ascx.cs");
+}
+#>
+<#+
+void SaveOutput(string outputFileName)
+{
+	File.WriteAllText(outputFileName, this.GenerationEnvironment.ToString());
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+}
+void InsertSiteComponent(string component){
+	const string inlineSql = @"IF ((SELECT COUNT(*) FROM SiteComponent WHERE ComponentName = @ComponentName) = 0)
+BEGIN
+	INSERT INTO SiteComponent (ComponentName, DisplayName, MenuDisplayOrder)
+	(SELECT @ComponentName, @ComponentName, MAX(MenuDisplayOrder) + 1
+	FROM SiteComponent)
+END";
+	
+	ConnectionStringSettings cs = ConnectionStrings["LocalSqlServer"];
+	using (SqlConnection cn = new SqlConnection(cs.ConnectionString))
+	{
+		cn.Open();
+		SqlCommand cmd = new SqlCommand(inlineSql, cn);
+		cmd.Parameters.Add("@ComponentName", System.Data.SqlDbType.VarChar, 255).Value = component;
+		cmd.ExecuteNonQuery();
+	}
+}
+private static Configuration _config;
+private ConnectionStringSettingsCollection ConnectionStrings
+{
+    get { return Configuration.ConnectionStrings.ConnectionStrings;}
+}
+private Configuration Configuration
+{
+    get
+    {
+        if(_config==null)
+        {
+            string configurationFilename=Host.ResolvePath("").Substring(0, Host.ResolvePath("").IndexOf("App_Code")) + "web.config";																
+ 
+            if(!string.IsNullOrEmpty(configurationFilename))
+            {
+                // found it, map it and return it
+                ExeConfigurationFileMap configFile = null;
+                configFile = new ExeConfigurationFileMap();
+                configFile.ExeConfigFilename=configurationFilename;
+                _config = System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(configFile, ConfigurationUserLevel.None);
+            }  
+        }
+        return _config;
+    }
+}
+private static string FormatStringToLowerHyphenated(string input)
+{
+	string formattedOutput = "";
+	foreach (char c in input)
+	{
+		if (Char.IsUpper(c))
+			formattedOutput += "-" + Char.ToLower(c);
+		else
+			formattedOutput += c;
+	}
+	return formattedOutput.Replace("_", "").TrimStart('-');
+}
+private string GetDisplayOrderText(EntityType entity){
+	if (entity.Properties.Any(p=>p.Name.ToLower().Contains("displayorder")))
+		return @"
+	<div class=""blue"" data-bind=""visible: listings().length > 0"">
+		<h4>To change the display order of your " + entity.Name + @"s, click Edit Display Orders and then change the values in the textboxes below. The lowest number will display first.</h4>
+		<a href=""#"" class=""button edit"" data-bind=""click:function(){listingModel.displayOrderEditableChanged(true);},visible:!listingModel.displayOrderEditableChanged()""><span>Edit Display Orders</span></a>
+		<a href=""#"" class=""button save"" data-bind=""click:function(){listingModel.saveDisplayOrders();},visible:listingModel.displayOrderEditableChanged()""><span>Save Display Orders</span></a>
+		<div class=""clear""></div>
+	</div>";
+	return string.Empty;
+}
+static string SplitColumnName(string columnName)
+{
+	List<int> uppers = new List<int>();
+	for (int i = 0; i < columnName.Length; i++)
+	{
+		if (Char.IsUpper(columnName, i))
+			uppers.Add(i);
+	}
+	for (int i = 0; i < uppers.Count; i++)
+	{
+		if (uppers[i] > 0 && (uppers[i] - uppers[i - 1]) > 1)//make sure the letters aren't an acronym(next to each other)
+		{
+			columnName = columnName.Insert(uppers[i], " ");
+			for (int u = 0; u < uppers.Count; u++)
+				uppers[u]++;
+		}
+	}
+
+	return columnName;
+}
+private string GetSortColumns(EntityType entity){
+	string sortColumnText = string.Empty;
+	bool first = true;
+	foreach(EdmProperty prop in entity.Properties.OrderBy(p=>p.Name))
+	{
+		if(prop.Documentation != null && prop.Documentation.Summary != null && prop.Documentation.Summary.Contains("Order")) {
+			sortColumnText +=  @"
+				<th[FIRSTCOLUMNCLASS]>
+					<a href=""#"" class=""sort"" data-bind=""css:{ascending: sortField() == '[COLUMN_NAME]' && sortDirection(), descending: sortField() == '[COLUMN_NAME]' && !sortDirection()}, click: function(){listingModel.setSort('[COLUMN_NAME]')}"">[COLUMN_TITLE]</a>
+				</th>".Replace("[COLUMN_NAME]", prop.Name)
+					.Replace("[COLUMN_TITLE]", SplitColumnName(prop.Name))
+					.Replace("[FIRSTCOLUMNCLASS]", (first ? @" class=""first""" : ""));
+			first = false;
+		}
+	}
+	return sortColumnText;
+}
+private string GetDisplayColumns(EntityType entity){
+	string displayColumnText = string.Empty;
+	bool first = true;
+	foreach(EdmProperty prop in entity.Properties.OrderBy(p=>p.Name))
+	{
+		if(prop.Documentation != null && prop.Documentation.Summary != null && prop.Documentation.Summary.Contains("Order")) {
+			displayColumnText +=  @"
+			<td[FIRSTCOLUMNCLASS][DATA-BIND]>[DISPLAY_COLUMN_IMAGEBUTTON_OR_TOSTRING]
+			</td>".Replace("[DISPLAY_COLUMN_IMAGEBUTTON_OR_TOSTRING]", prop.Name.Equals("Active") || prop.Name.Equals("Featured") ? @"
+				<a href='#' class=""icon noText"" data-bind=""click: toggle[COLUMN_NAME], css: {active: [COLUMN_NAME](), inactive: ![COLUMN_NAME]() }, text:[COLUMN_NAME_LOWER]Text(),attr:{title:[COLUMN_NAME_LOWER]Text()}""></a>" : (prop.Name.Equals("DisplayOrder") ? @"
+				<input type=""text"" class=""text small displayOrder"" maxlength=""3"" data-bind=""value: displayOrder,visible: listingModel.displayOrderEditable(),css:{error:displayOrderInvalid()}"" />
+				<span data-bind=""text: displayOrder,visible: !listingModel.displayOrderEditable()""></span>" : string.Empty))
+					.Replace("[DATA-BIND]", prop.Name.Equals("Active") || prop.Name.Equals("Featured") || prop.Name.Equals("DisplayOrder") ? string.Empty : 
+							(prop.TypeUsage.EdmType.Name == "DateTime" ? " data-bind='html:FormatDate([COLUMN_NAME]ClientTime, \"MMMM d, yyyy\")'" : @" data-bind='html:[COLUMN_NAME]'"))
+					.Replace("[COLUMN_NAME]", prop.Name)
+					.Replace("[COLUMN_NAME_LOWER]", prop.Name.ToLower())
+					.Replace("[FIRSTCOLUMNCLASS]", (first ? @" class=""first""" : ""));
+			first = false;
+		}
+	}
+	return displayColumnText;
+}
+private string GetKnockoutMapping(EntityType entity){
+	string ret = "";
+	foreach(EdmProperty prop in entity.Properties.OrderBy(p=>p.Name))
+	{
+		if(prop.Documentation != null && prop.Documentation.Summary != null && prop.Documentation.Summary.Contains("Order") && !prop.Name.Equals("Active") && !prop.Name.Equals("Featured") && !prop.Name.Equals("DisplayOrder"))
+		ret += @"
+			thisListing.[COLUMN_NAME] = item.[COLUMN_NAME];"
+			.Replace("[COLUMN_NAME]", prop.Name + (prop.TypeUsage.EdmType.Name == "DateTime" ? "ClientTime" : string.Empty));
+	}
+
+	return ret;
+}
+void ListingAspxTemplate(EntityType entity)
+{
+#><%@ Page Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" Inherits="Admin<#=entity.Name#>" CodeFile="admin-<#=FormatStringToLowerHyphenated(entity.Name)#>.aspx.cs"%>
+
+<asp:Content ContentPlaceHolderID="ContentWindow" runat="server">
+	<%--The markup for the Header (title, breadcrumbs, and search panel) can be found in the BaseListingPage--%>
+	<asp:PlaceHolder runat="server" ID="uxHeader"></asp:PlaceHolder>
+	<%--The markup for pagination can be found in the BaseListingPage--%>
+	<asp:PlaceHolder runat="server" ID="uxFilterPlaceHolder"></asp:PlaceHolder><#= GetDisplayOrderText(entity)#>
+	<table class="listing" data-bind="visible: listings().length > 0">
+		<thead>
+			<tr><#=GetSortColumns(entity)#>
+				<th style="width: 120px;">
+					Options
+				</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: listings">
+			<tr data-bind="css:{odd:index() % 2 == 0}"><#=GetDisplayColumns(entity)#>
+				<td>
+					<a data-bind='attr:{href:linkToEditPage + Id + listingModel.returnString()}' class="icon edit">Edit</a>
+					<a href='#' class="icon delete or" data-bind="click: function(){if(confirm('Are you sure you want to delete this ' + entityClassName + '?'))deleteRecord();}">Delete</a>
+					<input type='hidden' data-bind="value:Id" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 class="indent paddingTop" data-bind="visible: listings().length == 0">There are no <#=SplitColumnName(entity.Name)#>s to edit. Add a <#=SplitColumnName(entity.Name)#> by clicking the Add New button above.</h4>		
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PageSpecificJS">
+	<script type="text/javascript">
+		appendToListing = function (index, item, thisListing) {
+			thisListing.Id = item.<#=entity.KeyMembers[0].Name#>;<#=GetKnockoutMapping(entity)#>
+		}
+	</script>
+</asp:Content>
+<#+   
+}
+void ListingAspxCsTemplate(EntityType entity)
+{
+#>using System;
+using System.Collections.Generic;
+using System.Web.Services;
+using Classes.<#=entity.Documentation.Summary#>;
+
+public partial class Admin<#=entity.Name#> : BaseListingPage
+{
+	protected override void OnInit(EventArgs e)
+	{
+		//Passing control references to base class
+		m_Header = uxHeader;
+		m_DefaultSortField = "<#=entity.Properties.Where(p=>p.Documentation != null && p.Documentation.Summary != null && p.Documentation.Summary.Contains("Order")).OrderBy(p=>p.Name).FirstOrDefault().Name#>";
+		m_LinkToEditPage = "admin-<#=FormatStringToLowerHyphenated(entity.Name)#>-edit.aspx?id=";
+		m_FiltersPlaceHolder = uxFilterPlaceHolder;
+		m_ClassName = "<#=SplitColumnName(entity.Name)#>";<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? @"
+		m_IdIsGuid = true;" : string.Empty#>
+		base.OnInit(e);
+	}
+
+	[WebMethod]
+	public static ListingItemWithCount<<#=entity.Name#>> PageListing(int pageNumber, int pageSize, string searchText, string sortField, bool sortDirection)
+	{
+		int totalCount;
+		List<<#=entity.Name#>> listItems = <#=entity.Name#>.<#=entity.Name#>PageWithTotalCount((pageNumber - 1) * pageSize, pageSize, searchText, sortField, sortDirection, out totalCount);
+		return new ListingItemWithCount<<#=entity.Name#>> { Items = listItems, TotalCount = totalCount };
+	}
+
+	[WebMethod]
+	public static void DeleteRecord(<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "Guid" : "int" #> id)
+	{
+		<#=entity.Name#> entity = <#=entity.Name#>.GetByID(id);
+		if (entity != null)
+			entity.Delete();
+	}<#=entity.Properties.Any(p=>p.Documentation != null && p.Documentation.Summary != null && p.Documentation.Summary.Contains("Order") && p.Name.Contains("Active")) ? @"
+
+	[WebMethod]
+	public static void ToggleActive(" + (entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "Guid" : "int") + @" id)
+	{
+		" + entity.Name + @" entity = " + entity.Name + @".GetByID(id);
+		if (entity != null)
+		{
+			entity.Active = !entity.Active;
+			entity.Save();
+		}
+	}" : string.Empty#><#=entity.Properties.Any(p=>p.Documentation != null && p.Documentation.Summary != null && p.Documentation.Summary.Contains("Order") && p.Name.Contains("Featured")) ? @"
+
+	[WebMethod]
+	public static void ToggleFeatured(" + (entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "Guid" : "int") + @" id)
+	{
+		" + entity.Name + @" entity = " + entity.Name + @".GetByID(id);
+		if (entity != null)
+		{
+			entity.Featured = !entity.Featured;
+			entity.Save();
+		}
+	}" : string.Empty#><#=entity.Properties.Any(p=>p.Documentation != null && p.Documentation.Summary != null && p.Documentation.Summary.Contains("Order") && p.Name.Contains("DisplayOrder")) ? @"
+
+	[WebMethod]
+	public static void UpdateDisplayOrder(Dictionary<string, short> displayOrders)
+	{
+		List<" + entity.Name + @"> listItems = " + entity.Name + @".GetAll();
+		foreach (" + entity.Name + @" entity in listItems)
+		{
+			if (displayOrders.ContainsKey(entity." + entity.KeyMembers[0].Name + @".ToString()) && displayOrders[entity." + entity.KeyMembers[0].Name + @".ToString()] != entity.DisplayOrder)
+			{
+				entity.DisplayOrder = displayOrders[entity." + entity.KeyMembers[0].Name + @".ToString()];
+				entity.Save();
+			}
+		}
+	}" : string.Empty#>
+}
+<#+   
+}
+private string GetCheckboxes(EntityType entity){
+	if (!entity.Properties.Any(p=>p.TypeUsage.EdmType.Name == "Boolean"))
+		return string.Empty;
+	bool multipleCheckboxes = entity.Properties.Count(p=>p.TypeUsage.EdmType.Name == "Boolean") > 1;
+	string ret = multipleCheckboxes ? @"
+		<div class=""blue padded optionsList"">
+			<ul class=""inputList checkboxes horizontal"">[CHECKBOXES]
+			</ul>
+			<div class=""clear""></div>
+		</div>" : @"
+		<div class=""blue padded optionsList"">
+			[CONTROL]
+			<div class=""clear""></div>
+		</div>";
+	
+	foreach(EdmProperty prop in entity.Properties.Where(p=>p.TypeUsage.EdmType.Name == "Boolean").OrderBy(p=>p.Name))
+	{
+		if (multipleCheckboxes)
+			ret = ret.Replace("[CHECKBOXES]", @"
+				<li>
+					[CONTROL]</li>[CHECKBOXES]");
+		ret = ret.Replace("[CONTROL]", string.Format("<asp:CheckBox runat=\"server\" id=\"ux{0}\" [ATTRIBUTES]Text=\"{1}\" />", prop.Name, SplitColumnName(prop.Name))).Replace("[ATTRIBUTES]", (prop.Name.Contains("Active") || prop.Name.Contains("Online") ? "Checked=\"true\" " : string.Empty));
+	}
+
+	return ret.Replace("[CHECKBOXES]", "");
+}
+private string GetEditRows(EntityType entity){
+	string ret = string.Empty;
+	foreach(EdmProperty prop in entity.Properties.Where(p=>p.TypeUsage.EdmType.Name != "Boolean" && p.Name != entity.KeyMembers[0].Name).OrderBy(p=>p.Name))
+	{
+		bool isForeignKey = false;
+		foreach (NavigationProperty nav in entity.NavigationProperties){
+			if (prop.Name == nav.FromEndMember.Name) {
+				isForeignKey = true;
+				break;
+			}
+		}
+		
+		//this is the FK Table Name
+		//entity.NavigationProperties[0].ToEndMember.Name
+
+		ret += @"
+			<div class=""" + (IsHtmlProperty(prop) || IsFileUploadProperty(prop) ? "formWhole" : "formHalf") + @""">
+				<label for=""<%= ux[FIELD_TITLE_UNSPLIT].ClientID %>[ZIPCODE_OR_PHONE_LABEL]"">
+					[FIELD_TITLE][REQUIRED_MARK][EXPLANATION]</label>
+				[CONTROL][VALIDATORS]
+			</div>".Replace("[FIELD_TITLE]", SplitColumnName(prop.Name))
+					.Replace("[FIELD_TITLE_UNSPLIT]", prop.Name)
+					.Replace("[REQUIRED_MARK]", !prop.Nullable ? "<span class=\"asterisk\">*</span>" : "")
+					.Replace("[CONTROL]", GetControlCode(prop, isForeignKey))
+					.Replace("[VALIDATORS]", GetValidationCode(prop, isForeignKey))
+					.Replace("[EXPLANATION]", GetExplanation(prop, isForeignKey))
+					.Replace("[ZIPCODE_OR_PHONE_LABEL]", GetZipcodeOrPhoneLabel(prop))
+					.Replace("[ATTRIBUTES]", string.Empty);
+	}
+
+	return ret;
+}
+private string GetControlCode(EdmProperty prop, bool isForeignKey){
+	string ret = string.Empty;
+	string propType = prop.TypeUsage.EdmType.Name;
+	string maxLength = GetMaxLength(prop);
+		
+	if (isForeignKey) {
+		ret += string.Format("<asp:DropDownList runat=\"server\" id=\"ux{0}\" />", prop.Name);
+	}
+	else if (prop.Name.ToLower().Contains("phone")){
+		ret += string.Format("<Controls:PhoneBox runat=\"server\" id=\"ux{0}\" Required=\"{1}\" TextBoxClass=\"text\" [ATTRIBUTES] />", prop.Name, (prop.Nullable ? "False" : "True"));
+	}
+	else if (prop.Name.ToLower().Contains("zip") || prop.Name.ToLower().Contains("postalcode")){
+		ret += string.Format("<Controls:Zipcode runat=\"server\" id=\"ux{0}\" Required=\"{1}\" TextBoxClass=\"text\" [ATTRIBUTES] />", prop.Name, (prop.Nullable ? "False" : "True"));
+	}
+	else if (IsFileUploadProperty(prop)){
+		ret += string.Format("<Controls:FileUpload runat=\"server\" id=\"ux{0}\" Required=\"{1}\" [ATTRIBUTES] />", prop.Name, (prop.Nullable ? "False" : "True"));
+	}
+	else if (IsHtmlProperty(prop)){
+		ret += string.Format("<Controls:RichTextEditor runat=\"server\" ID=\"ux{0}\" FieldName=\"{1}\"{2} />", prop.Name, SplitColumnName(prop.Name), (prop.Nullable ? "" : " Required=\"true\""));
+	}
+	else {
+		switch (propType){
+			case "DateTime":
+				ret += string.Format("<Controls:DateTimePicker runat=\"server\" ID=\"ux{0}\" TextBoxCssClass=\"text\" [ATTRIBUTES]/>", prop.Name);
+				break;
+			case "Guid":
+				break;
+			default:
+				ret += string.Format("<asp:TextBox runat=\"server\" id=\"ux{0}\" [ATTRIBUTES]CssClass=\"text\" />", prop.Name);
+				break;
+		}
+
+		switch (propType){
+			case "Byte":
+				ret = ret.Replace("[ATTRIBUTES]", "MaxLength=\"3\" [ATTRIBUTES]");
+				break;
+			case "DateTime":
+				ret = ret.Replace("[ATTRIBUTES]", (prop.Nullable ? "Required=\"false\" [ATTRIBUTES]" : "RequiredErrorMessage=\"Begin Date is required.\" [ATTRIBUTES]" ));
+				break;
+			case "Int16":
+				ret = ret.Replace("[ATTRIBUTES]", "MaxLength=\"6\" [ATTRIBUTES]");
+				break;
+			case "Int32":
+				ret = ret.Replace("[ATTRIBUTES]", "MaxLength=\"11\" [ATTRIBUTES]");
+				break;
+			case "Int64":
+			case "Double":
+				ret = ret.Replace("[ATTRIBUTES]", "MaxLength=\"20\" [ATTRIBUTES]");
+				break;
+			case "String":
+				int maxLengthInt;
+				if (!String.IsNullOrEmpty(maxLength) && Int32.TryParse(maxLength, out maxLengthInt)) {
+					if (maxLengthInt > 255)
+						ret = ret.Replace("[ATTRIBUTES]", "TextMode=\"MultiLine\" [ATTRIBUTES]");
+					else
+						ret = ret.Replace("[ATTRIBUTES]", String.Format("MaxLength=\"{0}\" [ATTRIBUTES]", maxLengthInt));
+				}
+				break;	
+			default:
+				break;		
+		}
+	}
+	return ret;
+}
+private string GetValidationCode(EdmProperty prop, bool isForeignKey){
+	string ret = string.Empty;
+	string propType = prop.TypeUsage.EdmType.Name;
+	if (isForeignKey || prop.Name.ToLower().Contains("phone") || IsFileUploadProperty(prop) || propType == "DateTime")
+		return ret;	
+	string maxLength = GetMaxLength(prop);
+
+	string requiredFieldValidatorBaseCode = @"
+				" + String.Format("<asp:RequiredFieldValidator runat=\"server\" id=\"ux{0}ReqFVal\" ControlToValidate=\"ux{0}\" ErrorMessage=\"{1} is required.\" [ATTRIBUTES] />", prop.Name, SplitColumnName(prop.Name));
+	string compareValidatorBaseCode = @"
+				" + String.Format("<asp:CompareValidator runat=\"server\" id=\"ux{0}CompVal\" ControlToValidate=\"ux{0}\" [ATTRIBUTES] />", prop.Name);
+	string regExValidatorBaseCode = @"
+				" + String.Format("<asp:RegularExpressionValidator runat=\"server\" id=\"ux{0}RegexVal\" ControlToValidate=\"ux{0}\" [ATTRIBUTES] />", prop.Name);
+	string rangeValidatorBaseCode = @"
+				" + String.Format("<asp:RangeValidator runat=\"server\" id=\"ux{0}RangeVal\" ControlToValidate=\"ux{0}\" [ATTRIBUTES] />", prop.Name);
+
+	if (!prop.Nullable)
+		ret += requiredFieldValidatorBaseCode;
+	switch (propType){
+		case "Byte":
+			ret += rangeValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is invalid.  It must be a tiny integer.\" Type=\"Integer\" MinimumValue=\"0\" MaximumValue=\"255\" [ATTRIBUTES]", SplitColumnName(prop.Name)));
+			break;
+		case "Int16":
+			ret += rangeValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is invalid.  It must be a small integer.\" Type=\"Integer\" MinimumValue=\"-32767\" MaximumValue=\"32767\" [ATTRIBUTES]", SplitColumnName(prop.Name)));
+			break;
+		case "Int32":
+			ret += rangeValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is invalid.  It must be an integer.\" Type=\"Integer\" MinimumValue=\"-2147483648\" MaximumValue=\"2147483647\" [ATTRIBUTES]", SplitColumnName(prop.Name)));
+			break;
+		case "Int64":
+			ret += compareValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is invalid.  It must be an integer.\" Type=\"Double\" Operator=\"DataTypeCheck\" [ATTRIBUTES]", SplitColumnName(prop.Name)));
+			break;
+		case "Double":
+		case "Decimal":
+		case "Single":
+			ret += compareValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is invalid.  It must be a numeric value.\" Type=\"Double\" Operator=\"DataTypeCheck\" [ATTRIBUTES]", SplitColumnName(prop.Name)));
+			break;
+		case "String":
+			int maxLengthInt;
+			if (!String.IsNullOrEmpty(maxLength) && Int32.TryParse(maxLength, out maxLengthInt)) {
+				ret += regExValidatorBaseCode.Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is too long.  It must be {1} characters or less.\" ValidationExpression=\"^[\\s\\S]{{0,{1}}}$\" [ATTRIBUTES]", SplitColumnName(prop.Name), maxLength));
+			}
+			if (prop.Name.ToLower().Contains("email"))
+				ret += @"
+				" + regExValidatorBaseCode.Replace("ux" + prop.Name + "RegexVal", "ux" + prop.Name + "RegexVal2").Replace("[ATTRIBUTES]", String.Format("ErrorMessage=\"{0} is an invalid email address.\" ValidationExpression=\"{1}\" [ATTRIBUTES]", SplitColumnName(prop.Name), "^[^,;]{1,64}@[^,;]{1,255}\\.[^,;]{0,60}[^.]$"));
+			break;	
+		default:
+			break;		
+	}
+	return ret;
+}
+private string GetExplanation(EdmProperty prop, bool isForeignKey){
+	string ret = string.Empty;
+	string propType = prop.TypeUsage.EdmType.Name;
+	string maxLength = GetMaxLength(prop);
+
+	if (isForeignKey || prop.Name.ToLower().Contains("phone") || IsFileUploadProperty(prop) || IsHtmlProperty(prop))
+	{ }
+	else{
+		switch (propType){
+			case "Byte":
+				ret = "<br /><span>Must be an integer from 0 to 255</span>";
+				break;
+			case "DateTime":
+				ret = ret.Replace("[ATTRIBUTES]", (prop.Nullable ? "Required=\"false\" [ATTRIBUTES]" : "RequiredErrorMessage=\"Begin Date is required.\" [ATTRIBUTES]" ));
+				break;
+			case "Int16":
+			case "Int32":
+			case "Int64":
+				ret = "<br /><span>Must be an integer</span>";
+				break;
+			case "String":
+				int maxLengthInt;
+				if (!String.IsNullOrEmpty(maxLength) && Int32.TryParse(maxLength, out maxLengthInt)) {
+					ret = String.Format("<br /><span>Must be less than {0} characters</span>", maxLength);
+				}
+				break;	
+			default:
+				break;		
+		}
+	}
+	return ret;
+}
+private string GetZipcodeOrPhoneLabel(EdmProperty prop){
+	string ret = string.Empty;
+	if (prop.Name.ToLower().Contains("phone")){
+		ret = "_uxPhoneBox";
+	}
+	else if (prop.Name.ToLower().Contains("zip") || prop.Name.ToLower().Contains("postalcode")){
+		ret = "_uxZipcode";
+	}
+	return ret;
+}
+private List<EdmProperty> GetHtmlProperties(EntityType entity){
+	List<EdmProperty> props = new List<EdmProperty>();
+	foreach (EdmProperty prop in entity.Properties.Where(p=>p.TypeUsage.EdmType.Name == "String").OrderBy(p=>p.Name)){
+		if (IsHtmlProperty(prop))
+			props.Add(prop);
+	}
+	return props;
+}
+private bool IsHtmlProperty(EdmProperty prop){
+	string maxLength = GetMaxLength(prop);
+	string propType = prop.TypeUsage.EdmType.Name;
+	return (propType == "String" && maxLength == "Max") || (prop.Documentation != null && prop.Documentation.Summary != null && prop.Documentation.Summary.ToLower().Contains("html"));
+}
+private bool IsFileUploadProperty(EdmProperty prop){
+	return prop.Name.ToLower().Contains("file") || prop.Name.ToLower().Contains("image") || 
+		(prop.Documentation != null && prop.Documentation.Summary != null && prop.Documentation.Summary.ToLower().Contains("file"));
+}
+private string GetMaxLength(EdmProperty prop){
+	return prop.TypeUsage.Facets.Contains("MaxLength") ? prop.TypeUsage.Facets["MaxLength"].Value.ToString() : string.Empty;
+}
+void EditAspxTemplate(EntityType entity)
+{
+#><%@ Page Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeFile="admin-<#=FormatStringToLowerHyphenated(entity.Name)#>-edit.aspx.cs" ValidateRequest="false" EnableEventValidation="false" Inherits="Admin_Admin<#=entity.Name#>Edit"%>
+<#=entity.Properties.Any(p=>p.Name.ToLower().Contains("phone")) ? @"<%@ Register TagPrefix=""Controls"" TagName=""PhoneBox"" Src=""~/Controls/BaseControls/PhoneBoxControl.ascx"" %>
+" : string.Empty#><#=entity.Properties.Any(p=>p.Name.ToLower().Contains("image")) ? @"<%@ Register TagPrefix=""Controls"" TagName=""FileUpload"" Src=""~/Controls/BaseControls/FileUploadControl.ascx"" %>
+" : string.Empty#><#=entity.Properties.Any(p=>p.Name.ToLower().Contains("date")) ? @"<%@ Register TagPrefix=""Controls"" TagName=""DateTimePicker"" Src=""~/Controls/BaseControls/DateTimePicker.ascx"" %>
+" : string.Empty#><#=GetHtmlProperties(entity).Any() ? @"<%@ Register TagPrefix=""Controls"" TagName=""RichTextEditor"" Src=""~/Controls/BaseControls/RichTextEditor.ascx"" %>
+" : string.Empty#><#=entity.Properties.Any(p=>p.Name.ToLower().Contains("zip") || p.Name.ToLower().Contains("postalcode")) ? @"<%@ Register TagPrefix=""Controls"" TagName=""Zipcode"" Src=""~/Controls/BaseControls/ZipcodeControl.ascx"" %>
+" : string.Empty#>
+<asp:Content ContentPlaceHolderID="ContentWindow" runat="server">
+	<%--The markup for the Header (title, breadcrumbs, validation and success) can be found in the BaseEditPage--%>
+	<asp:PlaceHolder runat="server" ID="uxHeader"></asp:PlaceHolder>
+	<asp:Panel runat="server" ID="uxPanel" DefaultButton="uxSave"><#=GetCheckboxes(entity)#>
+		<div class="formWrapper"><#=GetEditRows(entity)#>
+		</div>
+		<div class="clear"></div>
+		<!-- button container -->
+		<div class="buttons">
+			<%--The markup for the buttons is in the BaseEditPage--%>
+			<asp:PlaceHolder runat="server" ID="uxButtonContainer"></asp:PlaceHolder>
+		</div>
+	</asp:Panel>
+</asp:Content>
+<#+   
+}
+private string PopulateForeignKeyDropdowns(EntityType entity){
+	string ret = string.Empty;
+
+	foreach(EdmProperty prop in entity.Properties.OrderBy(p=>p.Name))
+	{
+		foreach (NavigationProperty nav in entity.NavigationProperties){
+			if (prop.Name == nav.FromEndMember.Name) {
+				ret += String.Format(@"
+			ux{0}.DataSource = {1}.GetAll();
+			ux{0}.DataTextField = ""{0}"";
+			ux{0}.DataValueField = ""{0}"";
+			ux{0}.DataBind();", prop.Name, nav.ToEndMember.Name);
+				break;
+			}
+		}		
+	}
+	return ret;
+}
+private string GetCommitChanges(EntityType entity){
+	string ret = string.Empty;
+
+	foreach(EdmProperty prop in entity.Properties.Where(prop=>IsFileUploadProperty(prop)).OrderBy(p=>p.Name))
+	{
+		ret += @"
+		ux" + prop.Name + ".CommitChanges();";
+	}
+	return ret;
+}
+private string GetSaveValues(EntityType entity){
+	string ret = string.Empty;	
+
+	foreach(EdmProperty prop in entity.Properties.Where(p=>p.Name != entity.KeyMembers[0].Name).OrderBy(p=>p.Name))
+	{
+		string propType = prop.TypeUsage.EdmType.Name;
+		string maxLength = prop.TypeUsage.Facets.Contains("MaxLength") ? prop.TypeUsage.Facets["MaxLength"].Value.ToString() : string.Empty;
+		ret += @"
+			";
+		string setProperty = string.Empty;
+		switch (propType){
+			case "Boolean":
+				setProperty = "Checked";
+				break;
+			case "DateTime":
+				setProperty = "SelectedDate";
+				break;
+			default:
+				setProperty = "Text";
+				break;
+		}
+		if (propType != "Boolean" && propType != "String" && prop.Nullable)
+			ret += String.Format(@"if(ux{0}.{1} != """")
+				", prop.Name, setProperty);
+		switch (propType){
+			case "Boolean":
+				ret += String.Format("{0}Entity.{1} = ux{1}.{2};", entity.Name, prop.Name, setProperty);
+				break;
+			case "Byte":
+				ret += String.Format("{0}Entity.{1} = Convert.ToByte(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;
+			case "DateTime":
+				ret += String.Format("{0}Entity.{1} = ux{1}.{2}.Value;", entity.Name, prop.Name, setProperty);
+				break;
+			case "Guid":
+				ret += String.Format("{0}Entity.{1} = new Guid(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;
+			case "Int16":
+				ret += String.Format("{0}Entity.{1} = Convert.ToInt16(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;
+			case "Int32":
+				ret += String.Format("{0}Entity.{1} = Convert.ToInt32(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;
+			case "Int64":
+				ret += String.Format("{0}Entity.{1} = Convert.ToInt64(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;
+			case "Double":
+			case "Single":
+				ret += String.Format("{0}Entity.{1} = Convert.ToDouble(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;			
+			case "Decimal":
+				ret += String.Format("{0}Entity.{1} = (decimal)Convert.ToDouble(ux{1}.{2});", entity.Name, prop.Name, setProperty);
+				break;	
+			case "String":
+				if (IsFileUploadProperty(prop))
+					ret += String.Format("{0}Entity.{1} = ux{1}.FileName;", entity.Name, prop.Name);
+				else if (IsHtmlProperty(prop))
+					ret += String.Format(@"{0}Entity.{1} = ux{1}.EditorHTML;", entity.Name, prop.Name);
+				else
+					ret += String.Format("{0}Entity.{1} = ux{1}.{2};", entity.Name, prop.Name, setProperty);
+				break;	
+			default:
+				break;		
+		}
+	}
+	return ret;
+}
+private string GetLoadValues(EntityType entity){
+	string ret = string.Empty;	
+
+	foreach(EdmProperty prop in entity.Properties.Where(p=>p.Name != entity.KeyMembers[0].Name).OrderBy(p=>p.Name))
+	{
+		string propType = prop.TypeUsage.EdmType.Name;
+		string maxLength = prop.TypeUsage.Facets.Contains("MaxLength") ? prop.TypeUsage.Facets["MaxLength"].Value.ToString() : string.Empty;
+		ret += @"
+		";
+		if (propType != "Boolean" && propType != "String" && prop.Nullable)
+			ret += String.Format(@"if({0}Entity.{1}.HasValue)
+				", entity.Name, prop.Name);
+		switch (propType){
+			case "Boolean":
+				ret += String.Format("ux{1}.Checked = {0}Entity.{1};", entity.Name, prop.Name);
+				break;			
+			case "DateTime":
+				ret += String.Format("ux{1}.SelectedDate = {0}Entity.{1};", entity.Name, prop.Name);
+				break;
+			case "Byte":
+			case "Guid":
+			case "Int16":
+			case "Int32":
+			case "Int64":
+				ret += String.Format("ux{1}.Text = {0}Entity.{1}.ToString();", entity.Name, prop.Name);
+				break;		
+			case "Double":
+			case "Single":
+			case "Decimal":
+				ret += String.Format("ux{1}.Text = Convert.ToDouble({0}Entity.{1}).ToString(\"f\");", entity.Name, prop.Name);
+				break;
+			case "String":
+				if (IsFileUploadProperty(prop))
+					ret += String.Format("ux{1}.FileName = {0}Entity.{1};", entity.Name, prop.Name);
+				else if (IsHtmlProperty(prop))
+					ret += String.Format("ux{1}.EditorHTML = {0}Entity.{1};", entity.Name, prop.Name);
+				else
+					ret += String.Format("ux{1}.Text = {0}Entity.{1};", entity.Name, prop.Name);
+				break;	
+			default:
+				break;		
+		}
+	}
+	return ret;
+}
+private string RichTextEditorHide(EntityType entity){
+	string ret = string.Empty;
+	foreach (EdmProperty prop in GetHtmlProperties(entity)){
+		ret += string.Format(@"
+			ux{0}.HideEditorInitially = true;
+", prop.Name);
+	}	
+	
+	return ret;
+}
+private string GenerateMenuItems(List<EntityType> entities){
+	string ret = string.Empty;
+	foreach (EntityType entity in entities){
+		ret += string.Format(@"
+		<li>
+			<a runat=""server"" href=""~/admin/{0}/admin-{1}.aspx"">Manage {2}</a></li>", FormatStringToLowerHyphenated(entity.Documentation.Summary), FormatStringToLowerHyphenated(entity.Name), SplitColumnName(entity.Name));
+	}
+	return ret;
+}
+
+void EditAspxCsTemplate(EntityType entity)
+{
+#>using System;
+using BaseCode;
+using Classes.<#=entity.Documentation.Summary#>;
+
+public partial class Admin_Admin<#=entity.Name#>Edit : BaseEditPage
+{
+	public <#=entity.Name#> <#=entity.Name#>Entity { get; set; }
+	protected override void OnInit(EventArgs e)
+	{
+		m_Header = uxHeader;
+		m_SavePanel = uxPanel;
+		m_ButtonContainer = uxButtonContainer;
+		m_LinkToListingPage = "admin-<#=FormatStringToLowerHyphenated(entity.Name)#>.aspx";<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? @"
+		m_IdIsGuid = true;" : string.Empty#>
+		m_ClassName = "<#=SplitColumnName(entity.Name)#>";
+		base.OnInit(e);
+	} 
+
+	protected override void OnLoad(EventArgs e)
+	{
+		base.OnLoad(e);
+		if (!IsPostBack)
+		{<#=PopulateForeignKeyDropdowns(entity)#>
+			<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "if (EntityGuid != System.Guid.Empty)" : "if (EntityId > 0)"#>
+			{
+				<#=entity.Name#>Entity = <#=entity.Name#>.GetByID(<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "EntityGuid.Value" : "EntityId"#>);
+				if (<#=entity.Name#>Entity == null) 
+					Response.Redirect(m_LinkToListingPage + ReturnQueryString);
+				LoadData();<#=RichTextEditorHide(entity)#>
+			}
+			else
+				NewRecord = true;
+		}
+	}
+
+	protected override void Save()
+	{<#=GetCommitChanges(entity)#>
+		if (IsValid)
+		{
+			<#=entity.Name#>Entity = <#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "EntityGuid != System.Guid.Empty" : "EntityId > 0"#> ? <#=entity.Name#>.GetByID(<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "EntityGuid.Value" : "EntityId"#>) : new <#=entity.Name#>();<#=GetSaveValues(entity)#>
+			<#=entity.Name#>Entity.Save();
+
+			<#=entity.KeyMembers[0].TypeUsage.EdmType.Name == "Guid" ? "EntityGuid.Value" : "EntityId"#> = <#=entity.Name#>Entity.<#=entity.KeyMembers[0].Name#>;
+			<#=RichTextEditorHide(entity)#>m_ClassTitle = "";//Set me and remove this comment
+		}
+	}
+
+	protected override void LoadData()
+	{<#=GetLoadValues(entity)#>
+	}
+}
+<#+   
+}
+void MenuTemplate(List<EntityType> entities)
+{#><%--Delete this line (comment tags as well) if you do not want the Code generator to overwrite your menu--%>
+<% bool open = Request.Path.ToLower().Contains("<#= FormatStringToLowerHyphenated(entities.FirstOrDefault().Documentation.Summary) #>"); %>
+<% if (Page.User.IsInRole("Admin")){%>
+<li class="parent<%= open ? " current" : "" %>"><span><#= SplitColumnName(entities.FirstOrDefault().Documentation.Summary) #></span>
+	<ul><#=GenerateMenuItems(entities)#>
+	</ul>
+</li>
+<%} %>
+<#+   
+}
+void QuickViewAscxTemplate(string componentName){
+#><%@ Control Language="C#" AutoEventWireup="true" CodeFile="AdminQuickView.ascx.cs" Inherits="Controls_<#=componentName#>_AdminQuickView" %>
+<%@ Import Namespace="Classes.<#=componentName#>" %>
+<%@ Register TagPrefix="Controls" TagName="BaseAdminQuickView" Src="~/Controls/BaseControls/BaseAdminQuickView.ascx" %>
+<Controls:BaseAdminQuickView runat="server" ID="uxAdminQuickView" ComponentName="<#=componentName#>" ComponentFolderLocation="~/admin/<#=FormatStringToLowerHyphenated(componentName)#>/">
+	<ContentAreaTemplate>
+		<h4>[Your Subsection Title Here]</h4>
+		<asp:Repeater runat="server" ID="ux<#=componentName#>">
+			<HeaderTemplate>
+				<table class="subHead">
+					<thead>
+						<tr>
+							<th>
+								[Your Header Here]
+							</th>
+						</tr>
+					</thead>
+			</HeaderTemplate>
+			<ItemTemplate>
+				<tr>
+					<td>
+						[Your Data Here]
+					</td>
+				</tr>
+			</ItemTemplate>
+			<FooterTemplate>
+				</table>
+			</FooterTemplate>
+		</asp:Repeater>
+	</ContentAreaTemplate>
+</Controls:BaseAdminQuickView><#+ 
+}
+void QuickViewAscxCsTemplate(string componentName){
+#>using System;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Classes.<#=componentName#>;
+
+public partial class Controls_<#=componentName#>_AdminQuickView : System.Web.UI.UserControl
+{
+	protected void Page_Load(object sender, EventArgs e)
+	{
+		if (!IsPostBack)
+		{
+			PlaceHolder uxContentArea = (PlaceHolder)uxAdminQuickView.FindControl("uxContentArea");
+			
+		}
+	}
+}<#+ 
+}
+#>
